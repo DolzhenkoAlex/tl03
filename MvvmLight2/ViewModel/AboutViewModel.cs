@@ -11,12 +11,12 @@ using System.Windows.Input;
 namespace MvvmLight2.ViewModel
 {
     /// <summary>
-    /// Сведения о программе
+    /// Сведения о программе 
     /// </summary>
     class AboutViewModel : WorkspaceViewModel
     {
         #region Field
-
+        // Контейнер
         IContainer container = Container.Instance;
         private readonly IMessenger messenger;
 
