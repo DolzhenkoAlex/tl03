@@ -1,0 +1,3033 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище DBTeachingLoadModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Chair">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdFaculty" Type="int" Nullable="false" />
+          <Property Name="CodeChair" Type="int" />
+          <Property Name="NameChair" Type="varchar" MaxLength="150" />
+          <Property Name="ShortNameChair" Type="varchar" MaxLength="50" />
+          <Property Name="StatusDel" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChairTeacherLoad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTeacher" Type="int" />
+          <Property Name="IdTeachingLoad" Type="int" Nullable="false" />
+          <Property Name="IdLoadTeacher" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" />
+          <Property Name="NameLoadChair" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Curriculum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAcademicYear" Type="int" Nullable="false" />
+          <Property Name="IdChair" Type="int" Nullable="false" />
+          <Property Name="IdSpeciality" Type="int" Nullable="false" />
+          <Property Name="IdEducationForm" Type="int" Nullable="false" />
+          <Property Name="IdQualification" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Course1" Type="bit" />
+          <Property Name="Course2" Type="bit" />
+          <Property Name="Course3" Type="bit" />
+          <Property Name="Course4" Type="bit" />
+          <Property Name="Course5" Type="bit" />
+          <Property Name="Course6" Type="bit" />
+          <Property Name="DurationStudy" Type="varchar" MaxLength="20" />
+          <Property Name="DataApproval" Type="date" />
+          <Property Name="Protocol" Type="varchar" MaxLength="20" />
+          <Property Name="StatusDel" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DictAcademicYear">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Year" Type="varchar" MaxLength="10" />
+          <Property Name="StatusDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="DictEducationForm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FormEducation" Type="varchar" MaxLength="50" />
+          <Property Name="StatusDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="DictPost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Post" Type="varchar" MaxLength="50" />
+          <Property Name="StatusDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="DictQualification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameQualification" Type="varchar" MaxLength="50" />
+          <Property Name="StatusDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="DictSpeciality">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdQualification" Type="int" />
+          <Property Name="CodeSpeciality" Type="varchar" MaxLength="50" />
+          <Property Name="NameSpeciality" Type="varchar" MaxLength="150" />
+          <Property Name="Profile" Type="varchar" MaxLength="150" />
+          <Property Name="StatusDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="DictTypeEmployment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeOfEmployment" Type="varchar" MaxLength="50" />
+          <Property Name="StatusDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="DictTypeTraining">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeWork" Type="varchar" MaxLength="150" />
+          <Property Name="StatusDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="DictUnit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Unit" Type="varchar" MaxLength="100" />
+          <Property Name="StatusDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="DisciplineChair">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="IdAcademicYear" />
+            <PropertyRef Name="IdChair" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAcademicYear" Type="int" Nullable="false" />
+          <Property Name="IdChair" Type="int" Nullable="false" />
+          <Property Name="IdDisciplinePlan" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DisciplinePlan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCurriculum" Type="int" Nullable="false" />
+          <Property Name="IdChair" Type="int" Nullable="false" />
+          <Property Name="Discipline" Type="varchar" MaxLength="250" />
+          <Property Name="CodePlan" Type="varchar" MaxLength="50" />
+          <Property Name="Semester" Type="int" />
+          <Property Name="SemesterYear" Type="varchar" MaxLength="10" />
+          <Property Name="Course" Type="int" />
+          <Property Name="LecturePlan" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="PracticalExercisesPlan" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="LaboratoryWorkPlan" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ExaminationPlan" Type="int" />
+          <Property Name="SetOffPlan" Type="int" />
+          <Property Name="SetOffWithBallPlan" Type="int" />
+          <Property Name="CourseProjectPlan" Type="int" />
+          <Property Name="CourseWorktPlan" Type="int" />
+          <Property Name="PracticalPlan" Type="int" />
+          <Property Name="ControlWorkPlan" Type="int" />
+          <Property Name="GraduationDesignPlan" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="GakPlan" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ScientificResearchWorkPlan" Type="int" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUniversity" Type="int" Nullable="false" />
+          <Property Name="Code" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="150" />
+          <Property Name="ShortName" Type="varchar" MaxLength="50" />
+          <Property Name="StatusDel" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoadTeacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTeachingLoadTeacher" Type="int" Nullable="false" />
+          <Property Name="NameGroup" Type="varchar" MaxLength="50" />
+          <Property Name="Subgroup" Type="int" />
+          <Property Name="Student" Type="int" />
+          <Property Name="ForeignStudent" Type="int" />
+          <Property Name="Speciality" Type="varchar" MaxLength="150" />
+          <Property Name="Profile" Type="varchar" MaxLength="150" />
+          <Property Name="Qualification" Type="varchar" MaxLength="50" />
+          <Property Name="FormEducation" Type="varchar" MaxLength="50" />
+          <Property Name="ShortNameFaculty" Type="varchar" MaxLength="50" />
+          <Property Name="Discipline" Type="varchar" MaxLength="250" />
+          <Property Name="TypeDiscipline" Type="bit" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Semester" Type="int" />
+          <Property Name="SemesterYear" Type="varchar" MaxLength="10" />
+          <Property Name="Course" Type="int" />
+          <Property Name="Lecture" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="PracticalExercises" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="LaboratoryWork" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Examination" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Consultation" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SetOff" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SetOffWithBall" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CourseProject" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CourseWorkt" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Practical" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="GraduationDesign" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ControlWork" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Gac" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Dot" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Others" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ScientificResearchWork" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SumLoad" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SumUnLoad" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Stream" Type="int" />
+          <Property Name="FlagChange" Type="char" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="OrderStandardTime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUniversity" Type="int" Nullable="false" />
+          <Property Name="IdAcademicYear" Type="int" Nullable="false" />
+          <Property Name="NumberOrder" Type="varchar" MaxLength="50" />
+          <Property Name="DataOrder" Type="datetime" />
+          <Property Name="StatusDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameRole" Type="varchar" MaxLength="150" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="StandartTime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdOrderStandartTime" Type="int" Nullable="false" />
+          <Property Name="IdUnit" Type="int" />
+          <Property Name="IdTypeTraining" Type="int" />
+          <Property Name="NormTime" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TypeOfWork" Type="varchar" MaxLength="100" />
+          <Property Name="UnitMesurement" Type="varchar" MaxLength="50" />
+          <Property Name="Notes" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="StudentGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdFaculty" Type="int" Nullable="false" />
+          <Property Name="IdAcademicYear" Type="int" Nullable="false" />
+          <Property Name="IdSpeciality" Type="int" Nullable="false" />
+          <Property Name="IdQualification" Type="int" Nullable="false" />
+          <Property Name="IdFormEducation" Type="int" Nullable="false" />
+          <Property Name="CurriculumName" Type="varchar" MaxLength="20" />
+          <Property Name="NameGroup" Type="varchar" MaxLength="50" />
+          <Property Name="Course" Type="int" />
+          <Property Name="CountComStudent" Type="int" />
+          <Property Name="CountSubgroup" Type="int" />
+          <Property Name="CountStudent" Type="int" />
+          <Property Name="CountForeignStudent" Type="int" />
+          <Property Name="StatusDel" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdChair" Type="int" Nullable="false" />
+          <Property Name="IdPost" Type="int" Nullable="false" />
+          <Property Name="IdTypeEmployment" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" />
+          <Property Name="SecondName" Type="varchar" MaxLength="100" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" />
+          <Property Name="Rate" Type="decimal" Precision="6" Scale="1" />
+          <Property Name="PhoneMobile" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="StatusDel" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeachingLoad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTeachingLoadChair" Type="int" Nullable="false" />
+          <Property Name="NameCurricilum" Type="varchar" MaxLength="50" />
+          <Property Name="NameGroup" Type="varchar" MaxLength="50" />
+          <Property Name="Subgroup" Type="int" />
+          <Property Name="Student" Type="int" />
+          <Property Name="ForeignStudent" Type="int" />
+          <Property Name="CommerceStudent" Type="int" />
+          <Property Name="Speciality" Type="varchar" MaxLength="150" />
+          <Property Name="Profile" Type="varchar" MaxLength="150" />
+          <Property Name="Qualification" Type="varchar" MaxLength="50" />
+          <Property Name="Discipline" Type="varchar" MaxLength="250" />
+          <Property Name="FormEducation" Type="varchar" MaxLength="50" />
+          <Property Name="ShortNameFaculty" Type="varchar" MaxLength="50" />
+          <Property Name="TypeDiscipline" Type="bit" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="SemesterYear" Type="varchar" MaxLength="10" />
+          <Property Name="Semester" Type="int" />
+          <Property Name="Course" Type="int" />
+          <Property Name="Lecture" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="PracticalExercises" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="LaboratoryWork" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Examination" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Consultation" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SetOff" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SetOffWithBall" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CourseProject" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CourseWorkt" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Practical" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="GraduationDesign" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ControlWork" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Gac" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Dot" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Others" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ScientificResearchWork" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SumLoad" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SumUnload" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SumCommerce" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Stream" Type="int" />
+          <Property Name="StreamLab" Type="int" />
+          <Property Name="StreamPract" Type="int" />
+          <Property Name="FlagChange" Type="bit" />
+          <Property Name="IsLoad" Type="bit" />
+          <Property Name="IsFaultLoad" Type="bit" />
+          <Property Name="Note" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="TeachingLoadChair">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAcademicYear" Type="int" />
+          <Property Name="IdChair" Type="int" Nullable="false" />
+          <Property Name="NameLoadChair" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IndexStreamLecture" Type="int" />
+          <Property Name="IndexStreamLab" Type="int" />
+          <Property Name="IndexStreamPract" Type="int" />
+          <Property Name="SumLoadChair" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SumLoadChairCommerce" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SumLoadSemestr1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SumLoadCommerceSemestr1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SumLoadSemestr2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SumLoadCommerceSemestr2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SumUnloadChair" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="DataLoadChair" Type="date" />
+          <Property Name="Note" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="TeahingLoadTeacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAcademicYear" Type="int" Nullable="false" />
+          <Property Name="IdTeacher" Type="int" Nullable="false" />
+          <Property Name="NameLoadChair" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SumLoadTeacher" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SumLoadSemestr1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SumLoadSemestr2" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="University">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="150" />
+          <Property Name="ShortName" Type="varchar" MaxLength="50" />
+          <Property Name="StatusDel" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRole" Type="int" />
+          <Property Name="login" Type="varchar" MaxLength="100" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="SecondName" Type="varchar" MaxLength="100" />
+          <Property Name="Discription" Type="varchar" MaxLength="150" />
+          <Property Name="Password" Type="varchar" MaxLength="200" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Chair_Faculty">
+          <End Role="Faculty" Type="Self.Faculty" Multiplicity="1" />
+          <End Role="Chair" Type="Self.Chair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chair">
+              <PropertyRef Name="IdFaculty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChairTeacherLoad_LoadTeacher">
+          <End Role="LoadTeacher" Type="Self.LoadTeacher" Multiplicity="1" />
+          <End Role="ChairTeacherLoad" Type="Self.ChairTeacherLoad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoadTeacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChairTeacherLoad">
+              <PropertyRef Name="IdLoadTeacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChairTeacherLoad_TeachingLoad">
+          <End Role="TeachingLoad" Type="Self.TeachingLoad" Multiplicity="1" />
+          <End Role="ChairTeacherLoad" Type="Self.ChairTeacherLoad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TeachingLoad">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChairTeacherLoad">
+              <PropertyRef Name="IdTeachingLoad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DictSpeciality_DictQualification">
+          <End Role="DictQualification" Type="Self.DictQualification" Multiplicity="0..1" />
+          <End Role="DictSpeciality" Type="Self.DictSpeciality" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictQualification">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DictSpeciality">
+              <PropertyRef Name="IdQualification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisciplineChair_DisciplinePlan">
+          <End Role="DisciplinePlan" Type="Self.DisciplinePlan" Multiplicity="1" />
+          <End Role="DisciplineChair" Type="Self.DisciplineChair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisciplinePlan">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisciplineChair">
+              <PropertyRef Name="IdDisciplinePlan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisciplinePlan_Chair">
+          <End Role="Chair" Type="Self.Chair" Multiplicity="1" />
+          <End Role="DisciplinePlan" Type="Self.DisciplinePlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chair">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisciplinePlan">
+              <PropertyRef Name="IdChair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisciplinePlan_Сurriculum">
+          <End Role="Curriculum" Type="Self.Curriculum" Multiplicity="1" />
+          <End Role="DisciplinePlan" Type="Self.DisciplinePlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curriculum">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisciplinePlan">
+              <PropertyRef Name="IdCurriculum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faculty_University">
+          <End Role="University" Type="Self.University" Multiplicity="1" />
+          <End Role="Faculty" Type="Self.Faculty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Faculty">
+              <PropertyRef Name="IdUniversity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoadTeacher_TeahingLoadTeacher">
+          <End Role="TeahingLoadTeacher" Type="Self.TeahingLoadTeacher" Multiplicity="1" />
+          <End Role="LoadTeacher" Type="Self.LoadTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TeahingLoadTeacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoadTeacher">
+              <PropertyRef Name="IdTeachingLoadTeacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderStandardTime_DictAcademicYear">
+          <End Role="DictAcademicYear" Type="Self.DictAcademicYear" Multiplicity="1" />
+          <End Role="OrderStandardTime" Type="Self.OrderStandardTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictAcademicYear">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderStandardTime">
+              <PropertyRef Name="IdAcademicYear" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderStandardTime_University">
+          <End Role="University" Type="Self.University" Multiplicity="1" />
+          <End Role="OrderStandardTime" Type="Self.OrderStandardTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderStandardTime">
+              <PropertyRef Name="IdUniversity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StandartTime_DictTypeTraining">
+          <End Role="DictTypeTraining" Type="Self.DictTypeTraining" Multiplicity="0..1" />
+          <End Role="StandartTime" Type="Self.StandartTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictTypeTraining">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StandartTime">
+              <PropertyRef Name="IdTypeTraining" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StandartTime_DictUnit">
+          <End Role="DictUnit" Type="Self.DictUnit" Multiplicity="0..1" />
+          <End Role="StandartTime" Type="Self.StandartTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictUnit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StandartTime">
+              <PropertyRef Name="IdUnit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StandartTime_OrderStandardTime">
+          <End Role="OrderStandardTime" Type="Self.OrderStandardTime" Multiplicity="1" />
+          <End Role="StandartTime" Type="Self.StandartTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStandardTime">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StandartTime">
+              <PropertyRef Name="IdOrderStandartTime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentGroup_DictAcademicYear">
+          <End Role="DictAcademicYear" Type="Self.DictAcademicYear" Multiplicity="1" />
+          <End Role="StudentGroup" Type="Self.StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictAcademicYear">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="IdAcademicYear" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentGroup_DictEducationForm">
+          <End Role="DictEducationForm" Type="Self.DictEducationForm" Multiplicity="1" />
+          <End Role="StudentGroup" Type="Self.StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictEducationForm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="IdFormEducation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentGroup_DictQualification">
+          <End Role="DictQualification" Type="Self.DictQualification" Multiplicity="1" />
+          <End Role="StudentGroup" Type="Self.StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictQualification">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="IdQualification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentGroup_DictSpeciality">
+          <End Role="DictSpeciality" Type="Self.DictSpeciality" Multiplicity="1" />
+          <End Role="StudentGroup" Type="Self.StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictSpeciality">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="IdSpeciality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentGroup_Faculty">
+          <End Role="Faculty" Type="Self.Faculty" Multiplicity="1" />
+          <End Role="StudentGroup" Type="Self.StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="IdFaculty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teacher_Chair">
+          <End Role="Chair" Type="Self.Chair" Multiplicity="1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chair">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="IdChair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teacher_DictPost">
+          <End Role="DictPost" Type="Self.DictPost" Multiplicity="1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictPost">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="IdPost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teacher_DictTypeEmployment">
+          <End Role="DictTypeEmployment" Type="Self.DictTypeEmployment" Multiplicity="1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictTypeEmployment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="IdTypeEmployment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeachingLoad_TeachingLoadChair">
+          <End Role="TeachingLoadChair" Type="Self.TeachingLoadChair" Multiplicity="1" />
+          <End Role="TeachingLoad" Type="Self.TeachingLoad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TeachingLoadChair">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeachingLoad">
+              <PropertyRef Name="IdTeachingLoadChair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeachingLoadChair_Chair1">
+          <End Role="Chair" Type="Self.Chair" Multiplicity="1" />
+          <End Role="TeachingLoadChair" Type="Self.TeachingLoadChair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chair">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeachingLoadChair">
+              <PropertyRef Name="IdChair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeahingLoadTeacher_DictAcademicYear">
+          <End Role="DictAcademicYear" Type="Self.DictAcademicYear" Multiplicity="1" />
+          <End Role="TeahingLoadTeacher" Type="Self.TeahingLoadTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictAcademicYear">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeahingLoadTeacher">
+              <PropertyRef Name="IdAcademicYear" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeahingLoadTeacher_Teacher">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="TeahingLoadTeacher" Type="Self.TeahingLoadTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeahingLoadTeacher">
+              <PropertyRef Name="IdTeacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сurriculum_Chair">
+          <End Role="Chair" Type="Self.Chair" Multiplicity="1" />
+          <End Role="Curriculum" Type="Self.Curriculum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chair">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Curriculum">
+              <PropertyRef Name="IdChair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сurriculum_DictAcademicYear">
+          <End Role="DictAcademicYear" Type="Self.DictAcademicYear" Multiplicity="1" />
+          <End Role="Curriculum" Type="Self.Curriculum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictAcademicYear">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Curriculum">
+              <PropertyRef Name="IdAcademicYear" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сurriculum_DictEducationForm">
+          <End Role="DictEducationForm" Type="Self.DictEducationForm" Multiplicity="1" />
+          <End Role="Curriculum" Type="Self.Curriculum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictEducationForm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Curriculum">
+              <PropertyRef Name="IdEducationForm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сurriculum_DictQualification">
+          <End Role="DictQualification" Type="Self.DictQualification" Multiplicity="1" />
+          <End Role="Curriculum" Type="Self.Curriculum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictQualification">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Curriculum">
+              <PropertyRef Name="IdQualification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сurriculum_DictSpeciality">
+          <End Role="DictSpeciality" Type="Self.DictSpeciality" Multiplicity="1" />
+          <End Role="Curriculum" Type="Self.Curriculum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictSpeciality">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Curriculum">
+              <PropertyRef Name="IdSpeciality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="tlsp_getAllDiscipline" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdAcademicYear" Type="int" Mode="In" />
+        </Function>
+        <Function Name="tlsp_getAllLoadTeacher" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdAcademicYear" Type="int" Mode="In" />
+          <Parameter Name="IdChair" Type="int" Mode="In" />
+        </Function>
+        <Function Name="tlsp_getCurriculumForComplexReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdAcademicYear" Type="int" Mode="In" />
+        </Function>
+        <Function Name="tlsp_getCurriculumWithStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdAcademicYear" Type="int" Mode="In" />
+        </Function>
+        <Function Name="tlsp_getDisciplineChair" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdAcademicYear" Type="int" Mode="In" />
+          <Parameter Name="IdChair" Type="int" Mode="In" />
+        </Function>
+        <Function Name="tlsp_getDisciplineChairFullTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdAcademicYear" Type="int" Mode="In" />
+          <Parameter Name="IdChair" Type="int" Mode="In" />
+        </Function>
+        <Function Name="tlsp_getDisciplineChairPartTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdAcademicYear" Type="int" Mode="In" />
+          <Parameter Name="IdChair" Type="int" Mode="In" />
+        </Function>
+        <Function Name="tlsp_getFixedDisciplines" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdAcademicYear" Type="int" Mode="In" />
+        </Function>
+        <Function Name="tlsp_getGroups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdAcademicYear" Type="int" Mode="In" />
+        </Function>
+        <Function Name="tlsp_getStandartTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdAcademicYear" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="tlsp_setDisciplineChair" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdAcademicYear" Type="int" Mode="In" />
+          <Parameter Name="IdChair" Type="int" Mode="In" />
+        </Function>
+        <Function Name="tlsp_setDisciplineChairWithGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdAcademicYear" Type="int" Mode="In" />
+          <Parameter Name="IdChair" Type="int" Mode="In" />
+        </Function>
+        <Function Name="tlsp_setDisciplinesOfCurriculum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdAcademicYear" Type="int" Mode="In" />
+          <Parameter Name="IdChair" Type="int" Mode="In" />
+          <Parameter Name="IdCurriculum" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="Хранилище DBTeachingLoadModelContainer">
+          <EntitySet Name="Chair" EntityType="Self.Chair" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChairTeacherLoad" EntityType="Self.ChairTeacherLoad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Curriculum" EntityType="Self.Curriculum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DictAcademicYear" EntityType="Self.DictAcademicYear" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DictEducationForm" EntityType="Self.DictEducationForm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DictPost" EntityType="Self.DictPost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DictQualification" EntityType="Self.DictQualification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DictSpeciality" EntityType="Self.DictSpeciality" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DictTypeEmployment" EntityType="Self.DictTypeEmployment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DictTypeTraining" EntityType="Self.DictTypeTraining" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DictUnit" EntityType="Self.DictUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DisciplineChair" EntityType="Self.DisciplineChair" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DisciplinePlan" EntityType="Self.DisciplinePlan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faculty" EntityType="Self.Faculty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoadTeacher" EntityType="Self.LoadTeacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderStandardTime" EntityType="Self.OrderStandardTime" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StandartTime" EntityType="Self.StandartTime" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentGroup" EntityType="Self.StudentGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeachingLoad" EntityType="Self.TeachingLoad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeachingLoadChair" EntityType="Self.TeachingLoadChair" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeahingLoadTeacher" EntityType="Self.TeahingLoadTeacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="University" EntityType="Self.University" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Chair_Faculty" Association="Self.FK_Chair_Faculty">
+            <End Role="Faculty" EntitySet="Faculty" />
+            <End Role="Chair" EntitySet="Chair" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChairTeacherLoad_LoadTeacher" Association="Self.FK_ChairTeacherLoad_LoadTeacher">
+            <End Role="LoadTeacher" EntitySet="LoadTeacher" />
+            <End Role="ChairTeacherLoad" EntitySet="ChairTeacherLoad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChairTeacherLoad_TeachingLoad" Association="Self.FK_ChairTeacherLoad_TeachingLoad">
+            <End Role="TeachingLoad" EntitySet="TeachingLoad" />
+            <End Role="ChairTeacherLoad" EntitySet="ChairTeacherLoad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DictSpeciality_DictQualification" Association="Self.FK_DictSpeciality_DictQualification">
+            <End Role="DictQualification" EntitySet="DictQualification" />
+            <End Role="DictSpeciality" EntitySet="DictSpeciality" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisciplineChair_DisciplinePlan" Association="Self.FK_DisciplineChair_DisciplinePlan">
+            <End Role="DisciplinePlan" EntitySet="DisciplinePlan" />
+            <End Role="DisciplineChair" EntitySet="DisciplineChair" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisciplinePlan_Chair" Association="Self.FK_DisciplinePlan_Chair">
+            <End Role="Chair" EntitySet="Chair" />
+            <End Role="DisciplinePlan" EntitySet="DisciplinePlan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisciplinePlan_Сurriculum" Association="Self.FK_DisciplinePlan_Сurriculum">
+            <End Role="Curriculum" EntitySet="Curriculum" />
+            <End Role="DisciplinePlan" EntitySet="DisciplinePlan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faculty_University" Association="Self.FK_Faculty_University">
+            <End Role="University" EntitySet="University" />
+            <End Role="Faculty" EntitySet="Faculty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoadTeacher_TeahingLoadTeacher" Association="Self.FK_LoadTeacher_TeahingLoadTeacher">
+            <End Role="TeahingLoadTeacher" EntitySet="TeahingLoadTeacher" />
+            <End Role="LoadTeacher" EntitySet="LoadTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderStandardTime_DictAcademicYear" Association="Self.FK_OrderStandardTime_DictAcademicYear">
+            <End Role="DictAcademicYear" EntitySet="DictAcademicYear" />
+            <End Role="OrderStandardTime" EntitySet="OrderStandardTime" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderStandardTime_University" Association="Self.FK_OrderStandardTime_University">
+            <End Role="University" EntitySet="University" />
+            <End Role="OrderStandardTime" EntitySet="OrderStandardTime" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StandartTime_DictTypeTraining" Association="Self.FK_StandartTime_DictTypeTraining">
+            <End Role="DictTypeTraining" EntitySet="DictTypeTraining" />
+            <End Role="StandartTime" EntitySet="StandartTime" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StandartTime_DictUnit" Association="Self.FK_StandartTime_DictUnit">
+            <End Role="DictUnit" EntitySet="DictUnit" />
+            <End Role="StandartTime" EntitySet="StandartTime" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StandartTime_OrderStandardTime" Association="Self.FK_StandartTime_OrderStandardTime">
+            <End Role="OrderStandardTime" EntitySet="OrderStandardTime" />
+            <End Role="StandartTime" EntitySet="StandartTime" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentGroup_DictAcademicYear" Association="Self.FK_StudentGroup_DictAcademicYear">
+            <End Role="DictAcademicYear" EntitySet="DictAcademicYear" />
+            <End Role="StudentGroup" EntitySet="StudentGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentGroup_DictEducationForm" Association="Self.FK_StudentGroup_DictEducationForm">
+            <End Role="DictEducationForm" EntitySet="DictEducationForm" />
+            <End Role="StudentGroup" EntitySet="StudentGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentGroup_DictQualification" Association="Self.FK_StudentGroup_DictQualification">
+            <End Role="DictQualification" EntitySet="DictQualification" />
+            <End Role="StudentGroup" EntitySet="StudentGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentGroup_DictSpeciality" Association="Self.FK_StudentGroup_DictSpeciality">
+            <End Role="DictSpeciality" EntitySet="DictSpeciality" />
+            <End Role="StudentGroup" EntitySet="StudentGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentGroup_Faculty" Association="Self.FK_StudentGroup_Faculty">
+            <End Role="Faculty" EntitySet="Faculty" />
+            <End Role="StudentGroup" EntitySet="StudentGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_Chair" Association="Self.FK_Teacher_Chair">
+            <End Role="Chair" EntitySet="Chair" />
+            <End Role="Teacher" EntitySet="Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_DictPost" Association="Self.FK_Teacher_DictPost">
+            <End Role="DictPost" EntitySet="DictPost" />
+            <End Role="Teacher" EntitySet="Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_DictTypeEmployment" Association="Self.FK_Teacher_DictTypeEmployment">
+            <End Role="DictTypeEmployment" EntitySet="DictTypeEmployment" />
+            <End Role="Teacher" EntitySet="Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeachingLoad_TeachingLoadChair" Association="Self.FK_TeachingLoad_TeachingLoadChair">
+            <End Role="TeachingLoadChair" EntitySet="TeachingLoadChair" />
+            <End Role="TeachingLoad" EntitySet="TeachingLoad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeachingLoadChair_Chair1" Association="Self.FK_TeachingLoadChair_Chair1">
+            <End Role="Chair" EntitySet="Chair" />
+            <End Role="TeachingLoadChair" EntitySet="TeachingLoadChair" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeahingLoadTeacher_DictAcademicYear" Association="Self.FK_TeahingLoadTeacher_DictAcademicYear">
+            <End Role="DictAcademicYear" EntitySet="DictAcademicYear" />
+            <End Role="TeahingLoadTeacher" EntitySet="TeahingLoadTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeahingLoadTeacher_Teacher" Association="Self.FK_TeahingLoadTeacher_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="TeahingLoadTeacher" EntitySet="TeahingLoadTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сurriculum_Chair" Association="Self.FK_Сurriculum_Chair">
+            <End Role="Chair" EntitySet="Chair" />
+            <End Role="Curriculum" EntitySet="Curriculum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сurriculum_DictAcademicYear" Association="Self.FK_Сurriculum_DictAcademicYear">
+            <End Role="DictAcademicYear" EntitySet="DictAcademicYear" />
+            <End Role="Curriculum" EntitySet="Curriculum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сurriculum_DictEducationForm" Association="Self.FK_Сurriculum_DictEducationForm">
+            <End Role="DictEducationForm" EntitySet="DictEducationForm" />
+            <End Role="Curriculum" EntitySet="Curriculum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сurriculum_DictQualification" Association="Self.FK_Сurriculum_DictQualification">
+            <End Role="DictQualification" EntitySet="DictQualification" />
+            <End Role="Curriculum" EntitySet="Curriculum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сurriculum_DictSpeciality" Association="Self.FK_Сurriculum_DictSpeciality">
+            <End Role="DictSpeciality" EntitySet="DictSpeciality" />
+            <End Role="Curriculum" EntitySet="Curriculum" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBTeachingLoadModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DBTeachingLoadEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Chairs" EntityType="DBTeachingLoadModel.Chair" />
+          <EntitySet Name="DictAcademicYears" EntityType="DBTeachingLoadModel.DictAcademicYear" />
+          <EntitySet Name="DictEducationForms" EntityType="DBTeachingLoadModel.DictEducationForm" />
+          <EntitySet Name="DictPosts" EntityType="DBTeachingLoadModel.DictPost" />
+          <EntitySet Name="DictQualifications" EntityType="DBTeachingLoadModel.DictQualification" />
+          <EntitySet Name="DictTypeEmployments" EntityType="DBTeachingLoadModel.DictTypeEmployment" />
+          <EntitySet Name="DictTypeTrainings" EntityType="DBTeachingLoadModel.DictTypeTraining" />
+          <EntitySet Name="DictUnits" EntityType="DBTeachingLoadModel.DictUnit" />
+          <EntitySet Name="DisciplineChairs" EntityType="DBTeachingLoadModel.DisciplineChair" />
+          <EntitySet Name="Faculties" EntityType="DBTeachingLoadModel.Faculty" />
+          <EntitySet Name="OrderStandardTimes" EntityType="DBTeachingLoadModel.OrderStandardTime" />
+          <EntitySet Name="StandartTimes" EntityType="DBTeachingLoadModel.StandartTime" />
+          <EntitySet Name="Teachers" EntityType="DBTeachingLoadModel.Teacher" />
+          <EntitySet Name="TeachingLoadChairs" EntityType="DBTeachingLoadModel.TeachingLoadChair" />
+          <EntitySet Name="TeahingLoadTeachers" EntityType="DBTeachingLoadModel.TeahingLoadTeacher" />
+          <EntitySet Name="Universities" EntityType="DBTeachingLoadModel.University" />
+          <AssociationSet Name="FK_Chair_Faculty" Association="DBTeachingLoadModel.FK_Chair_Faculty">
+            <End Role="Faculty" EntitySet="Faculties" />
+            <End Role="Chair" EntitySet="Chairs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_Chair" Association="DBTeachingLoadModel.FK_Teacher_Chair">
+            <End Role="Chair" EntitySet="Chairs" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeachingLoadChair_Chair1" Association="DBTeachingLoadModel.FK_TeachingLoadChair_Chair1">
+            <End Role="Chair" EntitySet="Chairs" />
+            <End Role="TeachingLoadChair" EntitySet="TeachingLoadChairs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderStandardTime_DictAcademicYear" Association="DBTeachingLoadModel.FK_OrderStandardTime_DictAcademicYear">
+            <End Role="DictAcademicYear" EntitySet="DictAcademicYears" />
+            <End Role="OrderStandardTime" EntitySet="OrderStandardTimes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeahingLoadTeacher_DictAcademicYear" Association="DBTeachingLoadModel.FK_TeahingLoadTeacher_DictAcademicYear">
+            <End Role="DictAcademicYear" EntitySet="DictAcademicYears" />
+            <End Role="TeahingLoadTeacher" EntitySet="TeahingLoadTeachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_DictPost" Association="DBTeachingLoadModel.FK_Teacher_DictPost">
+            <End Role="DictPost" EntitySet="DictPosts" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_DictTypeEmployment" Association="DBTeachingLoadModel.FK_Teacher_DictTypeEmployment">
+            <End Role="DictTypeEmployment" EntitySet="DictTypeEmployments" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StandartTime_DictTypeTraining" Association="DBTeachingLoadModel.FK_StandartTime_DictTypeTraining">
+            <End Role="DictTypeTraining" EntitySet="DictTypeTrainings" />
+            <End Role="StandartTime" EntitySet="StandartTimes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StandartTime_DictUnit" Association="DBTeachingLoadModel.FK_StandartTime_DictUnit">
+            <End Role="DictUnit" EntitySet="DictUnits" />
+            <End Role="StandartTime" EntitySet="StandartTimes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faculty_University" Association="DBTeachingLoadModel.FK_Faculty_University">
+            <End Role="University" EntitySet="Universities" />
+            <End Role="Faculty" EntitySet="Faculties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderStandardTime_University" Association="DBTeachingLoadModel.FK_OrderStandardTime_University">
+            <End Role="University" EntitySet="Universities" />
+            <End Role="OrderStandardTime" EntitySet="OrderStandardTimes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StandartTime_OrderStandardTime" Association="DBTeachingLoadModel.FK_StandartTime_OrderStandardTime">
+            <End Role="OrderStandardTime" EntitySet="OrderStandardTimes" />
+            <End Role="StandartTime" EntitySet="StandartTimes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeahingLoadTeacher_Teacher" Association="DBTeachingLoadModel.FK_TeahingLoadTeacher_Teacher">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="TeahingLoadTeacher" EntitySet="TeahingLoadTeachers" />
+          </AssociationSet>
+          <FunctionImport Name="tlsp_getStandartTime" ReturnType="Collection(DBTeachingLoadModel.tlsp_getStandartTime_Result)">
+            <Parameter Name="IdAcademicYear" Mode="In" Type="Int32" />
+            <Parameter Name="Status" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="tlsp_setDisciplinesOfCurriculum" ReturnType="Collection(Int32)">
+            <Parameter Name="IdAcademicYear" Mode="In" Type="Int32" />
+            <Parameter Name="IdChair" Mode="In" Type="Int32" />
+            <Parameter Name="IdCurriculum" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="LoadTeacher" EntityType="DBTeachingLoadModel.LoadTeacher" />
+          <AssociationSet Name="FK_LoadTeacher_TeahingLoadTeacher" Association="DBTeachingLoadModel.FK_LoadTeacher_TeahingLoadTeacher">
+            <End Role="TeahingLoadTeacher" EntitySet="TeahingLoadTeachers" />
+            <End Role="LoadTeacher" EntitySet="LoadTeacher" />
+          </AssociationSet>
+          <EntitySet Name="ChairTeacherLoad" EntityType="DBTeachingLoadModel.ChairTeacherLoad" />
+          <AssociationSet Name="FK_ChairTeacherLoad_LoadTeacher" Association="DBTeachingLoadModel.FK_ChairTeacherLoad_LoadTeacher">
+            <End Role="LoadTeacher" EntitySet="LoadTeacher" />
+            <End Role="ChairTeacherLoad" EntitySet="ChairTeacherLoad" />
+          </AssociationSet>
+          <FunctionImport Name="tlsp_getAllLoadTeacher" ReturnType="Collection(DBTeachingLoadModel.tlsp_getAllLoadTeacher_Result)">
+            <Parameter Name="IdAcademicYear" Mode="In" Type="Int32" />
+            <Parameter Name="IdChair" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="sysdiagrams" EntityType="DBTeachingLoadModel.sysdiagrams" />
+          <EntitySet Name="Curriculum" EntityType="DBTeachingLoadModel.Curriculum" />
+          <AssociationSet Name="FK_Сurriculum_Chair" Association="DBTeachingLoadModel.FK_Сurriculum_Chair">
+            <End Role="Chair" EntitySet="Chairs" />
+            <End Role="Curriculum" EntitySet="Curriculum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сurriculum_DictAcademicYear" Association="DBTeachingLoadModel.FK_Сurriculum_DictAcademicYear">
+            <End Role="DictAcademicYear" EntitySet="DictAcademicYears" />
+            <End Role="Curriculum" EntitySet="Curriculum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сurriculum_DictEducationForm" Association="DBTeachingLoadModel.FK_Сurriculum_DictEducationForm">
+            <End Role="DictEducationForm" EntitySet="DictEducationForms" />
+            <End Role="Curriculum" EntitySet="Curriculum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сurriculum_DictQualification" Association="DBTeachingLoadModel.FK_Сurriculum_DictQualification">
+            <End Role="DictQualification" EntitySet="DictQualifications" />
+            <End Role="Curriculum" EntitySet="Curriculum" />
+          </AssociationSet>
+          <EntitySet Name="Role" EntityType="DBTeachingLoadModel.Role" />
+          <EntitySet Name="User" EntityType="DBTeachingLoadModel.User" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DBTeachingLoadModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DBTeachingLoadModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="tlsp_setDisciplineChair" ReturnType="Collection(Int32)">
+            <Parameter Name="IdAcademicYear" Mode="In" Type="Int32" />
+            <Parameter Name="IdChair" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="DictSpecialities" EntityType="DBTeachingLoadModel.DictSpeciality" />
+          <AssociationSet Name="FK_Сurriculum_DictSpeciality" Association="DBTeachingLoadModel.FK_Сurriculum_DictSpeciality">
+            <End Role="DictSpeciality" EntitySet="DictSpecialities" />
+            <End Role="Curriculum" EntitySet="Curriculum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DictSpeciality_DictQualification" Association="DBTeachingLoadModel.FK_DictSpeciality_DictQualification">
+            <End Role="DictQualification" EntitySet="DictQualifications" />
+            <End Role="DictSpeciality" EntitySet="DictSpecialities" />
+          </AssociationSet>
+          <EntitySet Name="StudentGroups" EntityType="DBTeachingLoadModel.StudentGroup" />
+          <AssociationSet Name="FK_StudentGroup_DictAcademicYear" Association="DBTeachingLoadModel.FK_StudentGroup_DictAcademicYear">
+            <End Role="DictAcademicYear" EntitySet="DictAcademicYears" />
+            <End Role="StudentGroup" EntitySet="StudentGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentGroup_DictEducationForm" Association="DBTeachingLoadModel.FK_StudentGroup_DictEducationForm">
+            <End Role="DictEducationForm" EntitySet="DictEducationForms" />
+            <End Role="StudentGroup" EntitySet="StudentGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentGroup_DictQualification" Association="DBTeachingLoadModel.FK_StudentGroup_DictQualification">
+            <End Role="DictQualification" EntitySet="DictQualifications" />
+            <End Role="StudentGroup" EntitySet="StudentGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentGroup_DictSpeciality" Association="DBTeachingLoadModel.FK_StudentGroup_DictSpeciality">
+            <End Role="DictSpeciality" EntitySet="DictSpecialities" />
+            <End Role="StudentGroup" EntitySet="StudentGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentGroup_Faculty" Association="DBTeachingLoadModel.FK_StudentGroup_Faculty">
+            <End Role="Faculty" EntitySet="Faculties" />
+            <End Role="StudentGroup" EntitySet="StudentGroups" />
+          </AssociationSet>
+          <FunctionImport Name="tlsp_getCurriculumWithStudent" ReturnType="Collection(DBTeachingLoadModel.tlsp_getCurriculumWithStudent_Result)">
+          <Parameter Name="IdAcademicYear" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="tlsp_getCurriculumForComplexReport" ReturnType="Collection(DBTeachingLoadModel.tlsp_getCurriculumForComplexReport_Result)">
+          <Parameter Name="IdAcademicYear" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="tlsp_getAllDiscipline" ReturnType="Collection(DBTeachingLoadModel.tlsp_getAllDiscipline_Result)">
+          <Parameter Name="IdAcademicYear" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="tlsp_getFixedDisciplines" ReturnType="Collection(DBTeachingLoadModel.tlsp_getFixedDisciplines_Result)">
+          <Parameter Name="IdAcademicYear" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="TeachingLoads" EntityType="DBTeachingLoadModel.TeachingLoad" />
+          <AssociationSet Name="FK_ChairTeacherLoad_TeachingLoad" Association="DBTeachingLoadModel.FK_ChairTeacherLoad_TeachingLoad">
+            <End Role="TeachingLoad" EntitySet="TeachingLoads" />
+            <End Role="ChairTeacherLoad" EntitySet="ChairTeacherLoad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeachingLoad_TeachingLoadChair" Association="DBTeachingLoadModel.FK_TeachingLoad_TeachingLoadChair">
+            <End Role="TeachingLoadChair" EntitySet="TeachingLoadChairs" />
+            <End Role="TeachingLoad" EntitySet="TeachingLoads" />
+          </AssociationSet>
+          <FunctionImport Name="tlsp_getGroups" ReturnType="Collection(DBTeachingLoadModel.tlsp_getGroups_Result)">
+          <Parameter Name="IdAcademicYear" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="DisciplinePlans" EntityType="DBTeachingLoadModel.DisciplinePlan" />
+          <AssociationSet Name="FK_DisciplinePlan_Chair" Association="DBTeachingLoadModel.FK_DisciplinePlan_Chair">
+            <End Role="Chair" EntitySet="Chairs" />
+            <End Role="DisciplinePlan" EntitySet="DisciplinePlans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisciplinePlan_Сurriculum" Association="DBTeachingLoadModel.FK_DisciplinePlan_Сurriculum">
+            <End Role="Curriculum" EntitySet="Curriculum" />
+            <End Role="DisciplinePlan" EntitySet="DisciplinePlans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisciplineChair_DisciplinePlan" Association="DBTeachingLoadModel.FK_DisciplineChair_DisciplinePlan">
+            <End Role="DisciplinePlan" EntitySet="DisciplinePlans" />
+            <End Role="DisciplineChair" EntitySet="DisciplineChairs" />
+          </AssociationSet>
+          <FunctionImport Name="tlsp_getDisciplineChair" ReturnType="Collection(DBTeachingLoadModel.tlsp_getDisciplineChair_Result)">
+            <Parameter Name="IdAcademicYear" Mode="In" Type="Int32" />
+            <Parameter Name="IdChair" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="tlsp_setDisciplineChairWithGroup" ReturnType="Collection(DBTeachingLoadModel.tlsp_setDisciplineChairWithGroup_Result)">
+            <Parameter Name="IdAcademicYear" Mode="In" Type="Int32" />
+            <Parameter Name="IdChair" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="tlsp_getDisciplineChairFullTime" ReturnType="Collection(DBTeachingLoadModel.tlsp_getDisciplineChairFullTime_Result)">
+            <Parameter Name="IdAcademicYear" Mode="In" Type="Int32" />
+            <Parameter Name="IdChair" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="tlsp_getDisciplineChairPartTime" ReturnType="Collection(DBTeachingLoadModel.tlsp_getDisciplineChairPartTime_Result)">
+            <Parameter Name="IdAcademicYear" Mode="In" Type="Int32" />
+            <Parameter Name="IdChair" Mode="In" Type="Int32" />
+          </FunctionImport>
+          </EntityContainer>
+        <EntityType Name="Chair">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFaculty" Type="Int32" Nullable="false" />
+          <Property Name="CodeChair" Type="Int32" />
+          <Property Name="NameChair" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="ShortNameChair" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Faculty" Relationship="DBTeachingLoadModel.FK_Chair_Faculty" FromRole="Chair" ToRole="Faculty" />
+          <NavigationProperty Name="Teachers" Relationship="DBTeachingLoadModel.FK_Teacher_Chair" FromRole="Chair" ToRole="Teacher" />
+          <NavigationProperty Name="TeachingLoadChairs" Relationship="DBTeachingLoadModel.FK_TeachingLoadChair_Chair1" FromRole="Chair" ToRole="TeachingLoadChair" />
+          <Property Name="StatusDel" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Curriculum" Relationship="DBTeachingLoadModel.FK_Сurriculum_Chair" FromRole="Chair" ToRole="Curriculum" />
+          <NavigationProperty Name="DisciplinePlans" Relationship="DBTeachingLoadModel.FK_DisciplinePlan_Chair" FromRole="Chair" ToRole="DisciplinePlan" />
+        </EntityType>
+        <EntityType Name="DictAcademicYear">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Year" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="OrderStandardTimes" Relationship="DBTeachingLoadModel.FK_OrderStandardTime_DictAcademicYear" FromRole="DictAcademicYear" ToRole="OrderStandardTime" />
+          <NavigationProperty Name="TeahingLoadTeachers" Relationship="DBTeachingLoadModel.FK_TeahingLoadTeacher_DictAcademicYear" FromRole="DictAcademicYear" ToRole="TeahingLoadTeacher" />
+          <NavigationProperty Name="Curriculum" Relationship="DBTeachingLoadModel.FK_Сurriculum_DictAcademicYear" FromRole="DictAcademicYear" ToRole="Curriculum" />
+          <Property Name="StatusDel" Type="Boolean" />
+          <NavigationProperty Name="StudentGroups" Relationship="DBTeachingLoadModel.FK_StudentGroup_DictAcademicYear" FromRole="DictAcademicYear" ToRole="StudentGroup" />
+        </EntityType>
+        <EntityType Name="DictEducationForm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FormEducation" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Curriculum" Relationship="DBTeachingLoadModel.FK_Сurriculum_DictEducationForm" FromRole="DictEducationForm" ToRole="Curriculum" />
+          <Property Name="StatusDel" Type="Boolean" />
+          <NavigationProperty Name="StudentGroups" Relationship="DBTeachingLoadModel.FK_StudentGroup_DictEducationForm" FromRole="DictEducationForm" ToRole="StudentGroup" />
+        </EntityType>
+        <EntityType Name="DictPost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Post" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Teachers" Relationship="DBTeachingLoadModel.FK_Teacher_DictPost" FromRole="DictPost" ToRole="Teacher" />
+          <Property Name="StatusDel" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DictQualification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="NameQualification" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Curriculum" Relationship="DBTeachingLoadModel.FK_Сurriculum_DictQualification" FromRole="DictQualification" ToRole="Curriculum" />
+          <Property Name="StatusDel" Type="Boolean" />
+          <NavigationProperty Name="DictSpecialities" Relationship="DBTeachingLoadModel.FK_DictSpeciality_DictQualification" FromRole="DictQualification" ToRole="DictSpeciality" />
+          <NavigationProperty Name="StudentGroups" Relationship="DBTeachingLoadModel.FK_StudentGroup_DictQualification" FromRole="DictQualification" ToRole="StudentGroup" />
+        </EntityType>
+        <EntityType Name="DictTypeEmployment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeOfEmployment" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Teachers" Relationship="DBTeachingLoadModel.FK_Teacher_DictTypeEmployment" FromRole="DictTypeEmployment" ToRole="Teacher" />
+          <Property Name="StatusDel" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DictTypeTraining">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeWork" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="StandartTimes" Relationship="DBTeachingLoadModel.FK_StandartTime_DictTypeTraining" FromRole="DictTypeTraining" ToRole="StandartTime" />
+          <Property Name="StatusDel" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DictUnit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Unit" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="StandartTimes" Relationship="DBTeachingLoadModel.FK_StandartTime_DictUnit" FromRole="DictUnit" ToRole="StandartTime" />
+          <Property Name="StatusDel" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DisciplineChair">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="IdAcademicYear" />
+            <PropertyRef Name="IdChair" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAcademicYear" Type="Int32" Nullable="false" />
+          <Property Name="IdChair" Type="Int32" Nullable="false" />
+          <Property Name="IdDisciplinePlan" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DisciplinePlan" Relationship="DBTeachingLoadModel.FK_DisciplineChair_DisciplinePlan" FromRole="DisciplineChair" ToRole="DisciplinePlan" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUniversity" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="ShortName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Chairs" Relationship="DBTeachingLoadModel.FK_Chair_Faculty" FromRole="Faculty" ToRole="Chair" />
+          <NavigationProperty Name="University" Relationship="DBTeachingLoadModel.FK_Faculty_University" FromRole="Faculty" ToRole="University" />
+          <Property Name="StatusDel" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="StudentGroups" Relationship="DBTeachingLoadModel.FK_StudentGroup_Faculty" FromRole="Faculty" ToRole="StudentGroup" />
+        </EntityType>
+        <EntityType Name="OrderStandardTime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUniversity" Type="Int32" Nullable="false" />
+          <Property Name="IdAcademicYear" Type="Int32" Nullable="false" />
+          <Property Name="NumberOrder" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DataOrder" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DictAcademicYear" Relationship="DBTeachingLoadModel.FK_OrderStandardTime_DictAcademicYear" FromRole="OrderStandardTime" ToRole="DictAcademicYear" />
+          <NavigationProperty Name="University" Relationship="DBTeachingLoadModel.FK_OrderStandardTime_University" FromRole="OrderStandardTime" ToRole="University" />
+          <NavigationProperty Name="StandartTimes" Relationship="DBTeachingLoadModel.FK_StandartTime_OrderStandardTime" FromRole="OrderStandardTime" ToRole="StandartTime" />
+          <Property Name="StatusDel" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="StandartTime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdOrderStandartTime" Type="Int32" Nullable="false" />
+          <Property Name="IdUnit" Type="Int32" />
+          <Property Name="IdTypeTraining" Type="Int32" />
+          <Property Name="NormTime" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TypeOfWork" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="UnitMesurement" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Notes" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="DictTypeTraining" Relationship="DBTeachingLoadModel.FK_StandartTime_DictTypeTraining" FromRole="StandartTime" ToRole="DictTypeTraining" />
+          <NavigationProperty Name="DictUnit" Relationship="DBTeachingLoadModel.FK_StandartTime_DictUnit" FromRole="StandartTime" ToRole="DictUnit" />
+          <NavigationProperty Name="OrderStandardTime" Relationship="DBTeachingLoadModel.FK_StandartTime_OrderStandardTime" FromRole="StandartTime" ToRole="OrderStandardTime" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdChair" Type="Int32" Nullable="false" />
+          <Property Name="IdPost" Type="Int32" Nullable="false" />
+          <Property Name="IdTypeEmployment" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" >
+            <Documentation>
+              <LongDescription>Имя</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="SecondName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" >
+            <Documentation>
+              <LongDescription>Отчество</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="LastName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" >
+            <Documentation>
+              <LongDescription>Фамилия</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Rate" Type="Decimal" Precision="6" Scale="1" />
+          <NavigationProperty Name="Chair" Relationship="DBTeachingLoadModel.FK_Teacher_Chair" FromRole="Teacher" ToRole="Chair" />
+          <NavigationProperty Name="DictPost" Relationship="DBTeachingLoadModel.FK_Teacher_DictPost" FromRole="Teacher" ToRole="DictPost" />
+          <NavigationProperty Name="DictTypeEmployment" Relationship="DBTeachingLoadModel.FK_Teacher_DictTypeEmployment" FromRole="Teacher" ToRole="DictTypeEmployment" />
+          <NavigationProperty Name="TeahingLoadTeachers" Relationship="DBTeachingLoadModel.FK_TeahingLoadTeacher_Teacher" FromRole="Teacher" ToRole="TeahingLoadTeacher" />
+          <Property Name="StatusDel" Type="Boolean" Nullable="false" />
+          <Property Name="PhoneMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" >
+            <Documentation>
+              <LongDescription>Мобильный телефон</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" >
+            <Documentation>
+              <LongDescription>Электронная почта</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="TeachingLoadChair">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAcademicYear" Type="Int32" />
+          <Property Name="IdChair" Type="Int32" Nullable="false" />
+          <Property Name="NameLoadChair" Type="String" MaxLength="50" Unicode="false" FixedLength="false" Nullable="false" />
+          <Property Name="SumLoadChair" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="SumUnloadChair" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="DataLoadChair" Type="DateTime" Precision="0" />
+          <Property Name="Note" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Chair" Relationship="DBTeachingLoadModel.FK_TeachingLoadChair_Chair1" FromRole="TeachingLoadChair" ToRole="Chair" />
+          <Property Type="Decimal" Name="SumLoadSemestr1" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="SumLoadSemestr2" Precision="10" Scale="2" />
+          <Property Name="SumLoadChairCommerce" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="SumLoadCommerceSemestr1" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="SumLoadCommerceSemestr2" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="IndexStreamLecture" Type="Int32" />
+          <Property Name="IndexStreamLab" Type="Int32" />
+          <Property Name="IndexStreamPract" Type="Int32" />
+          <NavigationProperty Name="TeachingLoads" Relationship="DBTeachingLoadModel.FK_TeachingLoad_TeachingLoadChair" FromRole="TeachingLoadChair" ToRole="TeachingLoad" />
+        </EntityType>
+        <EntityType Name="TeahingLoadTeacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAcademicYear" Type="Int32" Nullable="false" />
+          <Property Name="IdTeacher" Type="Int32" Nullable="false" />
+          <Property Name="SumLoadTeacher" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="DictAcademicYear" Relationship="DBTeachingLoadModel.FK_TeahingLoadTeacher_DictAcademicYear" FromRole="TeahingLoadTeacher" ToRole="DictAcademicYear" />
+          <NavigationProperty Name="Teacher" Relationship="DBTeachingLoadModel.FK_TeahingLoadTeacher_Teacher" FromRole="TeahingLoadTeacher" ToRole="Teacher" />
+          <NavigationProperty Name="LoadTeacher" Relationship="DBTeachingLoadModel.FK_LoadTeacher_TeahingLoadTeacher" FromRole="TeahingLoadTeacher" ToRole="LoadTeacher" />
+          <Property Type="Decimal" Name="SumLoadSemestr1" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="SumLoadSemestr2" Precision="10" Scale="2" />
+          <Property Name="NameLoadChair" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="University">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="ShortName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Faculties" Relationship="DBTeachingLoadModel.FK_Faculty_University" FromRole="University" ToRole="Faculty" />
+          <NavigationProperty Name="OrderStandardTimes" Relationship="DBTeachingLoadModel.FK_OrderStandardTime_University" FromRole="University" ToRole="OrderStandardTime" />
+          <Property Name="StatusDel" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Chair_Faculty">
+          <End Role="Faculty" Type="DBTeachingLoadModel.Faculty" Multiplicity="1" />
+          <End Role="Chair" Type="DBTeachingLoadModel.Chair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chair">
+              <PropertyRef Name="IdFaculty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teacher_Chair">
+          <End Role="Chair" Type="DBTeachingLoadModel.Chair" Multiplicity="1" />
+          <End Role="Teacher" Type="DBTeachingLoadModel.Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chair">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="IdChair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeachingLoadChair_Chair1">
+          <End Role="Chair" Type="DBTeachingLoadModel.Chair" Multiplicity="1" />
+          <End Role="TeachingLoadChair" Type="DBTeachingLoadModel.TeachingLoadChair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chair">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeachingLoadChair">
+              <PropertyRef Name="IdChair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderStandardTime_DictAcademicYear">
+          <End Role="DictAcademicYear" Type="DBTeachingLoadModel.DictAcademicYear" Multiplicity="1" />
+          <End Role="OrderStandardTime" Type="DBTeachingLoadModel.OrderStandardTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictAcademicYear">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderStandardTime">
+              <PropertyRef Name="IdAcademicYear" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeahingLoadTeacher_DictAcademicYear">
+          <End Role="DictAcademicYear" Type="DBTeachingLoadModel.DictAcademicYear" Multiplicity="1" />
+          <End Role="TeahingLoadTeacher" Type="DBTeachingLoadModel.TeahingLoadTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictAcademicYear">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeahingLoadTeacher">
+              <PropertyRef Name="IdAcademicYear" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teacher_DictPost">
+          <End Role="DictPost" Type="DBTeachingLoadModel.DictPost" Multiplicity="1" />
+          <End Role="Teacher" Type="DBTeachingLoadModel.Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictPost">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="IdPost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teacher_DictTypeEmployment">
+          <End Role="DictTypeEmployment" Type="DBTeachingLoadModel.DictTypeEmployment" Multiplicity="1" />
+          <End Role="Teacher" Type="DBTeachingLoadModel.Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictTypeEmployment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="IdTypeEmployment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StandartTime_DictTypeTraining">
+          <End Role="DictTypeTraining" Type="DBTeachingLoadModel.DictTypeTraining" Multiplicity="0..1" />
+          <End Role="StandartTime" Type="DBTeachingLoadModel.StandartTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictTypeTraining">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StandartTime">
+              <PropertyRef Name="IdTypeTraining" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StandartTime_DictUnit">
+          <End Role="DictUnit" Type="DBTeachingLoadModel.DictUnit" Multiplicity="0..1" />
+          <End Role="StandartTime" Type="DBTeachingLoadModel.StandartTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictUnit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StandartTime">
+              <PropertyRef Name="IdUnit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faculty_University">
+          <End Role="University" Type="DBTeachingLoadModel.University" Multiplicity="1" />
+          <End Role="Faculty" Type="DBTeachingLoadModel.Faculty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Faculty">
+              <PropertyRef Name="IdUniversity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderStandardTime_University">
+          <End Role="University" Type="DBTeachingLoadModel.University" Multiplicity="1" />
+          <End Role="OrderStandardTime" Type="DBTeachingLoadModel.OrderStandardTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderStandardTime">
+              <PropertyRef Name="IdUniversity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StandartTime_OrderStandardTime">
+          <End Role="OrderStandardTime" Type="DBTeachingLoadModel.OrderStandardTime" Multiplicity="1" />
+          <End Role="StandartTime" Type="DBTeachingLoadModel.StandartTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStandardTime">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StandartTime">
+              <PropertyRef Name="IdOrderStandartTime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeahingLoadTeacher_Teacher">
+          <End Role="Teacher" Type="DBTeachingLoadModel.Teacher" Multiplicity="1" />
+          <End Role="TeahingLoadTeacher" Type="DBTeachingLoadModel.TeahingLoadTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeahingLoadTeacher">
+              <PropertyRef Name="IdTeacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="tlsp_getStandartTime_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdTypeTraining" Nullable="true" />
+          <Property Type="String" Name="TypeOfWork" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="UnitMesurement" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="NormTime" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="Year" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="NumberOrder" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="DataOrder" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Notes" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <EntityType Name="LoadTeacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdTeachingLoadTeacher" Nullable="false" />
+          <Property Type="String" Name="NameGroup" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Subgroup" />
+          <Property Type="Int32" Name="Student" />
+          <Property Type="Int32" Name="ForeignStudent" />
+          <Property Type="String" Name="Speciality" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Profile" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Qualification" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FormEducation" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ShortNameFaculty" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Discipline" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="TypeDiscipline" />
+          <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Semester" />
+          <Property Type="Int32" Name="Course" />
+          <Property Type="Decimal" Name="Lecture" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="PracticalExercises" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="LaboratoryWork" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Examination" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="SetOff" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="CourseProject" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="CourseWorkt" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Practical" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="GraduationDesign" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="ControlWork" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Gac" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Dot" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Others" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="SumLoad" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="Stream" />
+          <Property Type="String" Name="FlagChange" MaxLength="2" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="TeahingLoadTeacher" Relationship="DBTeachingLoadModel.FK_LoadTeacher_TeahingLoadTeacher" FromRole="LoadTeacher" ToRole="TeahingLoadTeacher" />
+          <NavigationProperty Name="ChairTeacherLoad" Relationship="DBTeachingLoadModel.FK_ChairTeacherLoad_LoadTeacher" FromRole="LoadTeacher" ToRole="ChairTeacherLoad" />
+          <Property Type="Decimal" Name="SumUnLoad" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Consultation" Precision="10" Scale="2" />
+          <Property Name="SemesterYear" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SetOffWithBall" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ScientificResearchWork" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <Association Name="FK_LoadTeacher_TeahingLoadTeacher">
+          <End Type="DBTeachingLoadModel.TeahingLoadTeacher" Role="TeahingLoadTeacher" Multiplicity="1" />
+          <End Type="DBTeachingLoadModel.LoadTeacher" Role="LoadTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TeahingLoadTeacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoadTeacher">
+              <PropertyRef Name="IdTeachingLoadTeacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ChairTeacherLoad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdTeacher" >
+            <Documentation>
+              <LongDescription>Id преподавателя</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Type="Int32" Name="IdTeachingLoad" Nullable="false" >
+            <Documentation>
+              <LongDescription>Id дисциплины нагрузки кафедры</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Type="Int32" Name="IdLoadTeacher" Nullable="false" >
+            <Documentation>
+              <LongDescription>Id дисциплины нагрузки преподавателя</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="LoadTeacher" Relationship="DBTeachingLoadModel.FK_ChairTeacherLoad_LoadTeacher" FromRole="ChairTeacherLoad" ToRole="LoadTeacher" />
+          <Property Type="Int32" Name="Status" />
+          <Property Name="NameLoadChair" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TeachingLoad" Relationship="DBTeachingLoadModel.FK_ChairTeacherLoad_TeachingLoad" FromRole="ChairTeacherLoad" ToRole="TeachingLoad" />
+        </EntityType>
+        <Association Name="FK_ChairTeacherLoad_LoadTeacher">
+          <End Type="DBTeachingLoadModel.LoadTeacher" Role="LoadTeacher" Multiplicity="1" />
+          <End Type="DBTeachingLoadModel.ChairTeacherLoad" Role="ChairTeacherLoad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoadTeacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChairTeacherLoad">
+              <PropertyRef Name="IdLoadTeacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="tlsp_getAllLoadTeacher_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Decimal" Name="SumLoadTeacher" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="SumLoadSemestr1" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="SumLoadSemestr2" Nullable="true" Precision="10" Scale="2" />
+        </ComplexType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Curriculum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAcademicYear" Type="Int32" Nullable="false" />
+          <Property Name="IdChair" Type="Int32" Nullable="false" />
+          <Property Name="IdSpeciality" Type="Int32" Nullable="false" />
+          <Property Name="IdEducationForm" Type="Int32" Nullable="false" />
+          <Property Name="IdQualification" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Course1" Type="Boolean" />
+          <Property Name="Course2" Type="Boolean" />
+          <Property Name="Course3" Type="Boolean" />
+          <Property Name="Course4" Type="Boolean" />
+          <Property Name="Course5" Type="Boolean" />
+          <Property Name="Course6" Type="Boolean" />
+          <Property Name="DurationStudy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DataApproval" Type="DateTime" Precision="0" />
+          <Property Name="Protocol" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="StatusDel" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Chair" Relationship="DBTeachingLoadModel.FK_Сurriculum_Chair" FromRole="Curriculum" ToRole="Chair" />
+          <NavigationProperty Name="DictAcademicYear" Relationship="DBTeachingLoadModel.FK_Сurriculum_DictAcademicYear" FromRole="Curriculum" ToRole="DictAcademicYear" />
+          <NavigationProperty Name="DictEducationForm" Relationship="DBTeachingLoadModel.FK_Сurriculum_DictEducationForm" FromRole="Curriculum" ToRole="DictEducationForm" />
+          <NavigationProperty Name="DictQualification" Relationship="DBTeachingLoadModel.FK_Сurriculum_DictQualification" FromRole="Curriculum" ToRole="DictQualification" />
+          <NavigationProperty Name="DictSpeciality" Relationship="DBTeachingLoadModel.FK_Сurriculum_DictSpeciality" FromRole="Curriculum" ToRole="DictSpeciality" />
+          <NavigationProperty Name="DisciplinePlans" Relationship="DBTeachingLoadModel.FK_DisciplinePlan_Сurriculum" FromRole="Curriculum" ToRole="DisciplinePlan" />
+        </EntityType>
+        <Association Name="FK_Сurriculum_Chair">
+          <End Type="DBTeachingLoadModel.Chair" Role="Chair" Multiplicity="1" />
+          <End Type="DBTeachingLoadModel.Curriculum" Role="Curriculum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chair">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Curriculum">
+              <PropertyRef Name="IdChair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сurriculum_DictAcademicYear">
+          <End Type="DBTeachingLoadModel.DictAcademicYear" Role="DictAcademicYear" Multiplicity="1" />
+          <End Type="DBTeachingLoadModel.Curriculum" Role="Curriculum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictAcademicYear">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Curriculum">
+              <PropertyRef Name="IdAcademicYear" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сurriculum_DictEducationForm">
+          <End Type="DBTeachingLoadModel.DictEducationForm" Role="DictEducationForm" Multiplicity="1" />
+          <End Type="DBTeachingLoadModel.Curriculum" Role="Curriculum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictEducationForm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Curriculum">
+              <PropertyRef Name="IdEducationForm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сurriculum_DictQualification">
+          <End Type="DBTeachingLoadModel.DictQualification" Role="DictQualification" Multiplicity="1" />
+          <End Type="DBTeachingLoadModel.Curriculum" Role="Curriculum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictQualification">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Curriculum">
+              <PropertyRef Name="IdQualification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameRole" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRole" Type="Int32" />
+          <Property Name="login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SecondName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Discription" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="DictSpeciality">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdQualification" Type="Int32" />
+          <Property Name="CodeSpeciality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameSpeciality" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Profile" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="StatusDel" Type="Boolean" />
+          <NavigationProperty Name="Curricula" Relationship="DBTeachingLoadModel.FK_Сurriculum_DictSpeciality" FromRole="DictSpeciality" ToRole="Curriculum" />
+          <NavigationProperty Name="DictQualification" Relationship="DBTeachingLoadModel.FK_DictSpeciality_DictQualification" FromRole="DictSpeciality" ToRole="DictQualification" />
+          <NavigationProperty Name="StudentGroups" Relationship="DBTeachingLoadModel.FK_StudentGroup_DictSpeciality" FromRole="DictSpeciality" ToRole="StudentGroup" />
+        </EntityType>
+        <Association Name="FK_Сurriculum_DictSpeciality">
+          <End Type="DBTeachingLoadModel.DictSpeciality" Role="DictSpeciality" Multiplicity="1" />
+          <End Type="DBTeachingLoadModel.Curriculum" Role="Curriculum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictSpeciality">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Curriculum">
+              <PropertyRef Name="IdSpeciality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DictSpeciality_DictQualification">
+          <End Type="DBTeachingLoadModel.DictQualification" Role="DictQualification" Multiplicity="0..1" />
+          <End Type="DBTeachingLoadModel.DictSpeciality" Role="DictSpeciality" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictQualification">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DictSpeciality">
+              <PropertyRef Name="IdQualification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="StudentGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFaculty" Type="Int32" Nullable="false" />
+          <Property Name="IdAcademicYear" Type="Int32" Nullable="false" />
+          <Property Name="IdSpeciality" Type="Int32" Nullable="false" />
+          <Property Name="IdQualification" Type="Int32" Nullable="false" />
+          <Property Name="IdFormEducation" Type="Int32" Nullable="false" />
+          <Property Name="CurriculumName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NameGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Course" Type="Int32" />
+          <Property Name="CountComStudent" Type="Int32" />
+          <Property Name="CountSubgroup" Type="Int32" />
+          <Property Name="CountStudent" Type="Int32" />
+          <Property Name="CountForeignStudent" Type="Int32" />
+          <Property Name="StatusDel" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="DictAcademicYear" Relationship="DBTeachingLoadModel.FK_StudentGroup_DictAcademicYear" FromRole="StudentGroup" ToRole="DictAcademicYear" />
+          <NavigationProperty Name="DictEducationForm" Relationship="DBTeachingLoadModel.FK_StudentGroup_DictEducationForm" FromRole="StudentGroup" ToRole="DictEducationForm" />
+          <NavigationProperty Name="DictQualification" Relationship="DBTeachingLoadModel.FK_StudentGroup_DictQualification" FromRole="StudentGroup" ToRole="DictQualification" />
+          <NavigationProperty Name="DictSpeciality" Relationship="DBTeachingLoadModel.FK_StudentGroup_DictSpeciality" FromRole="StudentGroup" ToRole="DictSpeciality" />
+          <NavigationProperty Name="Faculty" Relationship="DBTeachingLoadModel.FK_StudentGroup_Faculty" FromRole="StudentGroup" ToRole="Faculty" />
+        </EntityType>
+        <Association Name="FK_StudentGroup_DictAcademicYear">
+          <End Type="DBTeachingLoadModel.DictAcademicYear" Role="DictAcademicYear" Multiplicity="1" />
+          <End Type="DBTeachingLoadModel.StudentGroup" Role="StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictAcademicYear">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="IdAcademicYear" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentGroup_DictEducationForm">
+          <End Type="DBTeachingLoadModel.DictEducationForm" Role="DictEducationForm" Multiplicity="1" />
+          <End Type="DBTeachingLoadModel.StudentGroup" Role="StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictEducationForm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="IdFormEducation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentGroup_DictQualification">
+          <End Type="DBTeachingLoadModel.DictQualification" Role="DictQualification" Multiplicity="1" />
+          <End Type="DBTeachingLoadModel.StudentGroup" Role="StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictQualification">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="IdQualification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentGroup_DictSpeciality">
+          <End Type="DBTeachingLoadModel.DictSpeciality" Role="DictSpeciality" Multiplicity="1" />
+          <End Type="DBTeachingLoadModel.StudentGroup" Role="StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictSpeciality">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="IdSpeciality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentGroup_Faculty">
+          <End Type="DBTeachingLoadModel.Faculty" Role="Faculty" Multiplicity="1" />
+          <End Type="DBTeachingLoadModel.StudentGroup" Role="StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="IdFaculty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="tlsp_getCurriculumWithStudent_Result">
+          <Property Type="String" Name="CurriculumName" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="Student" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="tlsp_getCurriculumForComplexReport_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="Course1" Nullable="true" />
+          <Property Type="Boolean" Name="Course2" Nullable="true" />
+          <Property Type="Boolean" Name="Course3" Nullable="true" />
+          <Property Type="Boolean" Name="Course4" Nullable="true" />
+          <Property Type="Boolean" Name="Course5" Nullable="true" />
+          <Property Type="Boolean" Name="Course6" Nullable="true" />
+          <Property Type="String" Name="CodeSpeciality" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NameSpeciality" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Profile" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="ShortName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FormEducation" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NameQualification" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="tlsp_getAllDiscipline_Result">
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CodeSpeciality" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NameSpeciality" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Discipline" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="Course" Nullable="true" />
+          <Property Type="Int32" Name="Semester" Nullable="true" />
+          <Property Type="Int32" Name="CodeChair" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="tlsp_getFixedDisciplines_Result">
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CodePlan" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Discipline" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="CodeSpeciality" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NameSpeciality" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Profile" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="NameQualification" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FormEducation" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ShortName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Course" Nullable="true" />
+          <Property Type="Int32" Name="Semester" Nullable="true" />
+          <Property Type="Decimal" Name="LecturePlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="LaboratoryWorkPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="PracticalExercisesPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="CourseProjectPlan" Nullable="true" />
+          <Property Type="Int32" Name="CourseWorktPlan" Nullable="true" />
+          <Property Type="Int32" Name="ControlWorkPlan" Nullable="true" />
+          <Property Type="Int32" Name="ExaminationPlan" Nullable="true" />
+          <Property Type="Int32" Name="SetOffPlan" Nullable="true" />
+          <Property Type="Int32" Name="PracticalPlan" Nullable="true" />
+          <Property Type="Decimal" Name="GakPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="GraduationDesignPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="ScientificResearchWorkPlan" Nullable="true" />
+          <Property Type="Int32" Name="CodeChair" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="TeachingLoad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTeachingLoadChair" Type="Int32" Nullable="false" />
+          <Property Name="NameCurricilum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Subgroup" Type="Int32" />
+          <Property Name="Student" Type="Int32" />
+          <Property Name="ForeignStudent" Type="Int32" />
+          <Property Name="CommerceStudent" Type="Int32" />
+          <Property Name="Speciality" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Profile" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Discipline" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="FormEducation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShortNameFaculty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TypeDiscipline" Type="Boolean" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SemesterYear" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Semester" Type="Int32" />
+          <Property Name="Course" Type="Int32" />
+          <Property Name="Lecture" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PracticalExercises" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="LaboratoryWork" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Examination" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Consultation" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="SetOff" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="CourseProject" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="CourseWorkt" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Practical" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="GraduationDesign" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ControlWork" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Gac" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Dot" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Others" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ScientificResearchWork" Type="Decimal" Precision="10" Scale="2" DefaultValue="0" />
+          <Property Name="SumLoad" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="SumUnload" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="SumCommerce" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Stream" Type="Int32" />
+          <Property Name="StreamLab" Type="Int32" />
+          <Property Name="StreamPract" Type="Int32" />
+          <Property Name="FlagChange" Type="Boolean" DefaultValue="false" />
+          <Property Name="IsLoad" Type="Boolean" />
+          <Property Name="IsFaultLoad" Type="Boolean" />
+          <Property Name="Note" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ChairTeacherLoads" Relationship="DBTeachingLoadModel.FK_ChairTeacherLoad_TeachingLoad" FromRole="TeachingLoad" ToRole="ChairTeacherLoad" />
+          <NavigationProperty Name="TeachingLoadChair" Relationship="DBTeachingLoadModel.FK_TeachingLoad_TeachingLoadChair" FromRole="TeachingLoad" ToRole="TeachingLoadChair" />
+          <Property Name="SetOffWithBall" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <Association Name="FK_ChairTeacherLoad_TeachingLoad">
+          <End Type="DBTeachingLoadModel.TeachingLoad" Role="TeachingLoad" Multiplicity="1" />
+          <End Type="DBTeachingLoadModel.ChairTeacherLoad" Role="ChairTeacherLoad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TeachingLoad">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChairTeacherLoad">
+              <PropertyRef Name="IdTeachingLoad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeachingLoad_TeachingLoadChair">
+          <End Type="DBTeachingLoadModel.TeachingLoadChair" Role="TeachingLoadChair" Multiplicity="1" />
+          <End Type="DBTeachingLoadModel.TeachingLoad" Role="TeachingLoad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TeachingLoadChair">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeachingLoad">
+              <PropertyRef Name="IdTeachingLoadChair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="tlsp_getGroups_Result">
+          <Property Type="String" Name="ShortName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NameGroup" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NameSpeciality" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Profile" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="CodeSpeciality" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NameQualification" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Year" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FormEducation" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Course" Nullable="true" />
+          <Property Type="Int32" Name="CountStudent" Nullable="true" />
+          <Property Type="Int32" Name="CountForeignStudent" Nullable="true" />
+          <Property Type="Int32" Name="CountComStudent" Nullable="true" />
+          <Property Type="Int32" Name="CountSubgroup" Nullable="true" />
+          <Property Type="String" Name="CurriculumName" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <EntityType Name="DisciplinePlan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCurriculum" Type="Int32" Nullable="false" />
+          <Property Name="IdChair" Type="Int32" Nullable="false" />
+          <Property Name="Discipline" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CodePlan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Semester" Type="Int32" />
+          <Property Name="SemesterYear" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Course" Type="Int32" />
+          <Property Name="LecturePlan" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PracticalExercisesPlan" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="LaboratoryWorkPlan" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ExaminationPlan" Type="Int32" />
+          <Property Name="SetOffPlan" Type="Int32" />
+          <Property Name="SetOffWithBallPlan" Type="Int32" />
+          <Property Name="CourseProjectPlan" Type="Int32" />
+          <Property Name="CourseWorktPlan" Type="Int32" />
+          <Property Name="PracticalPlan" Type="Int32" />
+          <Property Name="ControlWorkPlan" Type="Int32" />
+          <Property Name="GraduationDesignPlan" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="GakPlan" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ScientificResearchWorkPlan" Type="Int32" />
+          <NavigationProperty Name="Chair" Relationship="DBTeachingLoadModel.FK_DisciplinePlan_Chair" FromRole="DisciplinePlan" ToRole="Chair" />
+          <NavigationProperty Name="Curriculum" Relationship="DBTeachingLoadModel.FK_DisciplinePlan_Сurriculum" FromRole="DisciplinePlan" ToRole="Curriculum" />
+          <NavigationProperty Name="DisciplineChairs" Relationship="DBTeachingLoadModel.FK_DisciplineChair_DisciplinePlan" FromRole="DisciplinePlan" ToRole="DisciplineChair" />
+        </EntityType>
+        <Association Name="FK_DisciplinePlan_Chair">
+          <End Type="DBTeachingLoadModel.Chair" Role="Chair" Multiplicity="1" />
+          <End Type="DBTeachingLoadModel.DisciplinePlan" Role="DisciplinePlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chair">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisciplinePlan">
+              <PropertyRef Name="IdChair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisciplinePlan_Сurriculum">
+          <End Type="DBTeachingLoadModel.Curriculum" Role="Curriculum" Multiplicity="1" />
+          <End Type="DBTeachingLoadModel.DisciplinePlan" Role="DisciplinePlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curriculum">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisciplinePlan">
+              <PropertyRef Name="IdCurriculum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisciplineChair_DisciplinePlan">
+          <End Type="DBTeachingLoadModel.DisciplinePlan" Role="DisciplinePlan" Multiplicity="1" />
+          <End Type="DBTeachingLoadModel.DisciplineChair" Role="DisciplineChair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisciplinePlan">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisciplineChair">
+              <PropertyRef Name="IdDisciplinePlan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="tlsp_getDisciplineChair_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdAcademicYear" Nullable="false" />
+          <Property Type="Int32" Name="IdChair" Nullable="false" />
+          <Property Type="String" Name="CodePlan" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Discipline" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="Semester" Nullable="true" />
+          <Property Type="String" Name="SemesterYear" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Course" Nullable="true" />
+          <Property Type="Decimal" Name="LecturePlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="PracticalExercisesPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="LaboratoryWorkPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="ExaminationPlan" Nullable="true" />
+          <Property Type="Int32" Name="SetOffPlan" Nullable="true" />
+          <Property Type="Int32" Name="SetOffWithBallPlan" Nullable="true" />
+          <Property Type="Int32" Name="CourseProjectPlan" Nullable="true" />
+          <Property Type="Int32" Name="CourseWorktPlan" Nullable="true" />
+          <Property Type="Int32" Name="PracticalPlan" Nullable="true" />
+          <Property Type="Int32" Name="ControlWorkPlan" Nullable="true" />
+          <Property Type="Decimal" Name="GraduationDesignPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="GakPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="ScientificResearchWorkPlan" Nullable="true" />
+          <Property Type="Int32" Name="CodeChair" Nullable="true" />
+          <Property Type="String" Name="Year" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FormEducation" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NameQualification" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NameSpeciality" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="CodeSpeciality" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Profile" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="ShortName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="tlsp_setDisciplineChairWithGroup_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="CodePlan" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Discipline" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="Course" Nullable="true" />
+          <Property Type="Int32" Name="Semester" Nullable="true" />
+          <Property Type="String" Name="SemesterYear" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="ShortName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CodeSpeciality" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NameSpeciality" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Profile" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="NameQualification" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FormEducation" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NameGroup" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="CountComStudent" Nullable="true" />
+          <Property Type="Int32" Name="CountSubgroup" Nullable="true" />
+          <Property Type="Int32" Name="CountStudent" Nullable="true" />
+          <Property Type="Int32" Name="CountForeignStudent" Nullable="true" />
+          <Property Type="Decimal" Name="LecturePlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="PracticalExercisesPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="LaboratoryWorkPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="ExaminationPlan" Nullable="true" />
+          <Property Type="Int32" Name="SetOffPlan" Nullable="true" />
+          <Property Type="Int32" Name="SetOffWithBallPlan" Nullable="true" />
+          <Property Type="Int32" Name="CourseProjectPlan" Nullable="true" />
+          <Property Type="Int32" Name="CourseWorktPlan" Nullable="true" />
+          <Property Type="Int32" Name="PracticalPlan" Nullable="true" />
+          <Property Type="Int32" Name="ControlWorkPlan" Nullable="true" />
+          <Property Type="Decimal" Name="GraduationDesignPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="ScientificResearchWorkPlan" Nullable="true" />
+          <Property Type="Decimal" Name="GakPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="String" Name="Year" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="tlsp_getDisciplineChairFullTime_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdAcademicYear" Nullable="false" />
+          <Property Type="Int32" Name="IdChair" Nullable="false" />
+          <Property Type="String" Name="CodePlan" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Discipline" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="Semester" Nullable="true" />
+          <Property Type="String" Name="SemesterYear" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Course" Nullable="true" />
+          <Property Type="Decimal" Name="LecturePlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="PracticalExercisesPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="LaboratoryWorkPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="ExaminationPlan" Nullable="true" />
+          <Property Type="Int32" Name="SetOffPlan" Nullable="true" />
+          <Property Type="Int32" Name="SetOffWithBallPlan" Nullable="true" />
+          <Property Type="Int32" Name="CourseProjectPlan" Nullable="true" />
+          <Property Type="Int32" Name="CourseWorktPlan" Nullable="true" />
+          <Property Type="Int32" Name="PracticalPlan" Nullable="true" />
+          <Property Type="Int32" Name="ControlWorkPlan" Nullable="true" />
+          <Property Type="Decimal" Name="GraduationDesignPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="GakPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="ScientificResearchWorkPlan" Nullable="true" />
+          <Property Type="Int32" Name="CodeChair" Nullable="true" />
+          <Property Type="String" Name="Year" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FormEducation" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NameQualification" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NameSpeciality" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="CodeSpeciality" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Profile" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="ShortName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="tlsp_getDisciplineChairPartTime_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdAcademicYear" Nullable="false" />
+          <Property Type="Int32" Name="IdChair" Nullable="false" />
+          <Property Type="String" Name="CodePlan" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Discipline" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="Semester" Nullable="true" />
+          <Property Type="String" Name="SemesterYear" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Course" Nullable="true" />
+          <Property Type="Decimal" Name="LecturePlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="PracticalExercisesPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="LaboratoryWorkPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="ExaminationPlan" Nullable="true" />
+          <Property Type="Int32" Name="SetOffPlan" Nullable="true" />
+          <Property Type="Int32" Name="SetOffWithBallPlan" Nullable="true" />
+          <Property Type="Int32" Name="CourseProjectPlan" Nullable="true" />
+          <Property Type="Int32" Name="CourseWorktPlan" Nullable="true" />
+          <Property Type="Int32" Name="PracticalPlan" Nullable="true" />
+          <Property Type="Int32" Name="ControlWorkPlan" Nullable="true" />
+          <Property Type="Decimal" Name="GraduationDesignPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="GakPlan" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="ScientificResearchWorkPlan" Nullable="true" />
+          <Property Type="Int32" Name="CodeChair" Nullable="true" />
+          <Property Type="String" Name="Year" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FormEducation" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NameQualification" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NameSpeciality" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="CodeSpeciality" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Profile" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="ShortName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DBTeachingLoadModelContainer" CdmEntityContainer="DBTeachingLoadEntities">
+          <EntitySetMapping Name="Chairs">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.Chair">
+              <MappingFragment StoreEntitySet="Chair">
+                <ScalarProperty Name="StatusDel" ColumnName="StatusDel" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdFaculty" ColumnName="IdFaculty" />
+                <ScalarProperty Name="CodeChair" ColumnName="CodeChair" />
+                <ScalarProperty Name="NameChair" ColumnName="NameChair" />
+                <ScalarProperty Name="ShortNameChair" ColumnName="ShortNameChair" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DictAcademicYears">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.DictAcademicYear">
+              <MappingFragment StoreEntitySet="DictAcademicYear">
+                <ScalarProperty Name="StatusDel" ColumnName="StatusDel" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DictEducationForms">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.DictEducationForm">
+              <MappingFragment StoreEntitySet="DictEducationForm">
+                <ScalarProperty Name="StatusDel" ColumnName="StatusDel" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FormEducation" ColumnName="FormEducation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DictPosts">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.DictPost">
+              <MappingFragment StoreEntitySet="DictPost">
+                <ScalarProperty Name="StatusDel" ColumnName="StatusDel" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DictQualifications">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.DictQualification">
+              <MappingFragment StoreEntitySet="DictQualification">
+                <ScalarProperty Name="StatusDel" ColumnName="StatusDel" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NameQualification" ColumnName="NameQualification" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DictTypeEmployments">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.DictTypeEmployment">
+              <MappingFragment StoreEntitySet="DictTypeEmployment">
+                <ScalarProperty Name="StatusDel" ColumnName="StatusDel" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TypeOfEmployment" ColumnName="TypeOfEmployment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DictTypeTrainings">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.DictTypeTraining">
+              <MappingFragment StoreEntitySet="DictTypeTraining">
+                <ScalarProperty Name="StatusDel" ColumnName="StatusDel" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TypeWork" ColumnName="TypeWork" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DictUnits">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.DictUnit">
+              <MappingFragment StoreEntitySet="DictUnit">
+                <ScalarProperty Name="StatusDel" ColumnName="StatusDel" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DisciplineChairs">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.DisciplineChair">
+              <MappingFragment StoreEntitySet="DisciplineChair">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdAcademicYear" ColumnName="IdAcademicYear" />
+                <ScalarProperty Name="IdChair" ColumnName="IdChair" />
+                <ScalarProperty Name="IdDisciplinePlan" ColumnName="IdDisciplinePlan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faculties">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.Faculty">
+              <MappingFragment StoreEntitySet="Faculty">
+                <ScalarProperty Name="StatusDel" ColumnName="StatusDel" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdUniversity" ColumnName="IdUniversity" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderStandardTimes">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.OrderStandardTime">
+              <MappingFragment StoreEntitySet="OrderStandardTime">
+                <ScalarProperty Name="StatusDel" ColumnName="StatusDel" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdUniversity" ColumnName="IdUniversity" />
+                <ScalarProperty Name="IdAcademicYear" ColumnName="IdAcademicYear" />
+                <ScalarProperty Name="NumberOrder" ColumnName="NumberOrder" />
+                <ScalarProperty Name="DataOrder" ColumnName="DataOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StandartTimes">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.StandartTime">
+              <MappingFragment StoreEntitySet="StandartTime">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdOrderStandartTime" ColumnName="IdOrderStandartTime" />
+                <ScalarProperty Name="IdUnit" ColumnName="IdUnit" />
+                <ScalarProperty Name="IdTypeTraining" ColumnName="IdTypeTraining" />
+                <ScalarProperty Name="NormTime" ColumnName="NormTime" />
+                <ScalarProperty Name="TypeOfWork" ColumnName="TypeOfWork" />
+                <ScalarProperty Name="UnitMesurement" ColumnName="UnitMesurement" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teachers">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.Teacher">
+              <MappingFragment StoreEntitySet="Teacher">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneMobile" ColumnName="PhoneMobile" />
+                <ScalarProperty Name="StatusDel" ColumnName="StatusDel" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdChair" ColumnName="IdChair" />
+                <ScalarProperty Name="IdPost" ColumnName="IdPost" />
+                <ScalarProperty Name="IdTypeEmployment" ColumnName="IdTypeEmployment" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeachingLoadChairs">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.TeachingLoadChair">
+              <MappingFragment StoreEntitySet="TeachingLoadChair">
+                <ScalarProperty Name="IndexStreamPract" ColumnName="IndexStreamPract" />
+                <ScalarProperty Name="IndexStreamLab" ColumnName="IndexStreamLab" />
+                <ScalarProperty Name="IndexStreamLecture" ColumnName="IndexStreamLecture" />
+                <ScalarProperty Name="SumLoadCommerceSemestr2" ColumnName="SumLoadCommerceSemestr2" />
+                <ScalarProperty Name="SumLoadCommerceSemestr1" ColumnName="SumLoadCommerceSemestr1" />
+                <ScalarProperty Name="SumLoadChairCommerce" ColumnName="SumLoadChairCommerce" />
+                <ScalarProperty Name="SumLoadSemestr2" ColumnName="SumLoadSemestr2" />
+                <ScalarProperty Name="SumLoadSemestr1" ColumnName="SumLoadSemestr1" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdAcademicYear" ColumnName="IdAcademicYear" />
+                <ScalarProperty Name="IdChair" ColumnName="IdChair" />
+                <ScalarProperty Name="NameLoadChair" ColumnName="NameLoadChair" />
+                <ScalarProperty Name="SumLoadChair" ColumnName="SumLoadChair" />
+                <ScalarProperty Name="SumUnloadChair" ColumnName="SumUnloadChair" />
+                <ScalarProperty Name="DataLoadChair" ColumnName="DataLoadChair" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeahingLoadTeachers">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.TeahingLoadTeacher">
+              <MappingFragment StoreEntitySet="TeahingLoadTeacher">
+                <ScalarProperty Name="NameLoadChair" ColumnName="NameLoadChair" />
+                <ScalarProperty Name="SumLoadSemestr2" ColumnName="SumLoadSemestr2" />
+                <ScalarProperty Name="SumLoadSemestr1" ColumnName="SumLoadSemestr1" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdAcademicYear" ColumnName="IdAcademicYear" />
+                <ScalarProperty Name="IdTeacher" ColumnName="IdTeacher" />
+                <ScalarProperty Name="SumLoadTeacher" ColumnName="SumLoadTeacher" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Universities">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.University">
+              <MappingFragment StoreEntitySet="University">
+                <ScalarProperty Name="StatusDel" ColumnName="StatusDel" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="tlsp_getStandartTime" FunctionName="Хранилище DBTeachingLoadModel.tlsp_getStandartTime">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBTeachingLoadModel.tlsp_getStandartTime_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdTypeTraining" ColumnName="IdTypeTraining" />
+                <ScalarProperty Name="TypeOfWork" ColumnName="TypeOfWork" />
+                <ScalarProperty Name="UnitMesurement" ColumnName="UnitMesurement" />
+                <ScalarProperty Name="NormTime" ColumnName="NormTime" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="NumberOrder" ColumnName="NumberOrder" />
+                <ScalarProperty Name="DataOrder" ColumnName="DataOrder" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tlsp_setDisciplinesOfCurriculum" FunctionName="Хранилище DBTeachingLoadModel.tlsp_setDisciplinesOfCurriculum" />
+          <EntitySetMapping Name="LoadTeacher">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.LoadTeacher">
+              <MappingFragment StoreEntitySet="LoadTeacher">
+                <ScalarProperty Name="ScientificResearchWork" ColumnName="ScientificResearchWork" />
+                <ScalarProperty Name="SetOffWithBall" ColumnName="SetOffWithBall" />
+                <ScalarProperty Name="SemesterYear" ColumnName="SemesterYear" />
+                <ScalarProperty Name="Consultation" ColumnName="Consultation" />
+                <ScalarProperty Name="SumUnLoad" ColumnName="SumUnLoad" />
+                <ScalarProperty Name="FlagChange" ColumnName="FlagChange" />
+                <ScalarProperty Name="Stream" ColumnName="Stream" />
+                <ScalarProperty Name="SumLoad" ColumnName="SumLoad" />
+                <ScalarProperty Name="Others" ColumnName="Others" />
+                <ScalarProperty Name="Dot" ColumnName="Dot" />
+                <ScalarProperty Name="Gac" ColumnName="Gac" />
+                <ScalarProperty Name="ControlWork" ColumnName="ControlWork" />
+                <ScalarProperty Name="GraduationDesign" ColumnName="GraduationDesign" />
+                <ScalarProperty Name="Practical" ColumnName="Practical" />
+                <ScalarProperty Name="CourseWorkt" ColumnName="CourseWorkt" />
+                <ScalarProperty Name="CourseProject" ColumnName="CourseProject" />
+                <ScalarProperty Name="SetOff" ColumnName="SetOff" />
+                <ScalarProperty Name="Examination" ColumnName="Examination" />
+                <ScalarProperty Name="LaboratoryWork" ColumnName="LaboratoryWork" />
+                <ScalarProperty Name="PracticalExercises" ColumnName="PracticalExercises" />
+                <ScalarProperty Name="Lecture" ColumnName="Lecture" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="TypeDiscipline" ColumnName="TypeDiscipline" />
+                <ScalarProperty Name="Discipline" ColumnName="Discipline" />
+                <ScalarProperty Name="ShortNameFaculty" ColumnName="ShortNameFaculty" />
+                <ScalarProperty Name="FormEducation" ColumnName="FormEducation" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="Profile" ColumnName="Profile" />
+                <ScalarProperty Name="Speciality" ColumnName="Speciality" />
+                <ScalarProperty Name="ForeignStudent" ColumnName="ForeignStudent" />
+                <ScalarProperty Name="Student" ColumnName="Student" />
+                <ScalarProperty Name="Subgroup" ColumnName="Subgroup" />
+                <ScalarProperty Name="NameGroup" ColumnName="NameGroup" />
+                <ScalarProperty Name="IdTeachingLoadTeacher" ColumnName="IdTeachingLoadTeacher" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChairTeacherLoad">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.ChairTeacherLoad">
+              <MappingFragment StoreEntitySet="ChairTeacherLoad">
+                <ScalarProperty Name="NameLoadChair" ColumnName="NameLoadChair" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IdLoadTeacher" ColumnName="IdLoadTeacher" />
+                <ScalarProperty Name="IdTeachingLoad" ColumnName="IdTeachingLoad" />
+                <ScalarProperty Name="IdTeacher" ColumnName="IdTeacher" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="tlsp_getAllLoadTeacher" FunctionName="Хранилище DBTeachingLoadModel.tlsp_getAllLoadTeacher">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBTeachingLoadModel.tlsp_getAllLoadTeacher_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SumLoadTeacher" ColumnName="SumLoadTeacher" />
+                <ScalarProperty Name="SumLoadSemestr1" ColumnName="SumLoadSemestr1" />
+                <ScalarProperty Name="SumLoadSemestr2" ColumnName="SumLoadSemestr2" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Curriculum">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.Curriculum">
+              <MappingFragment StoreEntitySet="Curriculum">
+                <ScalarProperty Name="StatusDel" ColumnName="StatusDel" />
+                <ScalarProperty Name="Protocol" ColumnName="Protocol" />
+                <ScalarProperty Name="DataApproval" ColumnName="DataApproval" />
+                <ScalarProperty Name="DurationStudy" ColumnName="DurationStudy" />
+                <ScalarProperty Name="Course6" ColumnName="Course6" />
+                <ScalarProperty Name="Course5" ColumnName="Course5" />
+                <ScalarProperty Name="Course4" ColumnName="Course4" />
+                <ScalarProperty Name="Course3" ColumnName="Course3" />
+                <ScalarProperty Name="Course2" ColumnName="Course2" />
+                <ScalarProperty Name="Course1" ColumnName="Course1" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdQualification" ColumnName="IdQualification" />
+                <ScalarProperty Name="IdEducationForm" ColumnName="IdEducationForm" />
+                <ScalarProperty Name="IdSpeciality" ColumnName="IdSpeciality" />
+                <ScalarProperty Name="IdChair" ColumnName="IdChair" />
+                <ScalarProperty Name="IdAcademicYear" ColumnName="IdAcademicYear" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="NameRole" ColumnName="NameRole" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Discription" ColumnName="Discription" />
+                <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище DBTeachingLoadModel.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище DBTeachingLoadModel.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище DBTeachingLoadModel.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище DBTeachingLoadModel.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBTeachingLoadModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище DBTeachingLoadModel.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBTeachingLoadModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище DBTeachingLoadModel.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище DBTeachingLoadModel.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="tlsp_setDisciplineChair" FunctionName="Хранилище DBTeachingLoadModel.tlsp_setDisciplineChair" />
+          <EntitySetMapping Name="DictSpecialities">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.DictSpeciality">
+              <MappingFragment StoreEntitySet="DictSpeciality">
+                <ScalarProperty Name="StatusDel" ColumnName="StatusDel" />
+                <ScalarProperty Name="Profile" ColumnName="Profile" />
+                <ScalarProperty Name="NameSpeciality" ColumnName="NameSpeciality" />
+                <ScalarProperty Name="CodeSpeciality" ColumnName="CodeSpeciality" />
+                <ScalarProperty Name="IdQualification" ColumnName="IdQualification" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentGroups">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.StudentGroup">
+              <MappingFragment StoreEntitySet="StudentGroup">
+                <ScalarProperty Name="StatusDel" ColumnName="StatusDel" />
+                <ScalarProperty Name="CountForeignStudent" ColumnName="CountForeignStudent" />
+                <ScalarProperty Name="CountStudent" ColumnName="CountStudent" />
+                <ScalarProperty Name="CountSubgroup" ColumnName="CountSubgroup" />
+                <ScalarProperty Name="CountComStudent" ColumnName="CountComStudent" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="NameGroup" ColumnName="NameGroup" />
+                <ScalarProperty Name="CurriculumName" ColumnName="CurriculumName" />
+                <ScalarProperty Name="IdFormEducation" ColumnName="IdFormEducation" />
+                <ScalarProperty Name="IdQualification" ColumnName="IdQualification" />
+                <ScalarProperty Name="IdSpeciality" ColumnName="IdSpeciality" />
+                <ScalarProperty Name="IdAcademicYear" ColumnName="IdAcademicYear" />
+                <ScalarProperty Name="IdFaculty" ColumnName="IdFaculty" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="tlsp_getCurriculumWithStudent" FunctionName="Хранилище DBTeachingLoadModel.tlsp_getCurriculumWithStudent">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBTeachingLoadModel.tlsp_getCurriculumWithStudent_Result">
+                <ScalarProperty Name="CurriculumName" ColumnName="CurriculumName" />
+                <ScalarProperty Name="Student" ColumnName="Student" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tlsp_getCurriculumForComplexReport" FunctionName="Хранилище DBTeachingLoadModel.tlsp_getCurriculumForComplexReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBTeachingLoadModel.tlsp_getCurriculumForComplexReport_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Course1" ColumnName="Course1" />
+                <ScalarProperty Name="Course2" ColumnName="Course2" />
+                <ScalarProperty Name="Course3" ColumnName="Course3" />
+                <ScalarProperty Name="Course4" ColumnName="Course4" />
+                <ScalarProperty Name="Course5" ColumnName="Course5" />
+                <ScalarProperty Name="Course6" ColumnName="Course6" />
+                <ScalarProperty Name="CodeSpeciality" ColumnName="CodeSpeciality" />
+                <ScalarProperty Name="NameSpeciality" ColumnName="NameSpeciality" />
+                <ScalarProperty Name="Profile" ColumnName="Profile" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="FormEducation" ColumnName="FormEducation" />
+                <ScalarProperty Name="NameQualification" ColumnName="NameQualification" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tlsp_getAllDiscipline" FunctionName="Хранилище DBTeachingLoadModel.tlsp_getAllDiscipline">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBTeachingLoadModel.tlsp_getAllDiscipline_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CodeSpeciality" ColumnName="CodeSpeciality" />
+                <ScalarProperty Name="NameSpeciality" ColumnName="NameSpeciality" />
+                <ScalarProperty Name="Discipline" ColumnName="Discipline" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="CodeChair" ColumnName="CodeChair" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tlsp_getFixedDisciplines" FunctionName="Хранилище DBTeachingLoadModel.tlsp_getFixedDisciplines">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBTeachingLoadModel.tlsp_getFixedDisciplines_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CodePlan" ColumnName="CodePlan" />
+                <ScalarProperty Name="Discipline" ColumnName="Discipline" />
+                <ScalarProperty Name="CodeSpeciality" ColumnName="CodeSpeciality" />
+                <ScalarProperty Name="NameSpeciality" ColumnName="NameSpeciality" />
+                <ScalarProperty Name="Profile" ColumnName="Profile" />
+                <ScalarProperty Name="NameQualification" ColumnName="NameQualification" />
+                <ScalarProperty Name="FormEducation" ColumnName="FormEducation" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="LecturePlan" ColumnName="LecturePlan" />
+                <ScalarProperty Name="LaboratoryWorkPlan" ColumnName="LaboratoryWorkPlan" />
+                <ScalarProperty Name="PracticalExercisesPlan" ColumnName="PracticalExercisesPlan" />
+                <ScalarProperty Name="CourseProjectPlan" ColumnName="CourseProjectPlan" />
+                <ScalarProperty Name="CourseWorktPlan" ColumnName="CourseWorktPlan" />
+                <ScalarProperty Name="ControlWorkPlan" ColumnName="ControlWorkPlan" />
+                <ScalarProperty Name="ExaminationPlan" ColumnName="ExaminationPlan" />
+                <ScalarProperty Name="SetOffPlan" ColumnName="SetOffPlan" />
+                <ScalarProperty Name="PracticalPlan" ColumnName="PracticalPlan" />
+                <ScalarProperty Name="GakPlan" ColumnName="GakPlan" />
+                <ScalarProperty Name="GraduationDesignPlan" ColumnName="GraduationDesignPlan" />
+                <ScalarProperty Name="ScientificResearchWorkPlan" ColumnName="ScientificResearchWorkPlan" />
+                <ScalarProperty Name="CodeChair" ColumnName="CodeChair" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="TeachingLoads">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.TeachingLoad">
+              <MappingFragment StoreEntitySet="TeachingLoad">
+                <ScalarProperty Name="SetOffWithBall" ColumnName="SetOffWithBall" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="IsFaultLoad" ColumnName="IsFaultLoad" />
+                <ScalarProperty Name="IsLoad" ColumnName="IsLoad" />
+                <ScalarProperty Name="FlagChange" ColumnName="FlagChange" />
+                <ScalarProperty Name="StreamPract" ColumnName="StreamPract" />
+                <ScalarProperty Name="StreamLab" ColumnName="StreamLab" />
+                <ScalarProperty Name="Stream" ColumnName="Stream" />
+                <ScalarProperty Name="SumCommerce" ColumnName="SumCommerce" />
+                <ScalarProperty Name="SumUnload" ColumnName="SumUnload" />
+                <ScalarProperty Name="SumLoad" ColumnName="SumLoad" />
+                <ScalarProperty Name="ScientificResearchWork" ColumnName="ScientificResearchWork" />
+                <ScalarProperty Name="Others" ColumnName="Others" />
+                <ScalarProperty Name="Dot" ColumnName="Dot" />
+                <ScalarProperty Name="Gac" ColumnName="Gac" />
+                <ScalarProperty Name="ControlWork" ColumnName="ControlWork" />
+                <ScalarProperty Name="GraduationDesign" ColumnName="GraduationDesign" />
+                <ScalarProperty Name="Practical" ColumnName="Practical" />
+                <ScalarProperty Name="CourseWorkt" ColumnName="CourseWorkt" />
+                <ScalarProperty Name="CourseProject" ColumnName="CourseProject" />
+                <ScalarProperty Name="SetOff" ColumnName="SetOff" />
+                <ScalarProperty Name="Consultation" ColumnName="Consultation" />
+                <ScalarProperty Name="Examination" ColumnName="Examination" />
+                <ScalarProperty Name="LaboratoryWork" ColumnName="LaboratoryWork" />
+                <ScalarProperty Name="PracticalExercises" ColumnName="PracticalExercises" />
+                <ScalarProperty Name="Lecture" ColumnName="Lecture" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="SemesterYear" ColumnName="SemesterYear" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="TypeDiscipline" ColumnName="TypeDiscipline" />
+                <ScalarProperty Name="ShortNameFaculty" ColumnName="ShortNameFaculty" />
+                <ScalarProperty Name="FormEducation" ColumnName="FormEducation" />
+                <ScalarProperty Name="Discipline" ColumnName="Discipline" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="Profile" ColumnName="Profile" />
+                <ScalarProperty Name="Speciality" ColumnName="Speciality" />
+                <ScalarProperty Name="CommerceStudent" ColumnName="CommerceStudent" />
+                <ScalarProperty Name="ForeignStudent" ColumnName="ForeignStudent" />
+                <ScalarProperty Name="Student" ColumnName="Student" />
+                <ScalarProperty Name="Subgroup" ColumnName="Subgroup" />
+                <ScalarProperty Name="NameGroup" ColumnName="NameGroup" />
+                <ScalarProperty Name="NameCurricilum" ColumnName="NameCurricilum" />
+                <ScalarProperty Name="IdTeachingLoadChair" ColumnName="IdTeachingLoadChair" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="tlsp_getGroups" FunctionName="Хранилище DBTeachingLoadModel.tlsp_getGroups">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBTeachingLoadModel.tlsp_getGroups_Result">
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="NameGroup" ColumnName="NameGroup" />
+                <ScalarProperty Name="NameSpeciality" ColumnName="NameSpeciality" />
+                <ScalarProperty Name="Profile" ColumnName="Profile" />
+                <ScalarProperty Name="CodeSpeciality" ColumnName="CodeSpeciality" />
+                <ScalarProperty Name="NameQualification" ColumnName="NameQualification" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="FormEducation" ColumnName="FormEducation" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="CountStudent" ColumnName="CountStudent" />
+                <ScalarProperty Name="CountForeignStudent" ColumnName="CountForeignStudent" />
+                <ScalarProperty Name="CountComStudent" ColumnName="CountComStudent" />
+                <ScalarProperty Name="CountSubgroup" ColumnName="CountSubgroup" />
+                <ScalarProperty Name="CurriculumName" ColumnName="CurriculumName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="DisciplinePlans">
+            <EntityTypeMapping TypeName="DBTeachingLoadModel.DisciplinePlan">
+              <MappingFragment StoreEntitySet="DisciplinePlan">
+                <ScalarProperty Name="ScientificResearchWorkPlan" ColumnName="ScientificResearchWorkPlan" />
+                <ScalarProperty Name="GakPlan" ColumnName="GakPlan" />
+                <ScalarProperty Name="GraduationDesignPlan" ColumnName="GraduationDesignPlan" />
+                <ScalarProperty Name="ControlWorkPlan" ColumnName="ControlWorkPlan" />
+                <ScalarProperty Name="PracticalPlan" ColumnName="PracticalPlan" />
+                <ScalarProperty Name="CourseWorktPlan" ColumnName="CourseWorktPlan" />
+                <ScalarProperty Name="CourseProjectPlan" ColumnName="CourseProjectPlan" />
+                <ScalarProperty Name="SetOffWithBallPlan" ColumnName="SetOffWithBallPlan" />
+                <ScalarProperty Name="SetOffPlan" ColumnName="SetOffPlan" />
+                <ScalarProperty Name="ExaminationPlan" ColumnName="ExaminationPlan" />
+                <ScalarProperty Name="LaboratoryWorkPlan" ColumnName="LaboratoryWorkPlan" />
+                <ScalarProperty Name="PracticalExercisesPlan" ColumnName="PracticalExercisesPlan" />
+                <ScalarProperty Name="LecturePlan" ColumnName="LecturePlan" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="SemesterYear" ColumnName="SemesterYear" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="CodePlan" ColumnName="CodePlan" />
+                <ScalarProperty Name="Discipline" ColumnName="Discipline" />
+                <ScalarProperty Name="IdChair" ColumnName="IdChair" />
+                <ScalarProperty Name="IdCurriculum" ColumnName="IdCurriculum" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="tlsp_getDisciplineChair" FunctionName="Хранилище DBTeachingLoadModel.tlsp_getDisciplineChair">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBTeachingLoadModel.tlsp_getDisciplineChair_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdAcademicYear" ColumnName="IdAcademicYear" />
+                <ScalarProperty Name="IdChair" ColumnName="IdChair" />
+                <ScalarProperty Name="CodePlan" ColumnName="CodePlan" />
+                <ScalarProperty Name="Discipline" ColumnName="Discipline" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="SemesterYear" ColumnName="SemesterYear" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="LecturePlan" ColumnName="LecturePlan" />
+                <ScalarProperty Name="PracticalExercisesPlan" ColumnName="PracticalExercisesPlan" />
+                <ScalarProperty Name="LaboratoryWorkPlan" ColumnName="LaboratoryWorkPlan" />
+                <ScalarProperty Name="ExaminationPlan" ColumnName="ExaminationPlan" />
+                <ScalarProperty Name="SetOffPlan" ColumnName="SetOffPlan" />
+                <ScalarProperty Name="SetOffWithBallPlan" ColumnName="SetOffWithBallPlan" />
+                <ScalarProperty Name="CourseProjectPlan" ColumnName="CourseProjectPlan" />
+                <ScalarProperty Name="CourseWorktPlan" ColumnName="CourseWorktPlan" />
+                <ScalarProperty Name="PracticalPlan" ColumnName="PracticalPlan" />
+                <ScalarProperty Name="ControlWorkPlan" ColumnName="ControlWorkPlan" />
+                <ScalarProperty Name="GraduationDesignPlan" ColumnName="GraduationDesignPlan" />
+                <ScalarProperty Name="GakPlan" ColumnName="GakPlan" />
+                <ScalarProperty Name="ScientificResearchWorkPlan" ColumnName="ScientificResearchWorkPlan" />
+                <ScalarProperty Name="CodeChair" ColumnName="CodeChair" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="FormEducation" ColumnName="FormEducation" />
+                <ScalarProperty Name="NameQualification" ColumnName="NameQualification" />
+                <ScalarProperty Name="NameSpeciality" ColumnName="NameSpeciality" />
+                <ScalarProperty Name="CodeSpeciality" ColumnName="CodeSpeciality" />
+                <ScalarProperty Name="Profile" ColumnName="Profile" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tlsp_setDisciplineChairWithGroup" FunctionName="Хранилище DBTeachingLoadModel.tlsp_setDisciplineChairWithGroup">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBTeachingLoadModel.tlsp_setDisciplineChairWithGroup_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CodePlan" ColumnName="CodePlan" />
+                <ScalarProperty Name="Discipline" ColumnName="Discipline" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="SemesterYear" ColumnName="SemesterYear" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="CodeSpeciality" ColumnName="CodeSpeciality" />
+                <ScalarProperty Name="NameSpeciality" ColumnName="NameSpeciality" />
+                <ScalarProperty Name="Profile" ColumnName="Profile" />
+                <ScalarProperty Name="NameQualification" ColumnName="NameQualification" />
+                <ScalarProperty Name="FormEducation" ColumnName="FormEducation" />
+                <ScalarProperty Name="NameGroup" ColumnName="NameGroup" />
+                <ScalarProperty Name="CountComStudent" ColumnName="CountComStudent" />
+                <ScalarProperty Name="CountSubgroup" ColumnName="CountSubgroup" />
+                <ScalarProperty Name="CountStudent" ColumnName="CountStudent" />
+                <ScalarProperty Name="CountForeignStudent" ColumnName="CountForeignStudent" />
+                <ScalarProperty Name="LecturePlan" ColumnName="LecturePlan" />
+                <ScalarProperty Name="PracticalExercisesPlan" ColumnName="PracticalExercisesPlan" />
+                <ScalarProperty Name="LaboratoryWorkPlan" ColumnName="LaboratoryWorkPlan" />
+                <ScalarProperty Name="ExaminationPlan" ColumnName="ExaminationPlan" />
+                <ScalarProperty Name="SetOffPlan" ColumnName="SetOffPlan" />
+                <ScalarProperty Name="SetOffWithBallPlan" ColumnName="SetOffWithBallPlan" />
+                <ScalarProperty Name="CourseProjectPlan" ColumnName="CourseProjectPlan" />
+                <ScalarProperty Name="CourseWorktPlan" ColumnName="CourseWorktPlan" />
+                <ScalarProperty Name="PracticalPlan" ColumnName="PracticalPlan" />
+                <ScalarProperty Name="ControlWorkPlan" ColumnName="ControlWorkPlan" />
+                <ScalarProperty Name="GraduationDesignPlan" ColumnName="GraduationDesignPlan" />
+                <ScalarProperty Name="ScientificResearchWorkPlan" ColumnName="ScientificResearchWorkPlan" />
+                <ScalarProperty Name="GakPlan" ColumnName="GakPlan" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tlsp_getDisciplineChairFullTime" FunctionName="Хранилище DBTeachingLoadModel.tlsp_getDisciplineChairFullTime">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBTeachingLoadModel.tlsp_getDisciplineChairFullTime_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdAcademicYear" ColumnName="IdAcademicYear" />
+                <ScalarProperty Name="IdChair" ColumnName="IdChair" />
+                <ScalarProperty Name="CodePlan" ColumnName="CodePlan" />
+                <ScalarProperty Name="Discipline" ColumnName="Discipline" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="SemesterYear" ColumnName="SemesterYear" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="LecturePlan" ColumnName="LecturePlan" />
+                <ScalarProperty Name="PracticalExercisesPlan" ColumnName="PracticalExercisesPlan" />
+                <ScalarProperty Name="LaboratoryWorkPlan" ColumnName="LaboratoryWorkPlan" />
+                <ScalarProperty Name="ExaminationPlan" ColumnName="ExaminationPlan" />
+                <ScalarProperty Name="SetOffPlan" ColumnName="SetOffPlan" />
+                <ScalarProperty Name="SetOffWithBallPlan" ColumnName="SetOffWithBallPlan" />
+                <ScalarProperty Name="CourseProjectPlan" ColumnName="CourseProjectPlan" />
+                <ScalarProperty Name="CourseWorktPlan" ColumnName="CourseWorktPlan" />
+                <ScalarProperty Name="PracticalPlan" ColumnName="PracticalPlan" />
+                <ScalarProperty Name="ControlWorkPlan" ColumnName="ControlWorkPlan" />
+                <ScalarProperty Name="GraduationDesignPlan" ColumnName="GraduationDesignPlan" />
+                <ScalarProperty Name="GakPlan" ColumnName="GakPlan" />
+                <ScalarProperty Name="ScientificResearchWorkPlan" ColumnName="ScientificResearchWorkPlan" />
+                <ScalarProperty Name="CodeChair" ColumnName="CodeChair" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="FormEducation" ColumnName="FormEducation" />
+                <ScalarProperty Name="NameQualification" ColumnName="NameQualification" />
+                <ScalarProperty Name="NameSpeciality" ColumnName="NameSpeciality" />
+                <ScalarProperty Name="CodeSpeciality" ColumnName="CodeSpeciality" />
+                <ScalarProperty Name="Profile" ColumnName="Profile" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tlsp_getDisciplineChairPartTime" FunctionName="Хранилище DBTeachingLoadModel.tlsp_getDisciplineChairPartTime">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBTeachingLoadModel.tlsp_getDisciplineChairPartTime_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdAcademicYear" ColumnName="IdAcademicYear" />
+                <ScalarProperty Name="IdChair" ColumnName="IdChair" />
+                <ScalarProperty Name="CodePlan" ColumnName="CodePlan" />
+                <ScalarProperty Name="Discipline" ColumnName="Discipline" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="SemesterYear" ColumnName="SemesterYear" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="LecturePlan" ColumnName="LecturePlan" />
+                <ScalarProperty Name="PracticalExercisesPlan" ColumnName="PracticalExercisesPlan" />
+                <ScalarProperty Name="LaboratoryWorkPlan" ColumnName="LaboratoryWorkPlan" />
+                <ScalarProperty Name="ExaminationPlan" ColumnName="ExaminationPlan" />
+                <ScalarProperty Name="SetOffPlan" ColumnName="SetOffPlan" />
+                <ScalarProperty Name="SetOffWithBallPlan" ColumnName="SetOffWithBallPlan" />
+                <ScalarProperty Name="CourseProjectPlan" ColumnName="CourseProjectPlan" />
+                <ScalarProperty Name="CourseWorktPlan" ColumnName="CourseWorktPlan" />
+                <ScalarProperty Name="PracticalPlan" ColumnName="PracticalPlan" />
+                <ScalarProperty Name="ControlWorkPlan" ColumnName="ControlWorkPlan" />
+                <ScalarProperty Name="GraduationDesignPlan" ColumnName="GraduationDesignPlan" />
+                <ScalarProperty Name="GakPlan" ColumnName="GakPlan" />
+                <ScalarProperty Name="ScientificResearchWorkPlan" ColumnName="ScientificResearchWorkPlan" />
+                <ScalarProperty Name="CodeChair" ColumnName="CodeChair" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="FormEducation" ColumnName="FormEducation" />
+                <ScalarProperty Name="NameQualification" ColumnName="NameQualification" />
+                <ScalarProperty Name="NameSpeciality" ColumnName="NameSpeciality" />
+                <ScalarProperty Name="CodeSpeciality" ColumnName="CodeSpeciality" />
+                <ScalarProperty Name="Profile" ColumnName="Profile" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="По умолчанию" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

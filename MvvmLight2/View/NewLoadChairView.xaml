@@ -1,0 +1,127 @@
+﻿<UserControl x:Class="MvvmLight2.View.NewLoadChairView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:rs="clr-namespace:MvvmLight2.Properties"
+             xmlns:md="clr-namespace:MvvmLight2.Design"
+             mc:Ignorable="d"
+            d:DataContext="{Binding Source={StaticResource newLoadVM}}" Loaded="UserControl_Loaded">
+
+    <UserControl.Resources>
+        <md:DesignServiceNewLoadChair  x:Key="newLoadVM" />
+    </UserControl.Resources>
+
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width='Auto'/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Text="Дисциплина/Нагрузка" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="1" Text="Кол. обучающихся" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="2" Text="Кол. иностранцев" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="3" Text="Направление" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="4" Text="Профиль" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="5" Text="Квалификация" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+       
+        <TextBlock Grid.Row="6" Text="Форма обучения" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="7" Text="Курс" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="8" Text="Семестр" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="9" Text="ГАК" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="10" Text="Практика" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="11" Text="Дипломное проектирование" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="12" Text="Прочее" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+
+        <TextBox x:Name="tbDiscipline" Grid.Row="0" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding NewLoadChair.Discipline, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding NewLoadChair.Student, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding NewLoadChair.ForeignStudent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox Name="ComboBoxSpeciality" Grid.Row="3" Grid.Column="1" 
+                  Height="25"
+                  Style ="{StaticResource ComboBoxWindowdEdit}"  
+                  ItemsSource="{Binding Source={StaticResource listSpeciality}}" 
+                  ItemTemplate="{StaticResource SpecialAndQualifTemplate}"
+                  SelectedValue="{Binding Path=NewLoadChair.Speciality, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValuePath="CodeSpeciality" />
+        <!--DisplayMemberPath="NameSpeciality"--> 
+        <TextBox Grid.Row="4" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                Text="{Binding SelectedItem.Profile, ElementName=ComboBoxSpeciality}" IsReadOnly="True"/>
+        <ComboBox Grid.Row="5" Grid.Column="1" Height="25"
+                  Style ="{StaticResource ComboBoxWindowdEdit}"  
+                  ItemsSource="{Binding Source={StaticResource listQualification}}" 
+                  DisplayMemberPath="NameQualification" 
+                  SelectedValue="{Binding Path=NewLoadChair.Qualification, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValuePath="NameQualification" />
+        <ComboBox Grid.Row="6" Grid.Column="1" Height="25"
+                  Style ="{StaticResource ComboBoxWindowdEdit}"  
+                  ItemsSource="{Binding Source={StaticResource listEducationForm}}" 
+                  DisplayMemberPath="FormEducation" 
+                  SelectedValue="{Binding Path=NewLoadChair.FormEducation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValuePath="FormEducation" />
+        <TextBox Grid.Row="7" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding NewLoadChair.Course, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="8" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding NewLoadChair.Semester, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="9" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding NewLoadChair.Gac, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="10" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding NewLoadChair.Practical, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="11" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding NewLoadChair.GraduationDesign, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="12" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding NewLoadChair.Others, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <StackPanel Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="2" 
+                    Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="{x:Static rs:Resources.ButtonOK}" 
+                    Style="{StaticResource ButtonWindowdEdit}"
+                    Command="{Binding OkCommand, Mode=OneWay}" IsDefault="True"/>
+            <Button Content="{x:Static rs:Resources.ButtonCansel}" 
+                    Style="{StaticResource ButtonWindowdEdit}"
+                    Command="{Binding CancelCommand, Mode=OneWay}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
+
+

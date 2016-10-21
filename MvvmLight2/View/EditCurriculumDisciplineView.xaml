@@ -1,0 +1,165 @@
+﻿<UserControl x:Class="MvvmLight2.View.EditCurriculumDisciplineView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:rs="clr-namespace:MvvmLight2.Properties"
+             xmlns:md="clr-namespace:MvvmLight2.Design"
+             xmlns:h="clr-namespace:MvvmLight2.Helper"
+             xmlns:vr ="clr-namespace:MvvmLight2.ValidationRules"
+             mc:Ignorable="d"
+             d:DataContext="{Binding Source={StaticResource editDisciplineVM}}" 
+             Loaded="UserControl_Loaded" >
+
+    <UserControl.Resources>
+        <md:DesignerServiceEditDiscilpine x:Key="editDisciplineVM" />
+        <h:StringToDecimalConverter x:Key="DecimalConverter" />
+    </UserControl.Resources>
+
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width='20'/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Шифр" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="1" Text="Дисциплина" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="2" Text="Курс" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="3" Text="Семестр" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="4" Text="Лекции" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="5" Text="Лабораторные" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="6" Text="Практические" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="7" Text="Курсовой проект" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="8" Text="Курсовая работа" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="9" Text="Контрольная работа" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="10" Text="Практика" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="11" Text="Экзамен" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="12" Text="Зачет" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="13" Text="Зачет с оценкой" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="14" Text="Руководство ВКР" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="15" Text="ГЭК/ГАК" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="16" Text="НИР" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="17" Text="Кафедра" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+
+
+        <TextBox Name="TextBoxCodePlan" Grid.Row="0" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Discipline.CodePlan, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  />
+        <TextBox Grid.Row="1" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Discipline.Discipline, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  />
+        <TextBox Grid.Row="2" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Discipline.Course, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+        <TextBox Grid.Row="3" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Discipline.Semester, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+        <TextBox Grid.Row="4" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Discipline.LecturePlan, Mode=TwoWay, UpdateSourceTrigger=LostFocus, StringFormat={}{0:f0}}" />
+        <TextBox Grid.Row="5" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Discipline.LaboratoryWorkPlan, Mode=TwoWay, UpdateSourceTrigger=LostFocus, StringFormat={}{0:f0}}"  />
+        <TextBox Grid.Row="6" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Discipline.PracticalExercisesPlan, Mode=TwoWay, UpdateSourceTrigger=LostFocus, StringFormat={}{0:f0}}" />
+        <TextBox Grid.Row="7" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Discipline.CourseProjectPlan, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  />
+        <TextBox Grid.Row="8" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Discipline.CourseWorktPlan, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+        <TextBox Grid.Row="9" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Discipline.ControlWorkPlan, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  />
+        <TextBox Grid.Row="10" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Discipline.PracticalPlan, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  />
+        <TextBox Grid.Row="11" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Discipline.ExaminationPlan, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+        <TextBox Grid.Row="12" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Discipline.SetOffPlan, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+        <TextBox Grid.Row="13" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Discipline.SetOffWithBallPlan, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+        <ComboBox Grid.Row="17" Grid.Column="1" 
+                  Name="ComboBoxChair" Height="25" MaxWidth="300"
+                  Style ="{StaticResource ComboBoxWindowdEdit}"  
+                  ItemsSource="{Binding Source={StaticResource listChair}}" 
+                  DisplayMemberPath="NameChair" 
+                  SelectedValue="{Binding Path=Discipline.IdChair, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValuePath="Id" />
+        <TextBox Grid.Row="14" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Discipline.GraduationDesignPlan, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+        <TextBox Grid.Row="15" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Discipline.GakPlan, Mode=TwoWay, UpdateSourceTrigger=LostFocus, 
+              Converter = {StaticResource DecimalConverter}, ValidatesOnDataErrors=True}" />
+        <TextBox Grid.Row="16" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Discipline.ScientificResearchWorkPlan, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+
+        <!--<TextBox Grid.Row="12" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding DisciplinePlan.CodeChair, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />-->
+
+
+
+        <StackPanel Grid.Row="18" Grid.Column="0" Grid.ColumnSpan="2" 
+                    Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="{x:Static rs:Resources.ButtonOK}" 
+                    Style="{StaticResource ButtonWindowdEdit}"
+                    Command="{Binding OkCommand, Mode=OneWay}" IsDefault="True"/>
+            <Button Content="{x:Static rs:Resources.ButtonCansel}" 
+                    Style="{StaticResource ButtonWindowdEdit}"
+                    Command="{Binding CancelCommand, Mode=OneWay}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
+
+
+

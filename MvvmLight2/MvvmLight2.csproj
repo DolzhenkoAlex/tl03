@@ -1,0 +1,901 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2C77D989-D6E8-4241-ACD2-F4C1A23720FE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MvvmLight2</RootNamespace>
+    <AssemblyName>MvvmLight2</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>C:\deploy\TL001_rsue_18042016\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>28</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>13AEDB96EE2C1027544DE56BE3E44496B97E51F9</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>MvvmLight2_2_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons_1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WPF45, Version=4.1.24.16411, Culture=neutral, PublicKeyToken=0e27b6f8be9b2ef7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalLibrary\GalaSoft.MvvmLight.Extras.WPF45.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WPF45, Version=4.1.24.16411, Culture=neutral, PublicKeyToken=eabbf6a5f5af5004, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalLibrary\GalaSoft.MvvmLight.WPF45.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Graph, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=59d6d24383174ac4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalLibrary\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalLibrary\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalLibrary\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalLibrary\Microsoft.ReportViewer.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalLibrary\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalLibrary\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Helper\LoadDiscipline.cs" />
+    <Compile Include="ViewModelLocators\UniversityVMLocator.cs" />
+    <Compile Include="ViewModel\ReportGroupViewModel.cs" />
+    <Compile Include="View\ReportGroupView.xaml.cs">
+      <DependentUpon>ReportGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AboutViewModel.cs" />
+    <Compile Include="View\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Design\DesignServiceAcademicYear.cs" />
+    <Compile Include="Design\DesignServiceCreateStream.cs" />
+    <Compile Include="Design\DesignServiceEditAcademicYear.cs" />
+    <Compile Include="Design\DesignServiceEditEducationForm.cs" />
+    <Compile Include="Design\DesignServiceEditPost.cs" />
+    <Compile Include="Design\DesignServiceEditQualification.cs" />
+    <Compile Include="Design\DesignServiceEditSpeciality.cs" />
+    <Compile Include="Design\DesignServiceEditTypeEmployment.cs" />
+    <Compile Include="Design\DesignServiceEditTypeTraining.cs" />
+    <Compile Include="Design\DesignServiceEditUnit.cs" />
+    <Compile Include="Design\DesignServiceEducationForm.cs" />
+    <Compile Include="Design\DesignServiceFixedDiscipline.cs" />
+    <Compile Include="Design\DesignServicePost.cs" />
+    <Compile Include="Design\DesignServiceQualification.cs" />
+    <Compile Include="Design\DesignServiceSpeciality.cs" />
+    <Compile Include="Design\DesignServiceTypeEmployment.cs" />
+    <Compile Include="Design\DesignServiceTypeTraining.cs" />
+    <Compile Include="Design\DesignServiceUnit.cs" />
+    <Compile Include="Helper\CurriculumShort.cs" />
+    <Compile Include="Helper\ListSummaryCurriculumWork.cs" />
+    <Compile Include="Helper\SummaryOfCurriculumWork.cs" />
+    <Compile Include="Helper\StringToDecimalConvert.cs" />
+    <Compile Include="Model\TeachingLoad.cs" />
+    <Compile Include="ServiceData\IServiceFixedDiscipline.cs" />
+    <Compile Include="ServiceData\ServiceFixedDiscipline.cs" />
+    <Compile Include="ViewModel\CreateStreamLabViewModel.cs" />
+    <Compile Include="ViewModel\CreateStreamPractViewModel.cs" />
+    <Compile Include="ViewModel\CreateStreamViewModel.cs" />
+    <Compile Include="ViewModel\FixedDisciplineViewModel.cs" />
+    <Compile Include="ViewModel\ReportChairDisciplinesFullTimeViewModel.cs" />
+    <Compile Include="ViewModel\ReportChairDisciplinesPartTimeViewModel.cs" />
+    <Compile Include="ViewModel\ReportChairLoadFullTimeViewModel.cs" />
+    <Compile Include="ViewModel\ReportChairLoadPartTimeViewModel.cs" />
+    <Compile Include="ViewModel\ReportFixedDisciplinesViewModel.cs" />
+    <Compile Include="View\CreateStreamLabView.xaml.cs">
+      <DependentUpon>CreateStreamLabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CreateStreamPractView.xaml.cs">
+      <DependentUpon>CreateStreamPractView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CreateStreamView.xaml.cs">
+      <DependentUpon>CreateStreamView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FixedDisciplineView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\ReportSummaryCurriculumWorkViewModel.cs" />
+    <Compile Include="View\ReportChairDisciplinesFullTimeView.xaml.cs">
+      <DependentUpon>ReportChairDisciplinesFullTimeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportChairDisciplinesPartTimeView.xaml.cs">
+      <DependentUpon>ReportChairDisciplinesPartTimeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportChairLoadFullTimeView.xaml.cs" />
+    <Compile Include="View\ReportChairLoadPartTimeView.xaml.cs" />
+    <Compile Include="View\ReportFixedDisciplinesView.xaml.cs">
+      <DependentUpon>ReportFixedDisciplinesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportSummaryCurriculumWorkView.xaml.cs">
+      <DependentUpon>ReportSummaryCurriculumWorkView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceData\IServiceAcademicYear.cs" />
+    <Compile Include="ServiceData\IServiceConnectionStringDB.cs" />
+    <Compile Include="ServiceData\IServiceEducationForm.cs" />
+    <Compile Include="ServiceData\IServicePost.cs" />
+    <Compile Include="ServiceData\IServiceQualification.cs" />
+    <Compile Include="ServiceData\IServiceSpeciality.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ServiceData\IServiceStandartTime.cs" />
+    <Compile Include="ServiceData\IServiceTypeEmployment.cs" />
+    <Compile Include="ServiceData\IServiceTypeTraining.cs" />
+    <Compile Include="ServiceData\IServiceUnit.cs" />
+    <Compile Include="ServiceData\ServiceAcademicYear.cs" />
+    <Compile Include="ServiceData\ServiceConnectionStringDB.cs" />
+    <Compile Include="ServiceData\ServiceEducationForm.cs" />
+    <Compile Include="ServiceData\ServicePost.cs" />
+    <Compile Include="ServiceData\ServiceQualification.cs" />
+    <Compile Include="ServiceData\ServiceSpeciality.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ServiceData\ServiceStandartTime.cs" />
+    <Compile Include="ServiceData\ServiceTypeEmployment.cs" />
+    <Compile Include="ServiceData\ServiceTypeTraining.cs" />
+    <Compile Include="ServiceData\ServiceUnit.cs" />
+    <Compile Include="ValidationRules\GakRule.cs" />
+    <Compile Include="ViewModel\CurriculumFromExlViewMode.cs" />
+    <Compile Include="ViewModel\CurriculumFromXmlViewMode.cs" />
+    <Compile Include="ViewModel\DictAcademicYearViewModel.cs" />
+    <Compile Include="ViewModel\DictEducationFormViewModel.cs" />
+    <Compile Include="ViewModel\DictPostViewModel.cs" />
+    <Compile Include="ViewModel\DictQualificationViewModel.cs" />
+    <Compile Include="ViewModel\DictTypeEmploymentViewModel.cs" />
+    <Compile Include="ViewModel\DictTypeTrainingViewModel.cs" />
+    <Compile Include="ViewModel\DictUnitViewModel.cs" />
+    <Compile Include="ViewModel\EditAcademicYearViewModel.cs" />
+    <Compile Include="ViewModel\EditEducationFormViewModel.cs" />
+    <Compile Include="ViewModel\EditPostViewModel.cs" />
+    <Compile Include="ViewModel\EditQualificationViewModel.cs" />
+    <Compile Include="ViewModel\EditSpecialityViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\EditTypeEmploymentViewModel.cs" />
+    <Compile Include="ViewModel\EditTypeTrainingViewModel.cs" />
+    <Compile Include="ViewModel\EditUnitViewModel.cs" />
+    <Compile Include="ViewModel\NewCurriculumFromExlViewModel.cs" />
+    <Compile Include="ViewModel\NewCurriculumFromXmlViewModel.cs" />
+    <Compile Include="ViewModel\ServerConnectionViewModel.cs" />
+    <Compile Include="ViewModel\SpecialityViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\CurriculumFromExlView.xaml.cs">
+      <DependentUpon>CurriculumFromExlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CurriculumFromXmlView.xaml.cs">
+      <DependentUpon>CurriculumFromXmlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\DurationStudyConvert.cs" />
+    <Compile Include="Helper\ChairToFacultyConvert.cs" />
+    <Compile Include="ViewModel\CurriculumFromDBViewMode.cs" />
+    <Compile Include="ViewModel\NewCurriculumFromDBViewModel.cs" />
+    <Compile Include="View\CurriculumFromDBView.xaml.cs">
+      <DependentUpon>CurriculumFromDBView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Design\DesignerServiceEditDiscilpine.cs" />
+    <Compile Include="Design\DesigneServiceEditCurriculum .cs" />
+    <Compile Include="Design\DesigneServiceLoadCurriculum.cs" />
+    <Compile Include="Design\DesignServiceCurriculum.cs" />
+    <Compile Include="Design\DesignServiceLoadChair.cs" />
+    <Compile Include="Design\DesignServiceNewLoadChair.cs" />
+    <Compile Include="Helper\DistributionTeachingLoad.cs" />
+    <Compile Include="ViewModel\ReportTeacherLoadViewModel.cs" />
+    <Compile Include="View\DictAcademicYearView.xaml.cs">
+      <DependentUpon>DictAcademicYearView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DictEducationFormView.xaml.cs">
+      <DependentUpon>DictEducationFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DictPostView.xaml.cs">
+      <DependentUpon>DictPostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DictQualificationView.xaml.cs">
+      <DependentUpon>DictQualificationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DictTypeEmploymentView.xaml.cs">
+      <DependentUpon>DictTypeEmploymentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DictTypeTrainingView.xaml.cs">
+      <DependentUpon>DictTypeTrainingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DictUnitView.xaml.cs">
+      <DependentUpon>DictUnitView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditAcademicYearView.xaml.cs">
+      <DependentUpon>EditAcademicYearView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditEducationFormView.xaml.cs">
+      <DependentUpon>EditEducationFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditPostView.xaml.cs">
+      <DependentUpon>EditPostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditQualificationView.xaml.cs">
+      <DependentUpon>EditQualificationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditSpecialityView.xaml.cs">
+      <DependentUpon>EditSpecialityView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\EditTypeEmploymentView.xaml.cs">
+      <DependentUpon>EditTypeEmploymentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditTypeTrainingView.xaml.cs">
+      <DependentUpon>EditTypeTrainingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditUnitView.xaml.cs">
+      <DependentUpon>EditUnitView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewCurriculumFromDBView.xaml.cs">
+      <DependentUpon>NewCurriculumFromDBView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewCurriculumFromExlView.xaml.cs">
+      <DependentUpon>NewCurriculumFromExlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewCurriculumFromXmlView.xaml.cs">
+      <DependentUpon>NewCurriculumFromXmlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportTeacherLoadView.xaml.cs">
+      <DependentUpon>ReportTeacherLoadView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ReportChairLoadViewModel.cs" />
+    <Compile Include="View\ReportChairLoadView.xaml.cs">
+      <DependentUpon>ReportChairLoadView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ReportChairDisciplineViewModel.cs" />
+    <Compile Include="View\ReportChairDisciplinesView.xaml.cs">
+      <DependentUpon>ReportChairDisciplinesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceData\IServiceLoadTeaher.cs" />
+    <Compile Include="ServiceData\ServiceLoadTeaher.cs" />
+    <Compile Include="ValidationRules\ExamenRulecs.cs" />
+    <Compile Include="ValidationRules\FormatRule.cs" />
+    <Compile Include="ViewModel\LoadTeacherViewModel.cs" />
+    <Compile Include="View\LoadTeacherView.xaml.cs">
+      <DependentUpon>LoadTeacherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\DataDisciplineChair.cs" />
+    <Compile Include="Helper\ListTypeWork.cs" />
+    <Compile Include="Helper\ListUnit.cs" />
+    <Compile Include="Helper\ModeLoad.cs" />
+    <Compile Include="Model\ModelTL001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelTL001.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ModeSelectionLoadsViewModel.cs" />
+    <Compile Include="ViewModel\NewLoadChairViewModel.cs" />
+    <Compile Include="ViewModel\NewLoadViewModel.cs" />
+    <Compile Include="View\LoadChairView.xaml.cs">
+      <DependentUpon>LoadChairView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceData\IServiceLoadChair.cs" />
+    <Compile Include="ServiceData\ServiceLoadChair.cs" />
+    <Compile Include="ViewModel\LoadChairViewModel.cs" />
+    <Compile Include="ViewModel\AddDisciplinesChairViewModel.cs" />
+    <Compile Include="View\DisciplineChairView.xaml.cs">
+      <DependentUpon>DisciplineChairView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\ListChair.cs" />
+    <Compile Include="ServiceData\IServiceCurriculum.cs" />
+    <Compile Include="ServiceData\IServiceDisciplineChair.cs" />
+    <Compile Include="ServiceData\ServiceCurriculum.cs" />
+    <Compile Include="ServiceData\ServiceDisciplineChair.cs" />
+    <Compile Include="ViewModel\CurriculumViewModel.cs" />
+    <Compile Include="ViewModel\DisciplineChairViewModel.cs" />
+    <Compile Include="ViewModel\EditCurriculumDisciplineViewModel.cs" />
+    <Compile Include="ViewModel\EditCurriculumViewModel.cs" />
+    <Compile Include="View\CurriculumView.xaml.cs">
+      <DependentUpon>CurriculumView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Design\DesignServiceEditGroup.cs" />
+    <Compile Include="Design\DesignerServiceEditStandartTime.cs" />
+    <Compile Include="Design\DesignerServiceOrder.cs" />
+    <Compile Include="Design\DesignServiceEditTeacher.cs" />
+    <Compile Include="Design\DesignServiceGroup.cs" />
+    <Compile Include="Design\DesignServiceEditOrder.cs" />
+    <Compile Include="Design\DesignServiceTeachers.cs" />
+    <Compile Include="Design\DesignServiceEditChair.cs" />
+    <Compile Include="Design\DesignServiceChair.cs" />
+    <Compile Include="Design\DesignServiceFaculty.cs" />
+    <Compile Include="Design\DesignServiceUniversity.cs" />
+    <Compile Include="Helper\FilterAcademicYear.cs" />
+    <Compile Include="Helper\ListFaculty.cs" />
+    <Compile Include="Helper\ListOrderStandartTime.cs" />
+    <Compile Include="Helper\ListUniversity.cs" />
+    <Compile Include="ViewModel\EditStandartTimeViewModel.cs" />
+    <Compile Include="View\EditCurriculumDisciplineView.xaml.cs">
+      <DependentUpon>EditCurriculumDisciplineView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditCurriculumView.xaml.cs">
+      <DependentUpon>EditCurriculumView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditStandartTimeView.xaml.cs">
+      <DependentUpon>EditStandartTimeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\EditOrderStandardTimeViewModel.cs" />
+    <Compile Include="View\EditOrderStandartTimeView.xaml.cs">
+      <DependentUpon>EditOrderStandartTimeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddDisciplineChairView.xaml.cs">
+      <DependentUpon>AddDisciplineChairView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ModeSelectionLoadsView.xaml.cs">
+      <DependentUpon>ModeSelectionLoadsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewLoadChairView.xaml.cs">
+      <DependentUpon>NewLoadChairView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewLoadView.xaml.cs">
+      <DependentUpon>NewLoadView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OrderStandartTimeView.xaml.cs">
+      <DependentUpon>OrderStandartTimeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceData\IServiceOrderStandartTime.cs" />
+    <Compile Include="ServiceData\ServiceOrderStandartTime.cs" />
+    <Compile Include="ViewModel\EditGroupViewModel.cs" />
+    <Compile Include="ViewModel\OrderStandardTimeViewModel.cs" />
+    <Compile Include="View\EditGroupView.xaml.cs">
+      <DependentUpon>EditGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GroupView.xaml.cs">
+      <DependentUpon>GroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\ListAcademicYear.cs" />
+    <Compile Include="Helper\ListEducationForm.cs" />
+    <Compile Include="Helper\ListPost.cs" />
+    <Compile Include="Helper\ListQualification.cs" />
+    <Compile Include="Helper\ListSpeciality.cs" />
+    <Compile Include="Helper\ListTypeEmployment.cs" />
+    <Compile Include="ServiceData\IServiceGroup.cs" />
+    <Compile Include="ServiceData\IServiceTeacher.cs" />
+    <Compile Include="ServiceData\ServiceGroup.cs" />
+    <Compile Include="ServiceData\ServiceTeaher.cs" />
+    <Compile Include="ViewModel\EditTeacherViewModel .cs" />
+    <Compile Include="ViewModel\GroupViewModel.cs" />
+    <Compile Include="ViewModel\TeachersViewModel .cs" />
+    <Compile Include="View\EditTeacherView.xaml.cs">
+      <DependentUpon>EditTeacherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ServerConnectView.xaml.cs">
+      <DependentUpon>ServerConnectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SpecialityView.xaml.cs">
+      <DependentUpon>SpecialityView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\TeachersView.xaml.cs">
+      <DependentUpon>TeachersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\EditChairViewModel.cs" />
+    <Compile Include="View\ChairsView.xaml.cs">
+      <DependentUpon>ChairsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Design\DesignServiceEditFaculty.cs" />
+    <Compile Include="Design\DesignServiseEditUniversity.cs" />
+    <Compile Include="ServiceData\IServiceChair.cs" />
+    <Compile Include="ServiceData\ServiceChair.cs" />
+    <Compile Include="ViewModel\ChairsViewModel.cs" />
+    <Compile Include="ViewModel\EditFacultyViewModel.cs" />
+    <Compile Include="View\EditChairView.xaml.cs">
+      <DependentUpon>EditChairView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditFacultyView.xaml.cs">
+      <DependentUpon>EditFacultyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FacultyView.xaml.cs">
+      <DependentUpon>FacultyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceData\IServiceFaculty.cs" />
+    <Compile Include="ServiceData\ServiceFaculty.cs" />
+    <Compile Include="ViewModel\EditUniversityViewModel.cs" />
+    <Compile Include="ViewModel\FacultiesViewModel.cs" />
+    <Compile Include="View\EditUniversityView.xaml.cs">
+      <DependentUpon>EditUniversityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\CloseViewMessage.cs" />
+    <Compile Include="Helper\Container.cs" />
+    <Compile Include="Helper\IContainer.cs" />
+    <Compile Include="Helper\IWindowService.cs" />
+    <Compile Include="Helper\WindowService.cs" />
+    <Compile Include="ServiceData\IServiceUniversity.cs" />
+    <Compile Include="ServiceData\ServiceUniversity.cs" />
+    <Compile Include="View\CommonWindow.xaml.cs">
+      <DependentUpon>CommonWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UniversityView.xaml.cs">
+      <DependentUpon>UniversityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\MainViewModel .cs" />
+    <Compile Include="ViewModel\UniversitiesViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="ViewModel\WorkspaceViewModel.cs" />
+    <Page Include="View\ReportGroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CreateStreamLabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CreateStreamPractView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CreateStreamView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FixedDisciplineView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ReportChairDisciplinesFullTimeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ReportChairDisciplinesPartTimeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ReportChairLoadFullTimeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ReportChairLoadPartTimeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ReportFixedDisciplinesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ReportSummaryCurriculumWorkView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CurriculumFromExlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\CurriculumFromXmlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CurriculumFromDBView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DictAcademicYearView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DictEducationFormView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DictPostView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DictQualificationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DictTypeEmploymentView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DictTypeTrainingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DictUnitView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\EditAcademicYearView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\EditEducationFormView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\EditPostView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\EditQualificationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\EditSpecialityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditTypeEmploymentView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\EditTypeTrainingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\EditUnitView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\NewCurriculumFromDBView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NewCurriculumFromExlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\NewCurriculumFromXmlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ReportTeacherLoadView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ReportChairLoadView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ReportChairDisciplinesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoadTeacherView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoadChairView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DisciplineChairView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CurriculumView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditCurriculumDisciplineView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditCurriculumView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditStandartTimeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditOrderStandartTimeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddDisciplineChairView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ModeSelectionLoadsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NewLoadChairView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NewLoadView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OrderStandartTimeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditGroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditTeacherView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ServerConnectView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SpecialityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TeachersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ChairsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditChairView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditFacultyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FacultyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditUniversityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CommonWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UniversityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Skins\MainSkin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportGroups.rdlc" />
+    <EmbeddedResource Include="Report\ReportChairDisciplines.rdlc" />
+    <EmbeddedResource Include="Report\ReportChairDisciplinesFullTime.rdlc" />
+    <EmbeddedResource Include="Report\ReportChairDisciplinesPartTime.rdlc" />
+    <EmbeddedResource Include="Report\ReportChairLoad.rdlc" />
+    <EmbeddedResource Include="Report\ReportChairLoadFullTime.rdlc" />
+    <EmbeddedResource Include="Report\ReportChairLoadPartTimeWithQualification.rdlc" />
+    <EmbeddedResource Include="Report\ReportChairLoadWithQualification.rdlc" />
+    <EmbeddedResource Include="Report\ReportChairLoadFullTimeWithQualification.rdlc" />
+    <EmbeddedResource Include="Report\ReportChairLoadPartTime.rdlc" />
+    <EmbeddedResource Include="Report\ReportFixedAllDisciplines.rdlc" />
+    <EmbeddedResource Include="Report\ReportSummaryCurriculumWork.rdlc" />
+    <EmbeddedResource Include="Report\ReportTeacherLoad.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Model\ModelTL001.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelTL001.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\ModelTL001.edmx.diagram">
+      <DependentUpon>ModelTL001.edmx</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MvvmLight2_2_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Delete2.jpg" />
+    <Resource Include="View\Images\Edit.jpg" />
+    <Resource Include="View\Images\Refresh.jpg" />
+    <Resource Include="View\Images\Save.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Skins\Images\Delete.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\NP_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>Клиентский профиль .NET Framework 3.5 с пакетом обновления 1 %28SP1%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\NP_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\NP_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\icons_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibraryServiceDB\ClassLibraryServiceDB.csproj">
+      <Project>{7f46cced-597a-493e-8cda-10c963ac6cf0}</Project>
+      <Name>ClassLibraryServiceDB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ExternalLibrary\GalaSoft.MvvmLight.Extras.WPF45.dll" />
+    <Content Include="ExternalLibrary\GalaSoft.MvvmLight.WPF45.dll" />
+    <Content Include="ExternalLibrary\Microsoft.Practices.ServiceLocation.dll" />
+    <Content Include="ExternalLibrary\Microsoft.Practices.Unity.dll" />
+    <Content Include="ExternalLibrary\Microsoft.ReportViewer.Common.dll" />
+    <Content Include="ExternalLibrary\System.Windows.Interactivity.dll" />
+    <Content Include="ExternalLibrary\Xceed.Wpf.Toolkit.dll" />
+    <Resource Include="icons_1.ico" />
+    <Resource Include="View\Images\Refresh2.jpg" />
+    <Resource Include="View\Images\Refresh1.jpg" />
+    <Resource Include="View\Images\Add.jpg" />
+    <Resource Include="View\Images\Find.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,390 @@
+﻿<UserControl x:Class="MvvmLight2.LoadChairView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:rs="clr-namespace:MvvmLight2.Properties"
+             xmlns:md="clr-namespace:MvvmLight2.Design"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="1800"  
+             xmlns:ia="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+             xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+             DataContext="{Binding LoadChairVM, Source={StaticResource Locator}}"
+             d:DataContext="{Binding Source={StaticResource designLoadChairVM}}" 
+             Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded">
+
+    <UserControl.Resources>
+        <md:DesignServiceLoadChair x:Key="designLoadChairVM"/>
+    </UserControl.Resources>
+
+    <DockPanel>
+        <StackPanel  DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Right" MaxWidth="1560">
+                <GroupBox Header="Операции с нагрузкой кафедры" Height="50" Margin="5,5,15,5" 
+                          HorizontalAlignment="Center" BorderBrush="#FFC4C8CB">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button  Style="{StaticResource ButtonPanelStyle}"
+                                 ToolTip="Формировать нагрузку"
+                                 Command="{Binding Path=LoadDisciplineChair}">
+                            <Image Source="Images\Add.jpg"/>
+                        </Button>
+                        <Button  Style="{StaticResource ButtonPanelStyle}"
+                                 ToolTip="Удалить нагрузку"
+                                 Command="{Binding Path=RemoveLoadChair}">
+                            <Image Source="Images\Delete2.jpg"/>
+                        </Button>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Операции с дисциплинами нагрузки" Height="50" 
+                          HorizontalAlignment="Center" BorderBrush="#FFC4C8CB">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Style="{StaticResource ButtonPanelStyle}"
+                                Command="{Binding Path=AddCommand}" 
+                                ToolTip="Добавить дисциплину">
+                            <Image Source="Images\Add.jpg"/>
+                        </Button>
+                        <Button Style="{StaticResource ButtonPanelStyle}"
+                                Command="{Binding Path=RemoveCommand}" 
+                                ToolTip="Удалить дисциплину">
+                            <Image Source="Images\Delete2.jpg"/>
+                        </Button>
+                        <!--<Button Style="{StaticResource ButtonPanelStyle}"
+                                Command="{Binding Path=SaveCommand}" 
+                                ToolTip="Сохранение данных">
+                            <Image Source="Images\Save.jpg"/>
+                        </Button>-->
+                    </StackPanel>
+                </GroupBox>
+            <!--<Button  
+                    Style="{StaticResource ButtonPanelStyle}"
+                    Command="{Binding Path=RefreshDiscipline}" 
+                    ToolTip="Обновить" Margin="5,12,20,2">
+                <Image Source="Images\Refresh2.jpg" RenderTransformOrigin="0.643,0.714"/>
+            </Button>-->
+        </StackPanel>
+        
+        <Border DockPanel.Dock="Top" Background="#FFF1EDEB">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="auto"/>
+                    <ColumnDefinition  Width="auto"/>
+                    <ColumnDefinition  Width="auto" />
+                    <ColumnDefinition  Width="auto" />
+                    <ColumnDefinition Width="auto"   />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="{x:Static rs:Resources.Faculty}"  Grid.Column="0" Grid.Row="0"
+                           Style="{StaticResource TextBlockPanelStyle}" Height="16"  />
+                <TextBlock Text="{x:Static rs:Resources.Chair}"  Grid.Column="1" Grid.Row="0"
+                           Style="{StaticResource TextBlockPanelStyle}" Height="16"  />
+                <TextBlock Text="{x:Static rs:Resources.AcademicYear}"  Grid.Column="2" Grid.Row="0"
+                           Style="{StaticResource TextBlockPanelStyle}" Height="16"  />
+                <TextBlock Text="{x:Static rs:Resources.LoadVariant}"  Grid.Column="3" Grid.Row="0"
+                           Style="{StaticResource TextBlockPanelStyle}" Height="16"  />
+
+                
+                <ComboBox Name="ComboBoxFaculty" Grid.Column="0" Grid.Row="1"
+                        Margin="20,10,0,10" 
+                        Width="350"
+                        HorizontalAlignment="Left"
+                        IsReadOnly="True"
+                        ItemsSource="{Binding Source={StaticResource listFaculty}}" 
+                        DisplayMemberPath="Name" 
+                        SelectedItem="{Binding Path= SelectedFaculty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedIndex="{Binding Path= SelectedIndexFaculty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  >
+                    <ia:Interaction.Triggers>
+                        <ia:EventTrigger EventName="Loaded">
+                            <command:EventToCommand Command="{Binding Path=GetChair}" />
+                        </ia:EventTrigger>
+                        <ia:EventTrigger EventName="SelectionChanged">
+                            <command:EventToCommand Command="{Binding Path=GetChair}" />
+                        </ia:EventTrigger>
+                    </ia:Interaction.Triggers>
+                </ComboBox>
+                <ComboBox Name="ComboBoxChair" Grid.Column="1" Grid.Row="1"
+                        Margin="20,10,0,10" 
+                        Width="350"
+                        HorizontalAlignment="Left"
+                        IsReadOnly="True"
+                        ItemsSource="{Binding Chairs}" 
+                        DisplayMemberPath="NameChair" 
+                        SelectedItem="{Binding Path= SelectedChair, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                        SelectedIndex="{Binding Path= SelectedIndexChair, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  >
+                    <ia:Interaction.Triggers>
+                        <ia:EventTrigger EventName="Loaded">
+                            <command:EventToCommand Command="{Binding Path=GetAllLoadChair}" />
+                        </ia:EventTrigger>
+                        <ia:EventTrigger EventName="SelectionChanged">
+                            <command:EventToCommand Command="{Binding Path=GetAllLoadChair}" />
+                        </ia:EventTrigger>
+                    </ia:Interaction.Triggers>
+                </ComboBox>
+                <ComboBox Name="ComboBoxAcademicYear" Grid.Column="2" Grid.Row="1"
+                        Margin="20,10,0,10" 
+                        Width="100"
+                        HorizontalAlignment="Left"
+                        IsReadOnly="True"
+                        ItemsSource="{Binding Source={StaticResource listAcademicYear}}"
+                        DisplayMemberPath="Year"
+                        SelectedItem ="{Binding Path= SelectedAcademicYear, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedIndex="{Binding Path= SelectedIndexAcademicYear, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  > 
+                    <ia:Interaction.Triggers>
+                        <ia:EventTrigger EventName="Loaded">
+                            <command:EventToCommand Command="{Binding Path=GetAllLoadChair}" />
+                        </ia:EventTrigger>
+                        <ia:EventTrigger EventName="SelectionChanged">
+                            <command:EventToCommand Command="{Binding Path=GetAllLoadChair}" />
+                        </ia:EventTrigger>
+                    </ia:Interaction.Triggers>
+                </ComboBox>
+                <ComboBox Name="ComboBoxNameLoad" Grid.Column="3" Grid.Row="1"
+                        Margin="20,10,0,10" 
+                        Width="300"
+                        HorizontalAlignment="Left"
+                        IsReadOnly="True"
+                        ItemsSource="{Binding AllLoadChairAcademicYear}"
+                        DisplayMemberPath="NameLoadChair"
+                        SelectedItem ="{Binding Path= SelectedNameLoadChair, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedIndex="{Binding Path= SelectedIndexNameLoadChair, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"    >
+                    <ia:Interaction.Triggers>
+                        <!--<ia:EventTrigger EventName="Loaded">
+                            <command:EventToCommand Command="{Binding Path=GetCommandLoadChair}" />
+                        </ia:EventTrigger>-->
+                        <ia:EventTrigger EventName="SelectionChanged">
+                            <command:EventToCommand Command="{Binding Path=GetLoadChair}" />
+                        </ia:EventTrigger>
+                    </ia:Interaction.Triggers>
+                </ComboBox>
+
+                <StackPanel Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="2" Orientation="Horizontal">
+                    <TextBlock Text="{x:Static rs:Resources.TeachingLoadChair}"  
+                           Style="{StaticResource TextBlockPanelStyle}" Height="16"  Margin="20,10,10,10" />
+                    <TextBox Name="TextBoxSumChair"  Height="20" Width="100" HorizontalAlignment="Left" 
+                             Text="{Binding LoadChair.SumLoadChair, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Text="час." Margin="5,10,10,10"/>
+                    <!--<TextBlock Name="TextBlock" Text="{Binding MessageSave, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                               Margin="30,10,10,10" Foreground="#FFE87777" />-->
+
+                </StackPanel>
+
+                <TextBlock Name="TextBlock" Grid.Column="1" Grid.Row="2"
+                           Text="{Binding MessageSave, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                               Margin="30,10,10,10" Foreground="#FFE87777" />
+
+                <Border   Grid.Row="3" Grid.ColumnSpan="4"   Width="1130"  Style="{StaticResource BorderFind}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Static rs:Resources.Find}" Margin="20,5,10,5" FontStyle="Italic" FontWeight="Bold" />
+                        <TextBlock Text="{x:Static rs:Resources.FindForPlan}" Margin="20,5,10,5" FontStyle="Italic" />
+                        <TextBox x:Name="TextBoxFindPlan" Margin="10,5,0,5" HorizontalAlignment="Left" Width="100" 
+                             Text="{Binding PlanCurriculum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="{x:Static rs:Resources.FindForDiscipline}" Margin="20,5,10,5" FontStyle="Italic" />
+                        <TextBox x:Name="TextBoxFindDiscipline" Margin="10,5,0,5" HorizontalAlignment="Left" Width="400" 
+                             Text="{Binding NameDiscipline, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="{x:Static rs:Resources.FindForEducationForm}" Margin="20,5,10,5" FontStyle="Italic" />
+                        <ComboBox Height="20" Width="100" Margin="0,0,10,0" 
+                              ItemsSource="{Binding Source={StaticResource listEducationForm}}" 
+                              DisplayMemberPath="FormEducation"
+                              SelectedItem="{Binding Path= SelectedEducationForm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                              SelectedIndex="{Binding Path= SelectedIndexEducationForm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                        <Button 
+                            Style="{StaticResource ButtonPanelStyle}"
+                            Command="{Binding Path=FindDiscipline}" IsDefault="True"
+                            ToolTip="Найти">
+                            <Image Source="Images\Find.jpg" />
+                        </Button>
+
+                        <Button  
+                    Style="{StaticResource ButtonPanelStyle}"
+                    Command="{Binding Path=RefreshDiscipline}" 
+                    ToolTip="Обновить" Margin="15,5,0,5">
+                            <Image Source="Images\Refresh2.jpg" />
+                        </Button>
+
+                    </StackPanel>                           
+                </Border>
+
+                <toolkit:BusyIndicator  Grid.Row="4" 
+                          Grid.Column="0" 
+                          Grid.ColumnSpan="5"
+                          Height="550"
+                          IsBusy="{Binding IsBusy}"
+                          BusyContent="{Binding BusyMessage}"
+                          Margin="5" >
+
+                    <DataGrid Name="DataGridDisciplines" 
+                          HorizontalAlignment="Left" 
+                          Margin="5,0,0,0" MaxWidth="1550"
+                          VerticalAlignment="Top"
+                          AutoGenerateColumns="False" CanUserDeleteRows="False" 
+                          ItemsSource="{Binding LoadChairTeaching}" 
+                          SelectedItem="{Binding Path= SelectedDisciplineLoad, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedIndex="{Binding Path=SelectedIndexDiscipline, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                          SelectionMode="Extended">
+                    <DataGrid.Columns>
+                        <!--<DataGridTextColumn  
+                            Binding="{Binding FlagChange, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Foreground="#FFE84737"/>-->
+                            <DataGridCheckBoxColumn Binding="{Binding FlagChange, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="{x:Static rs:Resources.Plan}" 
+                                            Binding="{Binding NameCurricilum}" Width="auto"/>
+                        <!--<DataGridTextColumn Header="{x:Static rs:Resources.Code}" 
+                                    Binding="{Binding Code, Mode=OneTime}"
+                                    IsReadOnly="True"/>-->
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderSrteamLecture}" 
+                                    Binding="{Binding Path=Stream, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" 
+                                            ToolTipService.ToolTip="Редактируемое поле"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderSrteamLaboratoryWork}" 
+                                    Binding="{Binding Path=StreamLab, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" 
+                                            ToolTipService.ToolTip="Редактируемое поле"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderSrteamPracticalExercises}" 
+                                    Binding="{Binding Path=StreamPract, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" 
+                                            ToolTipService.ToolTip="Редактируемое поле"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.Discipline}" Width="250"
+                                    Binding="{Binding Discipline, Mode=OneTime}"
+                                    IsReadOnly="True"/>
+                            <!--<DataGridTextColumn Header="{x:Static rs:Resources.Speciality}" Width="auto"
+                                    Binding="{Binding Speciality, Mode=OneTime}"
+                                    IsReadOnly="True"/>-->
+                        <!--<DataGridTextColumn Header="Профиль" Width="100"
+                                    Binding="{Binding Profile, Mode=OneTime}"
+                                    IsReadOnly="True"/>-->
+                            <!--<DataGridTextColumn Header="{x:Static rs:Resources.Qualification}" 
+                                    Binding="{Binding Qualification, Mode=OneTime}"
+                                    IsReadOnly="True"/>-->
+                            <DataGridTextColumn Header="{x:Static rs:Resources.Faculty}" 
+                                    Binding="{Binding ShortNameFaculty, Mode=OneTime}"
+                                    IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.Group}" 
+                                    Binding="{Binding NameGroup, Mode=OneTime}"
+                                    IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderStudent}" 
+                                    Binding="{Binding Student, Mode=OneTime}" 
+                                    IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderForeignStudent}" 
+                                    Binding="{Binding ForeignStudent, Mode=OneTime}" 
+                                    IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderCommerceStudent}" 
+                                    Binding="{Binding CommerceStudent, Mode=OneTime}" 
+                                    IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderSubGroup}" 
+                                    Binding="{Binding Subgroup, Mode=OneTime}"
+                                    IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.EducationForm}" Width="60"
+                                    Binding="{Binding FormEducation, Mode=OneTime}"
+                                    IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.Course}" 
+                                    Binding="{Binding Course, Mode=OneTime}"
+                                    IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderSemester}" 
+                                    Binding="{Binding Semester, Mode=OneTime}"
+                                    IsReadOnly="True"/>
+                            
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderLecture}" 
+                                    ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding Path=Lecture, Mode=TwoWay, UpdateSourceTrigger=LostFocus, StringFormat={}{0:f0}}"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderLaboratoryWork}"
+                                    ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding Path=LaboratoryWork, Mode=TwoWay,
+                                    UpdateSourceTrigger=LostFocus, StringFormat={}{0:f0}}" />
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderPracticalExercises}"
+                                    ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding Path=PracticalExercises, Mode=TwoWay,
+                                    UpdateSourceTrigger=LostFocus, StringFormat={}{0:f0} }" />
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderConsultation}"
+                                    ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding Path=Consultation, Mode=TwoWay,
+                                    UpdateSourceTrigger=LostFocus}"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderExamination}"
+                                    ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding Path=Examination, Mode=TwoWay,
+                                    UpdateSourceTrigger=LostFocus}"
+                                    IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderSetOff}" 
+                                    ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding Path=SetOff, Mode=TwoWay,
+                                    UpdateSourceTrigger=LostFocus}"
+                                    IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderSetOffWithBall}" 
+                                    ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding Path=SetOffWithBall, Mode=TwoWay,
+                                    UpdateSourceTrigger=LostFocus}"
+                                    IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderPractical}"
+                                    ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding Path=Practical, Mode=TwoWay,
+                                    UpdateSourceTrigger=LostFocus}"
+                                    IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderCourseProject}"
+                                    ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding Path=CourseProject, Mode=TwoWay,
+                                    UpdateSourceTrigger=LostFocus}" 
+                                    IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderCourseWork}"
+                                    ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding Path=CourseWorkt, Mode=TwoWay,
+                                    UpdateSourceTrigger=LostFocus}" 
+                                            IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderControlWork}" 
+                                    ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding Path=ControlWork, Mode=TwoWay,
+                                    UpdateSourceTrigger=LostFocus}" 
+                                            IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderGak}"
+                                    ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding Path=Gac, Mode=TwoWay,
+                                    UpdateSourceTrigger=LostFocus}"
+                                            IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderGraduationDesign}"
+                                    ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding Path=GraduationDesign, Mode=TwoWay,
+                                    UpdateSourceTrigger=LostFocus}" 
+                                            IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderDot}"
+                                    ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding Path=Dot, Mode=TwoWay,
+                                    UpdateSourceTrigger=LostFocus}" 
+                                            IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderOthers}"
+                                    ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding Path=Others, Mode=TwoWay,
+                                    UpdateSourceTrigger=LostFocus}" 
+                                            IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderScientificResearchWork}"
+                                    ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding Path=ScientificResearchWork, Mode=TwoWay,
+                                    UpdateSourceTrigger=LostFocus}" 
+                                            IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderSumLoad}" 
+                                    Binding="{Binding SumLoad, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderSumLoadCommerce}" 
+                                                ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding SumCommerce, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:f2}}"
+                                    IsReadOnly="True"/>
+                            <DataGridTextColumn Header="{x:Static rs:Resources.HeaderNote}" 
+                                    Binding="{Binding Note, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Формировать поток лекций" Command="{Binding Path=CreateStreamLecture}"/>
+                                <MenuItem Header="Формировать поток лабораторных работ" Command="{Binding Path=CreateStreamLab}"/>
+                                <MenuItem Header="Формировать поток практических занятий" Command="{Binding Path=CreateStreamPract}"/>
+                                <MenuItem Header="{x:Static rs:Resources.Add}" Command="{Binding Path=AddCommand}"/>
+                                <MenuItem Header="{x:Static rs:Resources.Delete}" Command="{Binding Path=RemoveCommand}"/>
+                                <MenuItem Header="{x:Static rs:Resources.Save}" Command="{Binding Path=SaveCommand}"/>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                    </DataGrid>
+                </toolkit:BusyIndicator>
+            </Grid>
+        </Border>
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,393 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:vm="clr-namespace:MvvmLight2.ViewModel"
+                    xmlns:md="clr-namespace:MvvmLight2.Model"
+                    xmlns:vv="clr-namespace:MvvmLight2"
+                    xmlns:vw="clr-namespace:MvvmLight2.View">
+
+
+
+  <DataTemplate DataType="{x:Type vm:UniversitiesViewModel}">
+    <vv:UniversityView />
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type vm:FacultiesViewModel}">
+    <vv:FacultyView />
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type vm:ChairsViewModel}">
+    <vv:ChairsView />
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type vm:TeachersViewModel}">
+    <vv:TeachersView />
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type vm:GroupViewModel}">
+    <vv:GroupView />
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type vm:OrderStandardTimeViewModel}">
+    <vv:OrderStandartTimeView />
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type vm:DisciplineChairViewModel}">
+    <vv:DisciplineChairView />
+  </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:FixedDisciplineViewModel}">
+        <vv:FixedDisciplineView />
+    </DataTemplate>
+
+  <DataTemplate DataType="{x:Type vm:CurriculumViewMode}">
+    <vv:CurriculumView/>
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type vm:CurriculumFromDBViewMode}">
+    <vv:CurriculumFromDBView/>
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type vm:CurriculumFromXmlViewMode}">
+    <vv:CurriculumFromXmlView/>
+  </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:CurriculumFromExlViewMode}">
+        <vv:CurriculumFromExlView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:LoadChairViewModel}">
+    <vv:LoadChairView />
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type vm:LoadTeacherViewModel}">
+    <vv:LoadTeacherView/>
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type vm:ReportChairDisciplinesViewModel}">
+    <vv:ReportChairDisciplinesView/>
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type vm:ReportChairLoadViewModel}">
+    <vv:ReportChairLoadView />
+  </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:ReportTeacherLoadViewModel}">
+    <vv:ReportTeacherLoadView />
+  </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:ReportSummaryCurriculumWorkViewModel}">
+        <vv:ReportSummaryCurriculumWorkView />
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:ReportFixedDisciplinesViewModel}">
+        <vv:ReportFixedDisciplinesView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:ReportChairDisciplinesFullTimeViewModel}">
+        <vw:ReportChairDisciplinesFullTimeView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:ReportChairDisciplinesPartTimeViewModel}">
+        <vw:ReportChairDisciplinesPartTimeView/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:ReportGroupViewModel}">
+        <vv:ReportGroupView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:ReportChairLoadFullTimeViewModel}">
+        <vw:ReportChairLoadFullTimeView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:ReportChairLoadPartTimeViewModel}">
+        <vw:ReportChairLoadPartTimeView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:SpecialityViewModel}">
+    <vv:SpecialityView/>
+  </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:DictAcademicYearViewModel}">
+        <vv:DictAcademicYearView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:DictEducationFormViewModel}">
+        <vv:DictEducationFormView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:DictPostViewModel}">
+        <vv:DictPostView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:DictQualificationViewModel}">
+        <vv:DictQualificationView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:DictUnitViewModel}">
+        <vv:DictUnitView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:DictTypeEmploymentViewModel}">
+        <vv:DictTypeEmploymentView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:DictTypeTrainingViewModel}">
+        <vv:DictTypeTrainingView/>
+    </DataTemplate>
+
+
+
+    <Style x:Key="MainMenuItemStyle" TargetType="MenuItem">
+    <Setter Property="Foreground" Value="Black" />
+  </Style>
+
+  <!--
+    Шаблон для отрисовки заголовка панели
+    -->
+  <DataTemplate x:Key="ClosableTabItemTemplate">
+    <DockPanel Width="Auto">
+      <Button
+          Command="{Binding Path=CloseCommand}"
+          Cursor="Hand"
+          DockPanel.Dock="Right"
+          Focusable="False"
+          Margin="5,1,0,0"
+          Padding="0"
+          VerticalContentAlignment="Bottom"
+          Width="16" Height="16">
+        <Image Source="Images\Delete.jpg" />
+      </Button>
+      <ContentPresenter
+          Content="{Binding Path=DisplayName}"
+          VerticalAlignment="Center"
+          HorizontalAlignment="Left"/>
+    </DockPanel>
+  </DataTemplate>
+
+
+
+  <!--
+        This template explains how to render the 'Workspace' content area in the main window.
+        Этот шаблон объясняет, как отрисовать содержание области «Workspace» в главном окне
+    -->
+  <DataTemplate x:Key="WorkspacesTemplate">
+    <TabControl
+        IsSynchronizedWithCurrentItem="True"
+        ItemsSource="{Binding}"
+        ItemTemplate="{StaticResource ClosableTabItemTemplate}"
+        Margin="4">
+    </TabControl>
+  </DataTemplate>
+
+  <!--
+    Стиль подзаголовка для рабочей области панели
+    -->
+  <Style x:Key="TextBlockPanelSubtitleStyle" TargetType="TextBlock">
+    <Setter Property="FontWeight" Value="Bold" />
+    <Setter Property="Margin" Value="20,5,0,5" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+
+  <!--
+    Стиль TextBlock окна редактирования данных
+    -->
+  <Style x:Key="TextBlockWindowdEdit" TargetType="TextBlock">
+    <Setter Property="HorizontalAlignment" Value="Right"/>
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="Margin" Value="5,5,10,5" />
+  </Style>
+
+  <!--
+    Стиль TextBox окна редактирования данных
+    -->
+  <Style x:Key="TextBoxWindowdEdit" TargetType="TextBox">
+    <Setter Property="HorizontalAlignment" Value="Left"/>
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="MinWidth" Value="150" />
+    <Setter Property="Margin" Value="5" />
+  </Style>
+
+  <!--
+    Стиль ComboBox окна редактирования данных
+    -->
+  <Style x:Key="ComboBoxWindowdEdit" TargetType="ComboBox">
+    <Setter Property="HorizontalAlignment" Value="Left"/>
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="MinWidth" Value="150" />
+    <Setter Property="Margin" Value="5" />
+    <Setter Property="Height" Value="25" />
+  </Style>
+
+
+
+  <!--
+    Стиль первого заголовнка для рабочей области панели
+    -->
+  <Style x:Key="TextBlockPanelStyle" TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FF1191AE"/>
+    <Setter Property="FontWeight" Value="Bold" />
+    <Setter Property="Margin" Value="20,0,0,0" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="Height" Value="16" />
+    <Setter Property="Width" Value="Auto" />
+  </Style>
+
+
+  <!--
+        This style ensures that the borders in the main window are consistent.
+    -->
+  <Style x:Key="MainBorderStyle" TargetType="Border">
+    <Setter Property="Background" Value="WhiteSmoke" />
+    <Setter Property="BorderBrush" Value="LightGray" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="5" />
+    <Setter Property="SnapsToDevicePixels" Value="True" />
+  </Style>
+
+  <!--
+    Стиль Button окна панели данных
+    -->
+  <Style x:Key="ButtonPanelStyle" TargetType="Button">
+    <Setter Property="Height" Value="20"/>
+    <Setter Property="Width" Value="20" />
+    <Setter Property="Margin" Value="5,2,5,2" />
+  </Style>
+
+  <!--
+    Стиль Button окна редактирования данных
+    -->
+  <Style x:Key="ButtonWindowdEdit" TargetType="Button">
+    <Setter Property="Height" Value="20"/>
+    <Setter Property="Margin" Value="5" />
+  </Style>
+
+  <!--
+    Стиль для ячейки DataGrid с ошибкой ввода для формирования ToolTip
+    -->
+  <Style x:Key="GridCell" TargetType="{x:Type TextBlock}">
+    <Style.Triggers>
+      <Trigger Property="Validation.HasError"
+       Value="True">
+        <Setter Property="ToolTip">
+          <Setter.Value>
+            <Binding
+                Path="(Validation.Errors).CurrentItem.ErrorContent"
+                RelativeSource="{x:Static RelativeSource.Self}" />
+          </Setter.Value>
+        </Setter>
+      </Trigger>
+    </Style.Triggers>
+
+  </Style>
+    
+    
+    <!--
+    Стиль Border для фильтрации данных
+    --> 
+    <Style x:Key="BorderFind" TargetType="Border">
+        <Setter Property="Background" Value="#FFE8E0E0" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="BorderBrush" Value="#FF7E7979" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Margin" Value="20,0,0,0" />
+    </Style>
+
+  <!--Шаблон для дисциплины в списке дисциплин кафедры-->
+  <DataTemplate x:Key="DataTemplateDicsChair">
+    <Border Name="BorderDiscipline" BorderThickness="1"
+          Padding="5" Margin="5" Width="345">
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition />
+          <ColumnDefinition />
+          <ColumnDefinition />
+          <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Name="TextBlockDiscipline" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="{Binding Path= Discipline}" />
+        <TextBlock Name="TextCurs" Grid.Row="1" Grid.Column="0" Text="Курс" HorizontalAlignment="Left" />
+        <TextBlock Name="TextSemester" Grid.Row="1" Grid.Column="2" Text="Семестр" HorizontalAlignment="Left" />
+        <TextBlock Name="TextBlockCourse" Grid.Row="1" Grid.Column="1" Text="{Binding Path= Course}" />
+        <TextBlock Name="TextBlockSemester" Grid.Row="1" Grid.Column="3" Text="{Binding Path= Semester}" />
+        <TextBlock Name="TextBlockShortNameFaculty" Grid.Row="2" Grid.Column="0" Text="{Binding Path= ShortNameFaculty}" HorizontalAlignment="Left"/>
+        <TextBlock Name="TextNameGroup" Grid.Row="2" Grid.Column="1" Text="Группа" HorizontalAlignment="Left"/>
+        <TextBlock Name="TextBlockNameGroup" Grid.Row="2" Grid.Column="2" Text="{Binding Path= NameGroup}" />
+        <TextBlock Name="TextBlockEducationForm" Grid.Row="2" Grid.Column="3" Text="{Binding Path= FormEducation}" />
+      </Grid>
+    </Border>
+    <DataTemplate.Triggers>
+      <DataTrigger Binding="{Binding Path= IsLoad}" Value="true">
+        <Setter TargetName="BorderDiscipline" Property="BorderBrush" Value="Blue" />
+        <Setter TargetName="TextBlockDiscipline" Property="Foreground" Value="Blue" />
+        <Setter TargetName="TextCurs" Property="Foreground" Value="Blue" />
+        <Setter TargetName="TextSemester" Property="Foreground" Value="Blue" />
+        <Setter TargetName="TextBlockCourse" Property="Foreground" Value="Blue" />
+        <Setter TargetName="TextBlockSemester" Property="Foreground" Value="Blue" />
+        <Setter TargetName="TextBlockShortNameFaculty" Property="Foreground" Value="Blue" />
+        <Setter TargetName="TextNameGroup" Property="Foreground" Value="Blue" />
+        <Setter TargetName="TextBlockNameGroup" Property="Foreground" Value="Blue" />
+        <Setter TargetName="TextBlockEducationForm" Property="Foreground" Value="Blue" />
+      </DataTrigger>
+      <DataTrigger Binding="{Binding Path= IsLoad}" Value="false">
+        <Setter TargetName="BorderDiscipline" Property="BorderBrush" Value="#FFF95656" />
+        <Setter TargetName="TextBlockDiscipline" Property="Foreground" Value="#FF9C3813" />
+        <Setter TargetName="TextCurs" Property="Foreground" Value="#FF9C3813" />
+        <Setter TargetName="TextBlockCourse" Property="Foreground" Value="#FF9C3813" />
+        <Setter TargetName="TextSemester" Property="Foreground" Value="#FF9C3813" />
+        <Setter TargetName="TextBlockSemester" Property="Foreground" Value="#FF9C3813" />
+        <Setter TargetName="TextBlockShortNameFaculty" Property="Foreground" Value="#FF9C3813" />
+        <Setter TargetName="TextNameGroup" Property="Foreground" Value="#FF9C3813" />
+        <Setter TargetName="TextBlockNameGroup" Property="Foreground" Value="#FF9C3813" />
+        <Setter TargetName="TextBlockEducationForm" Property="Foreground" Value="#FF9C3813" />
+      </DataTrigger>
+    </DataTemplate.Triggers>
+  </DataTemplate>
+
+  <!-- 
+    Шаблон для списка преподавателей
+    -->
+  <DataTemplate x:Key="TeaherAndPostTemplate">
+    <StackPanel Orientation="Horizontal">
+      <TextBlock Text="{Binding Path= LastName}" />
+      <TextBlock Text=" " />
+      <TextBlock Text="{Binding Path= FirstName}" />
+      <TextBlock Text=" " />
+      <TextBlock Text="{Binding Path= SecondName}" />
+      <TextBlock Text=", " />
+      <TextBlock Text="{Binding Path= DictPost.Post}" />
+    </StackPanel>
+  </DataTemplate>
+
+    <!--Шаблон формирования в списке специальности и квалификации-->
+    <DataTemplate x:Key="SpecialAndQualifTemplate">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding Path= CodeSpeciality}" />
+            <TextBlock Text=" " />
+            <TextBlock Text=" - " />
+            <TextBlock Text="{Binding Path= DictQualification.NameQualification}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <!--Шаблон формирования в списке Учебный план - Квалификации  Форма обучения -->
+    <DataTemplate x:Key="Curriculum_Qualification_FormEducationTemplate">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding Path= Name}" />
+            <TextBlock Text=" " />
+            <TextBlock Text=" - " />
+            <TextBlock Text="{Binding Path= DictQualification.NameQualification}" />
+            <TextBlock Text=" " />
+            <TextBlock Text=" - " />
+            <TextBlock Text="{Binding Path= DictEducationForm.FormEducation}"/>
+        </StackPanel>
+    </DataTemplate>
+
+</ResourceDictionary>

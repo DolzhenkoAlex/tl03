@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="MvvmLight2.View.EditStandartTimeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:rs="clr-namespace:MvvmLight2.Properties"
+             xmlns:md="clr-namespace:MvvmLight2.Design"
+             mc:Ignorable="d"
+             d:DataContext="{Binding Source={StaticResource editStandartTimeVM}}">
+
+    <UserControl.Resources>
+        <md:DesignerEditStandartTime x:Key="editStandartTimeVM" />
+    </UserControl.Resources>
+
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width='10'/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Вид учебной работы" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="1" Text="Норма времени в часах" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="2" Text="Единицы измерения" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="3" Text="Примечание" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+
+        <!--<TextBox Grid.Row="0" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding StandartTime.TypeOfWork, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>-->
+        <ComboBox Grid.Row="0" Grid.Column="1" Height="25"
+                  Style ="{StaticResource ComboBoxWindowdEdit}"  
+                  ItemsSource="{Binding Source={StaticResource listTypeWork}}" 
+                  DisplayMemberPath="TypeWork" 
+                  SelectedValue="{Binding Path=StandartTime.IdTypeTraining, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValuePath="Id" Margin="5,5,0,5" Width="266" />
+        <TextBox Grid.Row="1" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding StandartTime.NormTime, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+        <ComboBox Grid.Row="2" Grid.Column="1" Height="25" 
+                  Style ="{StaticResource ComboBoxWindowdEdit}"  
+                  ItemsSource="{Binding Source={StaticResource listUnit}}" 
+                  DisplayMemberPath="Unit" 
+                  SelectedValue="{Binding Path=StandartTime.IdUnit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValuePath="Id" Margin="5,5,0,5" Width="266"/>
+
+        <TextBox Grid.Row="3" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding StandartTime.Notes, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" 
+                    Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="{x:Static rs:Resources.ButtonOK}" 
+                    Style="{StaticResource ButtonWindowdEdit}"
+                    Command="{Binding OkCommand, Mode=OneWay}" IsDefault="True"/>
+            <Button Content="{x:Static rs:Resources.ButtonCansel}" 
+                    Style="{StaticResource ButtonWindowdEdit}"
+                    Command="{Binding CancelCommand, Mode=OneWay}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
+
+

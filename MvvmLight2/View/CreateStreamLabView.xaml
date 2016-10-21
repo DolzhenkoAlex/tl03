@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="MvvmLight2.View.CreateStreamLabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:rs="clr-namespace:MvvmLight2.Properties"
+              xmlns:md="clr-namespace:MvvmLight2.Design"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" Width="520"
+              d:DataContext="{Binding Source={StaticResource createStreamVM}}">
+
+    <UserControl.Resources>
+        <md:DesignServiceCreateStream x:Key="createStreamVM" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Name="DataGridStream" 
+                          HorizontalAlignment="Left" 
+                          Margin="5,0,-24,0" Height="200"
+                          VerticalAlignment="Top"
+                          AutoGenerateColumns="False" CanUserDeleteRows="False" 
+                          ItemsSource="{Binding DisciplineStream}" Width="511">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{x:Static rs:Resources.HeaderSrteamLaboratoryWork}" 
+                                    Binding="{Binding Path=StreamLab, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" 
+                                            ToolTipService.ToolTip="Редактируемое поле"/>
+                <DataGridTextColumn Header="{x:Static rs:Resources.Discipline}" Width="250"
+                                    Binding="{Binding Discipline, Mode=OneTime}"
+                                    IsReadOnly="True"/>
+                <DataGridTextColumn Header="{x:Static rs:Resources.Group}" 
+                                    Binding="{Binding NameGroup, Mode=OneTime}"
+                                    IsReadOnly="True"/>
+                <DataGridTextColumn Header="{x:Static rs:Resources.EducationForm}" Width="70"
+                                    Binding="{Binding FormEducation, Mode=OneTime}"
+                                    IsReadOnly="True"/>
+                <DataGridTextColumn Header="{x:Static rs:Resources.Course}" 
+                                    Binding="{Binding Course, Mode=OneTime}"
+                                    IsReadOnly="True"/>
+                <DataGridTextColumn Header="{x:Static rs:Resources.HeaderSemester}" 
+                                    Binding="{Binding Semester, Mode=OneTime}"
+                                    IsReadOnly="True"/>
+                <DataGridTextColumn Header="{x:Static rs:Resources.HeaderLaboratoryWork}"
+                                    ElementStyle="{Binding Mode=OneWay, Source={StaticResource GridCell}}"
+                                    Binding="{Binding Path=LaboratoryWork, Mode=TwoWay,
+                     UpdateSourceTrigger=LostFocus, StringFormat={}{0:f0}}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <StackPanel Grid.Row="1" Grid.Column="0" 
+                    Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="{x:Static rs:Resources.ButtonOK}" 
+                    Style="{StaticResource ButtonWindowdEdit}"
+                    Command="{Binding OkCommand, Mode=OneWay}" IsDefault="True"/>
+            <Button Content="{x:Static rs:Resources.ButtonCansel}" 
+                    Style="{StaticResource ButtonWindowdEdit}"
+                    Command="{Binding CancelCommand, Mode=OneWay}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

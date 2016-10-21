@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="MvvmLight2.FacultyView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:rs="clr-namespace:MvvmLight2.Properties"
+             xmlns:md="clr-namespace:MvvmLight2.Design"
+             xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             xmlns:ia="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="800" 
+             DataContext="{Binding FacultyVM, Source={StaticResource Locator}}" 
+             d:DataContext="{Binding Source={StaticResource designFacultyVM}}" Loaded="UserControl_Loaded">
+
+    <UserControl.Resources>
+        <md:DesignServiceFaculty x:Key="designFacultyVM" />
+    </UserControl.Resources>
+
+    <DockPanel>
+        <Grid Margin="5" DockPanel.Dock="Top" Height="30" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button  
+                Style="{StaticResource ButtonPanelStyle}"
+                Command="{Binding Path=AddFaculty}" 
+                ToolTip="Добавить">
+                    <Image Source="Images\Add.jpg"/>
+                </Button>
+                <Button  
+                    Style="{StaticResource ButtonPanelStyle}"
+                    Command="{Binding Path=EditFaculty}" 
+                    ToolTip="Редактировать">
+                    <Image Source="Images\Edit.jpg"/>
+                </Button>
+                <Button  
+                    Style="{StaticResource ButtonPanelStyle}"
+                    Command="{Binding Path=RemoveFaculty}" 
+                    ToolTip="Удалить">
+                    <Image Source="Images\Delete2.jpg"/>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+        <Border DockPanel.Dock="Top" Background="#FFF1EDEB">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Университет/филиал"  
+                           Style="{StaticResource TextBlockPanelStyle}"/>
+                <ComboBox Name="ComboBoxUniversity"  
+                        Margin="20,10,0,0" 
+                        MinWidth="400" 
+                        HorizontalAlignment="Left"
+                        ItemsSource="{Binding Source={StaticResource listUniversity}}" 
+                        DisplayMemberPath="Name" 
+                        SelectedItem="{Binding Path= SelectedUniversity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <ia:Interaction.Triggers>
+                        <ia:EventTrigger EventName="SelectionChanged">
+                            <command:EventToCommand Command="{Binding Path=GetCommand}" />
+                        </ia:EventTrigger>
+                    </ia:Interaction.Triggers>
+                </ComboBox>
+                          <TextBlock Text="Факультеты" Grid.Row="2"  
+                           Style="{StaticResource TextBlockPanelSubtitleStyle}" />
+                <ListView Name="ListViewFaculty" Grid.Row="3" 
+                          Grid.ColumnSpan="2"
+                          Margin="20,5,20,5" 
+                          ItemsSource="{Binding Faculties}" 
+                          SelectedItem="{Binding Path=SelectedFaculty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <ListView.View >
+                        <GridView x:Name="grdTest"  >
+                            <GridViewColumn Header="{x:Static rs:Resources.Code}" 
+                                            DisplayMemberBinding="{Binding Code}" Width="50" />
+                            <GridViewColumn Header="{x:Static rs:Resources.FullName}" 
+                                            DisplayMemberBinding="{Binding Name}" Width="auto" />
+                            <GridViewColumn Header="{x:Static rs:Resources.ShortName}" 
+                                            DisplayMemberBinding="{Binding ShortName}" Width="auto" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </Border>
+    </DockPanel>
+</UserControl>
+

@@ -1,0 +1,1201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище DekanatModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Планы">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ИмяФайла" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="УчебныйГод" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Специальность" Type="varchar" MaxLength="50" />
+          <Property Name="КодТипаПлана" Type="int" Nullable="false" />
+          <Property Name="Титул" Type="varchar" MaxLength="1000" />
+          <Property Name="Факультет" Type="varchar" MaxLength="200" />
+          <Property Name="КодФакультета" Type="int" />
+          <Property Name="КодСпециальности" Type="int" />
+          <Property Name="Поколение" Type="int" />
+          <Property Name="АвтоПроверка" Type="bit" />
+          <Property Name="ДатаУтверРектором" Type="datetime" />
+          <Property Name="ДатаУтверСоветом" Type="datetime" />
+          <Property Name="НомПротокСовета" Type="int" />
+          <Property Name="КодПрофКафедры" Type="int" />
+          <Property Name="ИмяВуза" Type="varchar" MaxLength="400" />
+          <Property Name="ИмяПодразделения" Type="varchar" MaxLength="200" />
+          <Property Name="ДатаИзмФайла" Type="datetime" />
+          <Property Name="КодВуза" Type="int" />
+          <Property Name="ДатаАттестации" Type="datetime" />
+          <Property Name="ДатаВерсииПриложения" Type="datetime" />
+          <Property Name="НомерВерсииПриложения" Type="int" />
+          <Property Name="ИмяПриложения" Type="varchar" MaxLength="50" />
+          <Property Name="НомерПользователя" Type="int" />
+          <Property Name="ИмяПользователя" Type="varchar" MaxLength="200" />
+          <Property Name="Утверждение" Type="varchar" MaxLength="30" />
+          <Property Name="АвтоРасчетНачалаСеместров" Type="bit" />
+          <Property Name="ДатаГОСа" Type="datetime" />
+          <Property Name="ГодНачалаПодготовки" Type="int" />
+          <Property Name="ИмяФайлаГОСа" Type="varchar" MaxLength="50" />
+          <Property Name="ДатаСертификатаИМЦА" Type="datetime" />
+          <Property Name="ШифрСертификата" Type="char" MaxLength="30" />
+          <Property Name="КонтрольнаяСуммаСертификата" Type="int" />
+          <Property Name="КредитовНаГод" Type="int" />
+          <Property Name="КредитовНаВесьСрок" Type="real" />
+          <Property Name="ЧасовВКредите" Type="real" />
+          <Property Name="КредитовНаКонтроль" Type="real" />
+          <Property Name="КредитовВНеделе" Type="real" />
+          <Property Name="ГоловнаяОрганизация" Type="varchar" MaxLength="300" />
+          <Property Name="ИКЭКурс" Type="int" />
+          <Property Name="Идентификатор" Type="int" />
+          <Property Name="ЗаочНедельНаДиплом" Type="int" />
+          <Property Name="ЗаочНедельНаГЭК" Type="int" />
+          <Property Name="Резерв" Type="varchar" MaxLength="400" />
+          <Property Name="ДатаИзмененияФайла" Type="datetime" />
+          <Property Name="НазваниеКредитов" Type="varchar" MaxLength="100" />
+          <Property Name="ДнейНаСессию1" Type="smallint" />
+          <Property Name="ДнейНаСессию2" Type="smallint" />
+          <Property Name="ДнейНаСессию3" Type="smallint" />
+          <Property Name="ПолноеИмяФайла" Type="varchar" MaxLength="100" />
+          <Property Name="КодФормыОбучения" Type="int" />
+          <Property Name="СеместровНаКурсе" Type="smallint" />
+          <Property Name="ЭлементовВНеделе" Type="smallint" />
+          <Property Name="ФГОС" Type="bit" />
+          <Property Name="Трудоемкость" Type="real" />
+          <Property Name="МаксУчНагрузка" Type="real" />
+          <Property Name="ДоляЛекций" Type="real" />
+          <Property Name="ДоляИнтерактив" Type="real" />
+          <Property Name="ДоляВариатив" Type="real" />
+          <Property Name="КодУровняОбразования" Type="int" />
+          <Property Name="КодПодразделения" Type="int" />
+          <Property Name="Дистанционное" Type="bit" />
+          <Property Name="Сокращённое" Type="bit" />
+          <Property Name="СтатусВНагрузке" Type="int" />
+          <Property Name="ИзмененияВнесены" Type="datetime" />
+          <Property Name="НагрузкаКоэфСтудНаПрепод" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Корень" Type="bit" />
+          <Property Name="КодСтатуса" Type="int" />
+          <Property Name="ДатаПроверки" Type="datetime" />
+          <Property Name="КурсыОбучения" Type="varchar" MaxLength="10" />
+          <Property Name="Военный" Type="bit" />
+          <Property Name="ШифрСпециальности" Type="varchar" MaxLength="50" />
+          <Property Name="НедельОбучения" Type="real" />
+          <Property Name="НедельНаПолевыеЗанятия" Type="real" />
+          <Property Name="СтупеньКвалификации" Type="int" />
+          <Property Name="СрокОбучения" Type="int" />
+          <Property Name="СрокОбученияМесяцев" Type="int" />
+          <Property Name="ОбъемУчНагрузки" Type="int" />
+          <Property Name="УровеньПодготовкиСПО" Type="nvarchar" MaxLength="15" />
+          <Property Name="БазаОбучения" Type="varchar" MaxLength="100" />
+          <Property Name="ТипБазыОбучения" Type="int" />
+          <Property Name="КодПрофиля" Type="int" />
+          <Property Name="НагрузкаВЧасахНПО" Type="bit" />
+          <Property Name="ВключатьЧасыНаЭкзамены" Type="bit" />
+          <Property Name="БазовоеОбразование" Type="varchar" MaxLength="50" />
+          <Property Name="ЧислоСеместровСессий" Type="tinyint" />
+          <Property Name="СтатусРПД" Type="int" />
+        </EntityType>
+        <EntityType Name="ПланыКвалификации">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="КодПлана" Type="int" Nullable="false" />
+          <Property Name="Номер" Type="int" Nullable="false" />
+          <Property Name="Квалификация" Type="varchar" MaxLength="200" />
+          <Property Name="СрокОбучения" Type="varchar" MaxLength="50" />
+          <Property Name="Ступень" Type="int" />
+          <Property Name="Разряд" Type="int" />
+          <Property Name="ШифрСпециальности" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ПланыПрактики">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="КодПлана" Type="int" Nullable="false" />
+          <Property Name="Номер" Type="int" Nullable="false" />
+          <Property Name="ВыпускЭкзамен" Type="varchar" MaxLength="50" />
+          <Property Name="КолЧлКаф" Type="int" />
+          <Property Name="Семестр" Type="int" />
+          <Property Name="Недель" Type="real" />
+          <Property Name="КодКафедры" Type="int" />
+          <Property Name="ВидПрактики" Type="varchar" MaxLength="250" />
+          <Property Name="КатегорияПрактики" Type="varchar" MaxLength="50" />
+          <Property Name="Часов" Type="real" />
+          <Property Name="ВидНагрузки" Type="int" />
+          <Property Name="Дней" Type="tinyint" />
+          <Property Name="ЗЕТ" Type="tinyint" />
+          <Property Name="Студентов" Type="smallint" />
+          <Property Name="НормативНаСтуд" Type="real" />
+          <Property Name="НормативНаСтудВНед" Type="real" />
+          <Property Name="НормативНаПодгр" Type="real" />
+          <Property Name="НормативНаПодгрВНед" Type="real" />
+        </EntityType>
+        <EntityType Name="ПланыСпецРаботы">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="КодПлана" Type="int" Nullable="false" />
+          <Property Name="КодВидаСпецРаботы" Type="int" Nullable="false" />
+          <Property Name="НомерСтроки" Type="smallint" Nullable="false" />
+          <Property Name="КонсультацииПо" Type="varchar" MaxLength="50" />
+          <Property Name="Часов" Type="float" />
+          <Property Name="КодКафедры" Type="smallint" />
+          <Property Name="Дисциплина" Type="varchar" MaxLength="100" />
+          <Property Name="ЧленовКафедры" Type="tinyint" />
+          <Property Name="СдаетсяНаКурсе" Type="tinyint" />
+          <Property Name="Студентов" Type="smallint" />
+        </EntityType>
+        <EntityType Name="ПланыСпецРаботыКафедры">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="КодПланыСпецРаботы" Type="int" Nullable="false" />
+          <Property Name="КодКафедры" Type="smallint" Nullable="false" />
+          <Property Name="Студентов" Type="smallint" />
+        </EntityType>
+        <EntityType Name="ПланыСтроки">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="КодПлана" Type="int" Nullable="false" />
+          <Property Name="ТипСтроки" Type="smallint" />
+          <Property Name="Дисциплина" Type="varchar" MaxLength="250" />
+          <Property Name="НомерСтроки" Type="int" />
+          <Property Name="НомерБлока" Type="smallint" />
+          <Property Name="НомерСтрокиВБлоке" Type="smallint" />
+          <Property Name="ЧасовПоГОСу" Type="smallint" />
+          <Property Name="ЧасовСамостоятельнаяРабота" Type="smallint" />
+          <Property Name="КодКафедры" Type="int" />
+          <Property Name="КоэффициентУникальности" Type="smallint" />
+          <Property Name="ПризнакНазванияРаздела" Type="smallint" />
+          <Property Name="ПризнакРаздела" Type="smallint" />
+          <Property Name="ПерезачтеноКонтрольных" Type="smallint" />
+          <Property Name="ПерезачтеноЧасов" Type="smallint" />
+          <Property Name="ПодлежитИзучениюЧасов" Type="smallint" />
+          <Property Name="ТрудоемкостьКредитов" Type="real" />
+          <Property Name="ЦиклКод" Type="varchar" MaxLength="50" />
+          <Property Name="ДисциплинаКод" Type="varchar" MaxLength="50" />
+          <Property Name="КонтрольнаяСумма" Type="int" />
+          <Property Name="Резерв" Type="varchar" MaxLength="100" />
+          <Property Name="КодДисциплины" Type="int" />
+          <Property Name="Выборная" Type="bit" />
+          <Property Name="ДополнительнаяВыборная" Type="bit" />
+          <Property Name="Факультатив" Type="bit" />
+          <Property Name="Цикл" Type="varchar" MaxLength="20" />
+          <Property Name="Компонент" Type="varchar" MaxLength="20" />
+          <Property Name="Компетенции" Type="varchar" MaxLength="200" />
+          <Property Name="ЧасовВЗЕТ" Type="smallint" />
+          <Property Name="ПолевыеЗанятия" Type="bit" />
+          <Property Name="НеСчитатьЗачеты" Type="bit" />
+          <Property Name="НеСчитатьКонтроль" Type="bit" />
+          <Property Name="МаксУчНагрузкаСПО" Type="int" />
+        </EntityType>
+        <EntityType Name="ПланыТипы">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ВидПлана" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Сокращение" Type="nvarchar" MaxLength="50" />
+          <Property Name="Префикс" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="ПланыТитулы">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="КодПлана" Type="int" Nullable="false" />
+          <Property Name="НомерСтроки" Type="int" Nullable="false" />
+          <Property Name="Титул" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="ПланыУтверждения">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="КодПлана" Type="int" Nullable="false" />
+          <Property Name="Номер" Type="int" Nullable="false" />
+          <Property Name="Утверждение" Type="bit" />
+          <Property Name="КодУтверждения" Type="int" />
+          <Property Name="Имя" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ПланыЧасы">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="КодСтроки" Type="int" Nullable="false" />
+          <Property Name="Лекций" Type="smallint" />
+          <Property Name="Практик" Type="smallint" />
+          <Property Name="Лабораторных" Type="smallint" />
+          <Property Name="КСР" Type="smallint" />
+          <Property Name="КолВоКонтрРабот" Type="smallint" />
+          <Property Name="Семестр" Type="smallint" />
+          <Property Name="Курс" Type="smallint" />
+          <Property Name="Экзамен" Type="bit" />
+          <Property Name="Зачет" Type="bit" />
+          <Property Name="КурсоваяРабота" Type="bit" />
+          <Property Name="КурсовойПроект" Type="bit" />
+          <Property Name="ПерезачтеноЭкзамен" Type="bit" />
+          <Property Name="ПерезачтеноЗачет" Type="bit" />
+          <Property Name="ПерезачтеноКурсоваяРабота" Type="bit" />
+          <Property Name="ПерезачтеноКурсовойПроект" Type="bit" />
+          <Property Name="СамРабота" Type="smallint" />
+          <Property Name="КредитовНаКурс" Type="real" />
+          <Property Name="ЗачетныхЕденицНаКурс" Type="real" />
+          <Property Name="ЧасовНаЭкзамены" Type="real" />
+          <Property Name="ИнтЛекций" Type="smallint" />
+          <Property Name="ИнтЛабораторных" Type="smallint" />
+          <Property Name="ИнтПрактик" Type="smallint" />
+          <Property Name="ЗачетСОценкой" Type="bit" />
+          <Property Name="Контрольных" Type="tinyint" />
+          <Property Name="Реферат" Type="tinyint" />
+          <Property Name="Эссе" Type="tinyint" />
+          <Property Name="РГР" Type="tinyint" />
+          <Property Name="ИндивидуальныеКонсультации" Type="float" />
+        </EntityType>
+        <EntityType Name="ПланыЧасыСессии">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="КодСтрокиЧасы" Type="int" />
+          <Property Name="ВидСессии" Type="tinyint" />
+          <Property Name="Лекции" Type="smallint" />
+          <Property Name="Лабораторные" Type="smallint" />
+          <Property Name="Практики" Type="smallint" />
+          <Property Name="КСР" Type="smallint" />
+          <Property Name="КолВоКонтрольныхРабот" Type="tinyint" />
+          <Property Name="Экзамен" Type="bit" />
+          <Property Name="Зачет" Type="bit" />
+          <Property Name="КурсоваяРабота" Type="bit" />
+          <Property Name="КурсовойПроект" Type="bit" />
+          <Property Name="СамРабота" Type="smallint" />
+          <Property Name="Контрольных" Type="tinyint" />
+          <Property Name="Реферат" Type="tinyint" />
+          <Property Name="Эссе" Type="tinyint" />
+          <Property Name="РГР" Type="tinyint" />
+          <Property Name="ЗачетСОценкой" Type="bit" />
+          <Property Name="ИндивидуальныеКонсультации" Type="float" />
+          <Property Name="ЧасовНаЭкзамены" Type="smallint" />
+        </EntityType>
+        <Association Name="FK_Планы_ПланыТипы">
+          <End Role="ПланыТипы" Type="Self.ПланыТипы" Multiplicity="1" />
+          <End Role="Планы" Type="Self.Планы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ПланыТипы">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="Планы">
+              <PropertyRef Name="КодТипаПлана" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПланыКвалификации_Планы">
+          <End Role="Планы" Type="Self.Планы" Multiplicity="1" />
+          <End Role="ПланыКвалификации" Type="Self.ПланыКвалификации" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Планы">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="ПланыКвалификации">
+              <PropertyRef Name="КодПлана" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПланыПрактики_Планы">
+          <End Role="Планы" Type="Self.Планы" Multiplicity="1" />
+          <End Role="ПланыПрактики" Type="Self.ПланыПрактики" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Планы">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="ПланыПрактики">
+              <PropertyRef Name="КодПлана" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПланыСпецРаботы_Планы">
+          <End Role="Планы" Type="Self.Планы" Multiplicity="1" />
+          <End Role="ПланыСпецРаботы" Type="Self.ПланыСпецРаботы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Планы">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="ПланыСпецРаботы">
+              <PropertyRef Name="КодПлана" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПланыСтроки_Планы">
+          <End Role="Планы" Type="Self.Планы" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ПланыСтроки" Type="Self.ПланыСтроки" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Планы">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="ПланыСтроки">
+              <PropertyRef Name="КодПлана" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПланыТитулы_Планы">
+          <End Role="Планы" Type="Self.Планы" Multiplicity="1" />
+          <End Role="ПланыТитулы" Type="Self.ПланыТитулы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Планы">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="ПланыТитулы">
+              <PropertyRef Name="КодПлана" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПланыУтверждения_Планы">
+          <End Role="Планы" Type="Self.Планы" Multiplicity="1" />
+          <End Role="ПланыУтверждения" Type="Self.ПланыУтверждения" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Планы">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="ПланыУтверждения">
+              <PropertyRef Name="КодПлана" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПланыЧасыСессии_ПланыЧасы">
+          <End Role="ПланыЧасы" Type="Self.ПланыЧасы" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ПланыЧасыСессии" Type="Self.ПланыЧасыСессии" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ПланыЧасы">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="ПланыЧасыСессии">
+              <PropertyRef Name="КодСтрокиЧасы" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище DekanatModelContainer">
+          <EntitySet Name="Планы" EntityType="Self.Планы" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ПланыКвалификации" EntityType="Self.ПланыКвалификации" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ПланыПрактики" EntityType="Self.ПланыПрактики" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ПланыСпецРаботы" EntityType="Self.ПланыСпецРаботы" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ПланыСпецРаботыКафедры" EntityType="Self.ПланыСпецРаботыКафедры" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ПланыСтроки" EntityType="Self.ПланыСтроки" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ПланыТипы" EntityType="Self.ПланыТипы" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ПланыТитулы" EntityType="Self.ПланыТитулы" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ПланыУтверждения" EntityType="Self.ПланыУтверждения" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ПланыЧасы" EntityType="Self.ПланыЧасы" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ПланыЧасыСессии" EntityType="Self.ПланыЧасыСессии" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Планы_ПланыТипы" Association="Self.FK_Планы_ПланыТипы">
+            <End Role="ПланыТипы" EntitySet="ПланыТипы" />
+            <End Role="Планы" EntitySet="Планы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПланыКвалификации_Планы" Association="Self.FK_ПланыКвалификации_Планы">
+            <End Role="Планы" EntitySet="Планы" />
+            <End Role="ПланыКвалификации" EntitySet="ПланыКвалификации" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПланыПрактики_Планы" Association="Self.FK_ПланыПрактики_Планы">
+            <End Role="Планы" EntitySet="Планы" />
+            <End Role="ПланыПрактики" EntitySet="ПланыПрактики" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПланыСпецРаботы_Планы" Association="Self.FK_ПланыСпецРаботы_Планы">
+            <End Role="Планы" EntitySet="Планы" />
+            <End Role="ПланыСпецРаботы" EntitySet="ПланыСпецРаботы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПланыСтроки_Планы" Association="Self.FK_ПланыСтроки_Планы">
+            <End Role="Планы" EntitySet="Планы" />
+            <End Role="ПланыСтроки" EntitySet="ПланыСтроки" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПланыТитулы_Планы" Association="Self.FK_ПланыТитулы_Планы">
+            <End Role="Планы" EntitySet="Планы" />
+            <End Role="ПланыТитулы" EntitySet="ПланыТитулы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПланыУтверждения_Планы" Association="Self.FK_ПланыУтверждения_Планы">
+            <End Role="Планы" EntitySet="Планы" />
+            <End Role="ПланыУтверждения" EntitySet="ПланыУтверждения" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПланыЧасыСессии_ПланыЧасы" Association="Self.FK_ПланыЧасыСессии_ПланыЧасы">
+            <End Role="ПланыЧасы" EntitySet="ПланыЧасы" />
+            <End Role="ПланыЧасыСессии" EntitySet="ПланыЧасыСессии" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DekanatModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Планы">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ИмяФайла" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="УчебныйГод" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Специальность" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="КодТипаПлана" Type="Int32" Nullable="false" />
+          <Property Name="Титул" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Факультет" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="КодФакультета" Type="Int32" />
+          <Property Name="КодСпециальности" Type="Int32" />
+          <Property Name="Поколение" Type="Int32" />
+          <Property Name="АвтоПроверка" Type="Boolean" />
+          <Property Name="ДатаУтверРектором" Type="DateTime" Precision="3" />
+          <Property Name="ДатаУтверСоветом" Type="DateTime" Precision="3" />
+          <Property Name="НомПротокСовета" Type="Int32" />
+          <Property Name="КодПрофКафедры" Type="Int32" />
+          <Property Name="ИмяВуза" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="ИмяПодразделения" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ДатаИзмФайла" Type="DateTime" Precision="3" />
+          <Property Name="КодВуза" Type="Int32" />
+          <Property Name="ДатаАттестации" Type="DateTime" Precision="3" />
+          <Property Name="ДатаВерсииПриложения" Type="DateTime" Precision="3" />
+          <Property Name="НомерВерсииПриложения" Type="Int32" />
+          <Property Name="ИмяПриложения" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="НомерПользователя" Type="Int32" />
+          <Property Name="ИмяПользователя" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Утверждение" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="АвтоРасчетНачалаСеместров" Type="Boolean" />
+          <Property Name="ДатаГОСа" Type="DateTime" Precision="3" />
+          <Property Name="ГодНачалаПодготовки" Type="Int32" />
+          <Property Name="ИмяФайлаГОСа" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ДатаСертификатаИМЦА" Type="DateTime" Precision="3" />
+          <Property Name="ШифрСертификата" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="КонтрольнаяСуммаСертификата" Type="Int32" />
+          <Property Name="КредитовНаГод" Type="Int32" />
+          <Property Name="КредитовНаВесьСрок" Type="Single" />
+          <Property Name="ЧасовВКредите" Type="Single" />
+          <Property Name="КредитовНаКонтроль" Type="Single" />
+          <Property Name="КредитовВНеделе" Type="Single" />
+          <Property Name="ГоловнаяОрганизация" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ИКЭКурс" Type="Int32" />
+          <Property Name="Идентификатор" Type="Int32" />
+          <Property Name="ЗаочНедельНаДиплом" Type="Int32" />
+          <Property Name="ЗаочНедельНаГЭК" Type="Int32" />
+          <Property Name="Резерв" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="ДатаИзмененияФайла" Type="DateTime" Precision="3" />
+          <Property Name="НазваниеКредитов" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ДнейНаСессию1" Type="Int16" />
+          <Property Name="ДнейНаСессию2" Type="Int16" />
+          <Property Name="ДнейНаСессию3" Type="Int16" />
+          <Property Name="ПолноеИмяФайла" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="КодФормыОбучения" Type="Int32" />
+          <Property Name="СеместровНаКурсе" Type="Int16" />
+          <Property Name="ЭлементовВНеделе" Type="Int16" />
+          <Property Name="ФГОС" Type="Boolean" />
+          <Property Name="Трудоемкость" Type="Single" />
+          <Property Name="МаксУчНагрузка" Type="Single" />
+          <Property Name="ДоляЛекций" Type="Single" />
+          <Property Name="ДоляИнтерактив" Type="Single" />
+          <Property Name="ДоляВариатив" Type="Single" />
+          <Property Name="КодУровняОбразования" Type="Int32" />
+          <Property Name="КодПодразделения" Type="Int32" />
+          <Property Name="Дистанционное" Type="Boolean" />
+          <Property Name="Сокращённое" Type="Boolean" />
+          <Property Name="СтатусВНагрузке" Type="Int32" />
+          <Property Name="ИзмененияВнесены" Type="DateTime" Precision="3" />
+          <Property Name="НагрузкаКоэфСтудНаПрепод" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Корень" Type="Boolean" />
+          <Property Name="КодСтатуса" Type="Int32" />
+          <Property Name="ДатаПроверки" Type="DateTime" Precision="3" />
+          <Property Name="КурсыОбучения" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Военный" Type="Boolean" />
+          <Property Name="ШифрСпециальности" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="НедельОбучения" Type="Single" />
+          <Property Name="НедельНаПолевыеЗанятия" Type="Single" />
+          <Property Name="СтупеньКвалификации" Type="Int32" />
+          <Property Name="СрокОбучения" Type="Int32" />
+          <Property Name="СрокОбученияМесяцев" Type="Int32" />
+          <Property Name="ОбъемУчНагрузки" Type="Int32" />
+          <Property Name="УровеньПодготовкиСПО" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="БазаОбучения" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ТипБазыОбучения" Type="Int32" />
+          <Property Name="КодПрофиля" Type="Int32" />
+          <Property Name="НагрузкаВЧасахНПО" Type="Boolean" />
+          <Property Name="ВключатьЧасыНаЭкзамены" Type="Boolean" />
+          <Property Name="БазовоеОбразование" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ЧислоСеместровСессий" Type="Byte" />
+          <Property Name="СтатусРПД" Type="Int32" />
+          <NavigationProperty Name="ПланыТипы" Relationship="Self.FK_Планы_ПланыТипы" FromRole="Планы" ToRole="ПланыТипы" />
+          <NavigationProperty Name="ПланыПрактики" Relationship="Self.FK_ПланыПрактики_Планы" FromRole="Планы" ToRole="ПланыПрактики" />
+          <NavigationProperty Name="ПланыСпецРаботы" Relationship="Self.FK_ПланыСпецРаботы_Планы" FromRole="Планы" ToRole="ПланыСпецРаботы" />
+          <NavigationProperty Name="ПланыТитулы" Relationship="Self.FK_ПланыТитулы_Планы" FromRole="Планы" ToRole="ПланыТитулы" />
+          <NavigationProperty Name="ПланыУтверждения" Relationship="Self.FK_ПланыУтверждения_Планы" FromRole="Планы" ToRole="ПланыУтверждения" />
+          <NavigationProperty Name="ПланыКвалификации" Relationship="DekanatModel.FK_ПланыКвалификации_Планы" FromRole="Планы" ToRole="ПланыКвалификации" />
+          <NavigationProperty Name="ПланыСтроки" Relationship="DekanatModel.FK_ПланыСтроки_Планы" FromRole="Планы" ToRole="ПланыСтроки" />
+        </EntityType>
+        <EntityType Name="ПланыПрактики">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="КодПлана" Type="Int32" Nullable="false" />
+          <Property Name="Номер" Type="Int32" Nullable="false" />
+          <Property Name="ВыпускЭкзамен" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="КолЧлКаф" Type="Int32" />
+          <Property Name="Семестр" Type="Int32" />
+          <Property Name="Недель" Type="Single" />
+          <Property Name="КодКафедры" Type="Int32" />
+          <Property Name="ВидПрактики" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="КатегорияПрактики" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Часов" Type="Single" />
+          <Property Name="ВидНагрузки" Type="Int32" />
+          <Property Name="Дней" Type="Byte" />
+          <Property Name="ЗЕТ" Type="Byte" />
+          <Property Name="Студентов" Type="Int16" />
+          <Property Name="НормативНаСтуд" Type="Single" />
+          <Property Name="НормативНаСтудВНед" Type="Single" />
+          <Property Name="НормативНаПодгр" Type="Single" />
+          <Property Name="НормативНаПодгрВНед" Type="Single" />
+          <NavigationProperty Name="Планы" Relationship="Self.FK_ПланыПрактики_Планы" FromRole="ПланыПрактики" ToRole="Планы" />
+        </EntityType>
+        <EntityType Name="ПланыСпецРаботы">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="КодПлана" Type="Int32" Nullable="false" />
+          <Property Name="КодВидаСпецРаботы" Type="Int32" Nullable="false" />
+          <Property Name="НомерСтроки" Type="Int16" Nullable="false" />
+          <Property Name="КонсультацииПо" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Часов" Type="Double" />
+          <Property Name="КодКафедры" Type="Int16" />
+          <Property Name="Дисциплина" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ЧленовКафедры" Type="Byte" />
+          <Property Name="СдаетсяНаКурсе" Type="Byte" />
+          <Property Name="Студентов" Type="Int16" />
+          <NavigationProperty Name="Планы" Relationship="Self.FK_ПланыСпецРаботы_Планы" FromRole="ПланыСпецРаботы" ToRole="Планы" />
+        </EntityType>
+        <EntityType Name="ПланыСпецРаботыКафедры">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="КодПланыСпецРаботы" Type="Int32" Nullable="false" />
+          <Property Name="КодКафедры" Type="Int16" Nullable="false" />
+          <Property Name="Студентов" Type="Int16" />
+        </EntityType>
+        <EntityType Name="ПланыТипы">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ВидПлана" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Сокращение" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Префикс" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Планы" Relationship="Self.FK_Планы_ПланыТипы" FromRole="ПланыТипы" ToRole="Планы" />
+        </EntityType>
+        <EntityType Name="ПланыТитулы">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="КодПлана" Type="Int32" Nullable="false" />
+          <Property Name="НомерСтроки" Type="Int32" Nullable="false" />
+          <Property Name="Титул" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Планы" Relationship="Self.FK_ПланыТитулы_Планы" FromRole="ПланыТитулы" ToRole="Планы" />
+        </EntityType>
+        <EntityType Name="ПланыУтверждения">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="КодПлана" Type="Int32" Nullable="false" />
+          <Property Name="Номер" Type="Int32" Nullable="false" />
+          <Property Name="Утверждение" Type="Boolean" />
+          <Property Name="КодУтверждения" Type="Int32" />
+          <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Планы" Relationship="Self.FK_ПланыУтверждения_Планы" FromRole="ПланыУтверждения" ToRole="Планы" />
+        </EntityType>
+        <EntityType Name="ПланыЧасы">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="КодСтроки" Type="Int32" Nullable="false" />
+          <Property Name="Лекций" Type="Int16" />
+          <Property Name="Практик" Type="Int16" />
+          <Property Name="Лабораторных" Type="Int16" />
+          <Property Name="КСР" Type="Int16" />
+          <Property Name="КолВоКонтрРабот" Type="Int16" />
+          <Property Name="Семестр" Type="Int16" />
+          <Property Name="Курс" Type="Int16" />
+          <Property Name="Экзамен" Type="Boolean" />
+          <Property Name="Зачет" Type="Boolean" />
+          <Property Name="КурсоваяРабота" Type="Boolean" />
+          <Property Name="КурсовойПроект" Type="Boolean" />
+          <Property Name="ПерезачтеноЭкзамен" Type="Boolean" />
+          <Property Name="ПерезачтеноЗачет" Type="Boolean" />
+          <Property Name="ПерезачтеноКурсоваяРабота" Type="Boolean" />
+          <Property Name="ПерезачтеноКурсовойПроект" Type="Boolean" />
+          <Property Name="СамРабота" Type="Int16" />
+          <Property Name="КредитовНаКурс" Type="Single" />
+          <Property Name="ЗачетныхЕденицНаКурс" Type="Single" />
+          <Property Name="ЧасовНаЭкзамены" Type="Single" />
+          <Property Name="ИнтЛекций" Type="Int16" />
+          <Property Name="ИнтЛабораторных" Type="Int16" />
+          <Property Name="ИнтПрактик" Type="Int16" />
+          <Property Name="ЗачетСОценкой" Type="Boolean" />
+          <Property Name="Контрольных" Type="Byte" />
+          <Property Name="Реферат" Type="Byte" />
+          <Property Name="Эссе" Type="Byte" />
+          <Property Name="РГР" Type="Byte" />
+          <Property Name="ИндивидуальныеКонсультации" Type="Double" />
+          <NavigationProperty Name="ПланыЧасыСессии" Relationship="Self.FK_ПланыЧасыСессии_ПланыЧасы" FromRole="ПланыЧасы" ToRole="ПланыЧасыСессии" />
+        </EntityType>
+        <EntityType Name="ПланыЧасыСессии">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="КодСтрокиЧасы" Type="Int32" />
+          <Property Name="ВидСессии" Type="Byte" />
+          <Property Name="Лекции" Type="Int16" />
+          <Property Name="Лабораторные" Type="Int16" />
+          <Property Name="Практики" Type="Int16" />
+          <Property Name="КСР" Type="Int16" />
+          <Property Name="КолВоКонтрольныхРабот" Type="Byte" />
+          <Property Name="Экзамен" Type="Boolean" />
+          <Property Name="Зачет" Type="Boolean" />
+          <Property Name="КурсоваяРабота" Type="Boolean" />
+          <Property Name="КурсовойПроект" Type="Boolean" />
+          <Property Name="СамРабота" Type="Int16" />
+          <Property Name="Контрольных" Type="Byte" />
+          <Property Name="Реферат" Type="Byte" />
+          <Property Name="Эссе" Type="Byte" />
+          <Property Name="РГР" Type="Byte" />
+          <Property Name="ЗачетСОценкой" Type="Boolean" />
+          <Property Name="ИндивидуальныеКонсультации" Type="Double" />
+          <Property Name="ЧасовНаЭкзамены" Type="Int16" />
+          <NavigationProperty Name="ПланыЧасы" Relationship="Self.FK_ПланыЧасыСессии_ПланыЧасы" FromRole="ПланыЧасыСессии" ToRole="ПланыЧасы" />
+        </EntityType>
+        <Association Name="FK_Планы_ПланыТипы">
+          <End Role="ПланыТипы" Type="Self.ПланыТипы" Multiplicity="1" />
+          <End Role="Планы" Type="Self.Планы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ПланыТипы">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="Планы">
+              <PropertyRef Name="КодТипаПлана" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПланыПрактики_Планы">
+          <End Role="Планы" Type="Self.Планы" Multiplicity="1" />
+          <End Role="ПланыПрактики" Type="Self.ПланыПрактики" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Планы">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="ПланыПрактики">
+              <PropertyRef Name="КодПлана" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПланыСпецРаботы_Планы">
+          <End Role="Планы" Type="Self.Планы" Multiplicity="1" />
+          <End Role="ПланыСпецРаботы" Type="Self.ПланыСпецРаботы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Планы">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="ПланыСпецРаботы">
+              <PropertyRef Name="КодПлана" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПланыТитулы_Планы">
+          <End Role="Планы" Type="Self.Планы" Multiplicity="1" />
+          <End Role="ПланыТитулы" Type="Self.ПланыТитулы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Планы">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="ПланыТитулы">
+              <PropertyRef Name="КодПлана" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПланыУтверждения_Планы">
+          <End Role="Планы" Type="Self.Планы" Multiplicity="1" />
+          <End Role="ПланыУтверждения" Type="Self.ПланыУтверждения" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Планы">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="ПланыУтверждения">
+              <PropertyRef Name="КодПлана" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПланыЧасыСессии_ПланыЧасы">
+          <End Role="ПланыЧасы" Type="Self.ПланыЧасы" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ПланыЧасыСессии" Type="Self.ПланыЧасыСессии" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ПланыЧасы">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="ПланыЧасыСессии">
+              <PropertyRef Name="КодСтрокиЧасы" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DekanusKontorEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Планы" EntityType="Self.Планы" />
+          <EntitySet Name="ПланыПрактики" EntityType="Self.ПланыПрактики" />
+          <EntitySet Name="ПланыСпецРаботы" EntityType="Self.ПланыСпецРаботы" />
+          <EntitySet Name="ПланыСпецРаботыКафедры" EntityType="Self.ПланыСпецРаботыКафедры" />
+          <EntitySet Name="ПланыТипы" EntityType="Self.ПланыТипы" />
+          <EntitySet Name="ПланыТитулы" EntityType="Self.ПланыТитулы" />
+          <EntitySet Name="ПланыУтверждения" EntityType="Self.ПланыУтверждения" />
+          <EntitySet Name="ПланыЧасы" EntityType="Self.ПланыЧасы" />
+          <EntitySet Name="ПланыЧасыСессии" EntityType="Self.ПланыЧасыСессии" />
+          <AssociationSet Name="FK_Планы_ПланыТипы" Association="Self.FK_Планы_ПланыТипы">
+            <End Role="ПланыТипы" EntitySet="ПланыТипы" />
+            <End Role="Планы" EntitySet="Планы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПланыПрактики_Планы" Association="Self.FK_ПланыПрактики_Планы">
+            <End Role="Планы" EntitySet="Планы" />
+            <End Role="ПланыПрактики" EntitySet="ПланыПрактики" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПланыСпецРаботы_Планы" Association="Self.FK_ПланыСпецРаботы_Планы">
+            <End Role="Планы" EntitySet="Планы" />
+            <End Role="ПланыСпецРаботы" EntitySet="ПланыСпецРаботы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПланыТитулы_Планы" Association="Self.FK_ПланыТитулы_Планы">
+            <End Role="Планы" EntitySet="Планы" />
+            <End Role="ПланыТитулы" EntitySet="ПланыТитулы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПланыУтверждения_Планы" Association="Self.FK_ПланыУтверждения_Планы">
+            <End Role="Планы" EntitySet="Планы" />
+            <End Role="ПланыУтверждения" EntitySet="ПланыУтверждения" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПланыЧасыСессии_ПланыЧасы" Association="Self.FK_ПланыЧасыСессии_ПланыЧасы">
+            <End Role="ПланыЧасы" EntitySet="ПланыЧасы" />
+            <End Role="ПланыЧасыСессии" EntitySet="ПланыЧасыСессии" />
+          </AssociationSet>
+          <EntitySet Name="ПланыКвалификации" EntityType="DekanatModel.ПланыКвалификации" />
+          <AssociationSet Name="FK_ПланыКвалификации_Планы" Association="DekanatModel.FK_ПланыКвалификации_Планы">
+            <End Role="Планы" EntitySet="Планы" />
+            <End Role="ПланыКвалификации" EntitySet="ПланыКвалификации" />
+          </AssociationSet>
+          <EntitySet Name="ПланыСтроки" EntityType="DekanatModel.ПланыСтроки" />
+          <AssociationSet Name="FK_ПланыСтроки_Планы" Association="DekanatModel.FK_ПланыСтроки_Планы">
+            <End Role="Планы" EntitySet="Планы" />
+            <End Role="ПланыСтроки" EntitySet="ПланыСтроки" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ПланыКвалификации">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="КодПлана" Type="Int32" Nullable="false" />
+          <Property Name="Номер" Type="Int32" Nullable="false" />
+          <Property Name="Квалификация" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="СрокОбучения" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ступень" Type="Int32" />
+          <Property Name="Разряд" Type="Int32" />
+          <Property Name="ШифрСпециальности" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Планы" Relationship="DekanatModel.FK_ПланыКвалификации_Планы" FromRole="ПланыКвалификации" ToRole="Планы" />
+        </EntityType>
+        <Association Name="FK_ПланыКвалификации_Планы">
+          <End Type="DekanatModel.Планы" Role="Планы" Multiplicity="1" />
+          <End Type="DekanatModel.ПланыКвалификации" Role="ПланыКвалификации" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Планы">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="ПланыКвалификации">
+              <PropertyRef Name="КодПлана" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ПланыСтроки">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="КодПлана" Type="Int32" Nullable="false" />
+          <Property Name="ТипСтроки" Type="Int16" />
+          <Property Name="Дисциплина" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="НомерСтроки" Type="Int32" />
+          <Property Name="НомерБлока" Type="Int16" />
+          <Property Name="НомерСтрокиВБлоке" Type="Int16" />
+          <Property Name="ЧасовПоГОСу" Type="Int16" />
+          <Property Name="ЧасовСамостоятельнаяРабота" Type="Int16" />
+          <Property Name="КодКафедры" Type="Int32" />
+          <Property Name="КоэффициентУникальности" Type="Int16" />
+          <Property Name="ПризнакНазванияРаздела" Type="Int16" />
+          <Property Name="ПризнакРаздела" Type="Int16" />
+          <Property Name="ПерезачтеноКонтрольных" Type="Int16" />
+          <Property Name="ПерезачтеноЧасов" Type="Int16" />
+          <Property Name="ПодлежитИзучениюЧасов" Type="Int16" />
+          <Property Name="ТрудоемкостьКредитов" Type="Single" />
+          <Property Name="ЦиклКод" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ДисциплинаКод" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="КонтрольнаяСумма" Type="Int32" />
+          <Property Name="Резерв" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="КодДисциплины" Type="Int32" />
+          <Property Name="Выборная" Type="Boolean" />
+          <Property Name="ДополнительнаяВыборная" Type="Boolean" />
+          <Property Name="Факультатив" Type="Boolean" />
+          <Property Name="Цикл" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Компонент" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Компетенции" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ЧасовВЗЕТ" Type="Int16" />
+          <Property Name="ПолевыеЗанятия" Type="Boolean" />
+          <Property Name="НеСчитатьЗачеты" Type="Boolean" />
+          <Property Name="НеСчитатьКонтроль" Type="Boolean" />
+          <Property Name="МаксУчНагрузкаСПО" Type="Int32" />
+          <NavigationProperty Name="Планы" Relationship="DekanatModel.FK_ПланыСтроки_Планы" FromRole="ПланыСтроки" ToRole="Планы" />
+        </EntityType>
+        <Association Name="FK_ПланыСтроки_Планы">
+          <End Type="DekanatModel.Планы" Role="Планы" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DekanatModel.ПланыСтроки" Role="ПланыСтроки" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Планы">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="ПланыСтроки">
+              <PropertyRef Name="КодПлана" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DekanatModelContainer" CdmEntityContainer="DekanusKontorEntities">
+          <EntitySetMapping Name="Планы">
+            <EntityTypeMapping TypeName="DekanatModel.Планы">
+              <MappingFragment StoreEntitySet="Планы">
+                <ScalarProperty Name="Код" ColumnName="Код" />
+                <ScalarProperty Name="ИмяФайла" ColumnName="ИмяФайла" />
+                <ScalarProperty Name="УчебныйГод" ColumnName="УчебныйГод" />
+                <ScalarProperty Name="Специальность" ColumnName="Специальность" />
+                <ScalarProperty Name="КодТипаПлана" ColumnName="КодТипаПлана" />
+                <ScalarProperty Name="Титул" ColumnName="Титул" />
+                <ScalarProperty Name="Факультет" ColumnName="Факультет" />
+                <ScalarProperty Name="КодФакультета" ColumnName="КодФакультета" />
+                <ScalarProperty Name="КодСпециальности" ColumnName="КодСпециальности" />
+                <ScalarProperty Name="Поколение" ColumnName="Поколение" />
+                <ScalarProperty Name="АвтоПроверка" ColumnName="АвтоПроверка" />
+                <ScalarProperty Name="ДатаУтверРектором" ColumnName="ДатаУтверРектором" />
+                <ScalarProperty Name="ДатаУтверСоветом" ColumnName="ДатаУтверСоветом" />
+                <ScalarProperty Name="НомПротокСовета" ColumnName="НомПротокСовета" />
+                <ScalarProperty Name="КодПрофКафедры" ColumnName="КодПрофКафедры" />
+                <ScalarProperty Name="ИмяВуза" ColumnName="ИмяВуза" />
+                <ScalarProperty Name="ИмяПодразделения" ColumnName="ИмяПодразделения" />
+                <ScalarProperty Name="ДатаИзмФайла" ColumnName="ДатаИзмФайла" />
+                <ScalarProperty Name="КодВуза" ColumnName="КодВуза" />
+                <ScalarProperty Name="ДатаАттестации" ColumnName="ДатаАттестации" />
+                <ScalarProperty Name="ДатаВерсииПриложения" ColumnName="ДатаВерсииПриложения" />
+                <ScalarProperty Name="НомерВерсииПриложения" ColumnName="НомерВерсииПриложения" />
+                <ScalarProperty Name="ИмяПриложения" ColumnName="ИмяПриложения" />
+                <ScalarProperty Name="НомерПользователя" ColumnName="НомерПользователя" />
+                <ScalarProperty Name="ИмяПользователя" ColumnName="ИмяПользователя" />
+                <ScalarProperty Name="Утверждение" ColumnName="Утверждение" />
+                <ScalarProperty Name="АвтоРасчетНачалаСеместров" ColumnName="АвтоРасчетНачалаСеместров" />
+                <ScalarProperty Name="ДатаГОСа" ColumnName="ДатаГОСа" />
+                <ScalarProperty Name="ГодНачалаПодготовки" ColumnName="ГодНачалаПодготовки" />
+                <ScalarProperty Name="ИмяФайлаГОСа" ColumnName="ИмяФайлаГОСа" />
+                <ScalarProperty Name="ДатаСертификатаИМЦА" ColumnName="ДатаСертификатаИМЦА" />
+                <ScalarProperty Name="ШифрСертификата" ColumnName="ШифрСертификата" />
+                <ScalarProperty Name="КонтрольнаяСуммаСертификата" ColumnName="КонтрольнаяСуммаСертификата" />
+                <ScalarProperty Name="КредитовНаГод" ColumnName="КредитовНаГод" />
+                <ScalarProperty Name="КредитовНаВесьСрок" ColumnName="КредитовНаВесьСрок" />
+                <ScalarProperty Name="ЧасовВКредите" ColumnName="ЧасовВКредите" />
+                <ScalarProperty Name="КредитовНаКонтроль" ColumnName="КредитовНаКонтроль" />
+                <ScalarProperty Name="КредитовВНеделе" ColumnName="КредитовВНеделе" />
+                <ScalarProperty Name="ГоловнаяОрганизация" ColumnName="ГоловнаяОрганизация" />
+                <ScalarProperty Name="ИКЭКурс" ColumnName="ИКЭКурс" />
+                <ScalarProperty Name="Идентификатор" ColumnName="Идентификатор" />
+                <ScalarProperty Name="ЗаочНедельНаДиплом" ColumnName="ЗаочНедельНаДиплом" />
+                <ScalarProperty Name="ЗаочНедельНаГЭК" ColumnName="ЗаочНедельНаГЭК" />
+                <ScalarProperty Name="Резерв" ColumnName="Резерв" />
+                <ScalarProperty Name="ДатаИзмененияФайла" ColumnName="ДатаИзмененияФайла" />
+                <ScalarProperty Name="НазваниеКредитов" ColumnName="НазваниеКредитов" />
+                <ScalarProperty Name="ДнейНаСессию1" ColumnName="ДнейНаСессию1" />
+                <ScalarProperty Name="ДнейНаСессию2" ColumnName="ДнейНаСессию2" />
+                <ScalarProperty Name="ДнейНаСессию3" ColumnName="ДнейНаСессию3" />
+                <ScalarProperty Name="ПолноеИмяФайла" ColumnName="ПолноеИмяФайла" />
+                <ScalarProperty Name="КодФормыОбучения" ColumnName="КодФормыОбучения" />
+                <ScalarProperty Name="СеместровНаКурсе" ColumnName="СеместровНаКурсе" />
+                <ScalarProperty Name="ЭлементовВНеделе" ColumnName="ЭлементовВНеделе" />
+                <ScalarProperty Name="ФГОС" ColumnName="ФГОС" />
+                <ScalarProperty Name="Трудоемкость" ColumnName="Трудоемкость" />
+                <ScalarProperty Name="МаксУчНагрузка" ColumnName="МаксУчНагрузка" />
+                <ScalarProperty Name="ДоляЛекций" ColumnName="ДоляЛекций" />
+                <ScalarProperty Name="ДоляИнтерактив" ColumnName="ДоляИнтерактив" />
+                <ScalarProperty Name="ДоляВариатив" ColumnName="ДоляВариатив" />
+                <ScalarProperty Name="КодУровняОбразования" ColumnName="КодУровняОбразования" />
+                <ScalarProperty Name="КодПодразделения" ColumnName="КодПодразделения" />
+                <ScalarProperty Name="Дистанционное" ColumnName="Дистанционное" />
+                <ScalarProperty Name="Сокращённое" ColumnName="Сокращённое" />
+                <ScalarProperty Name="СтатусВНагрузке" ColumnName="СтатусВНагрузке" />
+                <ScalarProperty Name="ИзмененияВнесены" ColumnName="ИзмененияВнесены" />
+                <ScalarProperty Name="НагрузкаКоэфСтудНаПрепод" ColumnName="НагрузкаКоэфСтудНаПрепод" />
+                <ScalarProperty Name="Корень" ColumnName="Корень" />
+                <ScalarProperty Name="КодСтатуса" ColumnName="КодСтатуса" />
+                <ScalarProperty Name="ДатаПроверки" ColumnName="ДатаПроверки" />
+                <ScalarProperty Name="КурсыОбучения" ColumnName="КурсыОбучения" />
+                <ScalarProperty Name="Военный" ColumnName="Военный" />
+                <ScalarProperty Name="ШифрСпециальности" ColumnName="ШифрСпециальности" />
+                <ScalarProperty Name="НедельОбучения" ColumnName="НедельОбучения" />
+                <ScalarProperty Name="НедельНаПолевыеЗанятия" ColumnName="НедельНаПолевыеЗанятия" />
+                <ScalarProperty Name="СтупеньКвалификации" ColumnName="СтупеньКвалификации" />
+                <ScalarProperty Name="СрокОбучения" ColumnName="СрокОбучения" />
+                <ScalarProperty Name="СрокОбученияМесяцев" ColumnName="СрокОбученияМесяцев" />
+                <ScalarProperty Name="ОбъемУчНагрузки" ColumnName="ОбъемУчНагрузки" />
+                <ScalarProperty Name="УровеньПодготовкиСПО" ColumnName="УровеньПодготовкиСПО" />
+                <ScalarProperty Name="БазаОбучения" ColumnName="БазаОбучения" />
+                <ScalarProperty Name="ТипБазыОбучения" ColumnName="ТипБазыОбучения" />
+                <ScalarProperty Name="КодПрофиля" ColumnName="КодПрофиля" />
+                <ScalarProperty Name="НагрузкаВЧасахНПО" ColumnName="НагрузкаВЧасахНПО" />
+                <ScalarProperty Name="ВключатьЧасыНаЭкзамены" ColumnName="ВключатьЧасыНаЭкзамены" />
+                <ScalarProperty Name="БазовоеОбразование" ColumnName="БазовоеОбразование" />
+                <ScalarProperty Name="ЧислоСеместровСессий" ColumnName="ЧислоСеместровСессий" />
+                <ScalarProperty Name="СтатусРПД" ColumnName="СтатусРПД" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ПланыПрактики">
+            <EntityTypeMapping TypeName="DekanatModel.ПланыПрактики">
+              <MappingFragment StoreEntitySet="ПланыПрактики">
+                <ScalarProperty Name="Код" ColumnName="Код" />
+                <ScalarProperty Name="КодПлана" ColumnName="КодПлана" />
+                <ScalarProperty Name="Номер" ColumnName="Номер" />
+                <ScalarProperty Name="ВыпускЭкзамен" ColumnName="ВыпускЭкзамен" />
+                <ScalarProperty Name="КолЧлКаф" ColumnName="КолЧлКаф" />
+                <ScalarProperty Name="Семестр" ColumnName="Семестр" />
+                <ScalarProperty Name="Недель" ColumnName="Недель" />
+                <ScalarProperty Name="КодКафедры" ColumnName="КодКафедры" />
+                <ScalarProperty Name="ВидПрактики" ColumnName="ВидПрактики" />
+                <ScalarProperty Name="КатегорияПрактики" ColumnName="КатегорияПрактики" />
+                <ScalarProperty Name="Часов" ColumnName="Часов" />
+                <ScalarProperty Name="ВидНагрузки" ColumnName="ВидНагрузки" />
+                <ScalarProperty Name="Дней" ColumnName="Дней" />
+                <ScalarProperty Name="ЗЕТ" ColumnName="ЗЕТ" />
+                <ScalarProperty Name="Студентов" ColumnName="Студентов" />
+                <ScalarProperty Name="НормативНаСтуд" ColumnName="НормативНаСтуд" />
+                <ScalarProperty Name="НормативНаСтудВНед" ColumnName="НормативНаСтудВНед" />
+                <ScalarProperty Name="НормативНаПодгр" ColumnName="НормативНаПодгр" />
+                <ScalarProperty Name="НормативНаПодгрВНед" ColumnName="НормативНаПодгрВНед" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ПланыСпецРаботы">
+            <EntityTypeMapping TypeName="DekanatModel.ПланыСпецРаботы">
+              <MappingFragment StoreEntitySet="ПланыСпецРаботы">
+                <ScalarProperty Name="Код" ColumnName="Код" />
+                <ScalarProperty Name="КодПлана" ColumnName="КодПлана" />
+                <ScalarProperty Name="КодВидаСпецРаботы" ColumnName="КодВидаСпецРаботы" />
+                <ScalarProperty Name="НомерСтроки" ColumnName="НомерСтроки" />
+                <ScalarProperty Name="КонсультацииПо" ColumnName="КонсультацииПо" />
+                <ScalarProperty Name="Часов" ColumnName="Часов" />
+                <ScalarProperty Name="КодКафедры" ColumnName="КодКафедры" />
+                <ScalarProperty Name="Дисциплина" ColumnName="Дисциплина" />
+                <ScalarProperty Name="ЧленовКафедры" ColumnName="ЧленовКафедры" />
+                <ScalarProperty Name="СдаетсяНаКурсе" ColumnName="СдаетсяНаКурсе" />
+                <ScalarProperty Name="Студентов" ColumnName="Студентов" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ПланыСпецРаботыКафедры">
+            <EntityTypeMapping TypeName="DekanatModel.ПланыСпецРаботыКафедры">
+              <MappingFragment StoreEntitySet="ПланыСпецРаботыКафедры">
+                <ScalarProperty Name="Код" ColumnName="Код" />
+                <ScalarProperty Name="КодПланыСпецРаботы" ColumnName="КодПланыСпецРаботы" />
+                <ScalarProperty Name="КодКафедры" ColumnName="КодКафедры" />
+                <ScalarProperty Name="Студентов" ColumnName="Студентов" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ПланыТипы">
+            <EntityTypeMapping TypeName="DekanatModel.ПланыТипы">
+              <MappingFragment StoreEntitySet="ПланыТипы">
+                <ScalarProperty Name="Код" ColumnName="Код" />
+                <ScalarProperty Name="ВидПлана" ColumnName="ВидПлана" />
+                <ScalarProperty Name="Сокращение" ColumnName="Сокращение" />
+                <ScalarProperty Name="Префикс" ColumnName="Префикс" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ПланыТитулы">
+            <EntityTypeMapping TypeName="DekanatModel.ПланыТитулы">
+              <MappingFragment StoreEntitySet="ПланыТитулы">
+                <ScalarProperty Name="Код" ColumnName="Код" />
+                <ScalarProperty Name="КодПлана" ColumnName="КодПлана" />
+                <ScalarProperty Name="НомерСтроки" ColumnName="НомерСтроки" />
+                <ScalarProperty Name="Титул" ColumnName="Титул" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ПланыУтверждения">
+            <EntityTypeMapping TypeName="DekanatModel.ПланыУтверждения">
+              <MappingFragment StoreEntitySet="ПланыУтверждения">
+                <ScalarProperty Name="Код" ColumnName="Код" />
+                <ScalarProperty Name="КодПлана" ColumnName="КодПлана" />
+                <ScalarProperty Name="Номер" ColumnName="Номер" />
+                <ScalarProperty Name="Утверждение" ColumnName="Утверждение" />
+                <ScalarProperty Name="КодУтверждения" ColumnName="КодУтверждения" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ПланыЧасы">
+            <EntityTypeMapping TypeName="DekanatModel.ПланыЧасы">
+              <MappingFragment StoreEntitySet="ПланыЧасы">
+                <ScalarProperty Name="Код" ColumnName="Код" />
+                <ScalarProperty Name="КодСтроки" ColumnName="КодСтроки" />
+                <ScalarProperty Name="Лекций" ColumnName="Лекций" />
+                <ScalarProperty Name="Практик" ColumnName="Практик" />
+                <ScalarProperty Name="Лабораторных" ColumnName="Лабораторных" />
+                <ScalarProperty Name="КСР" ColumnName="КСР" />
+                <ScalarProperty Name="КолВоКонтрРабот" ColumnName="КолВоКонтрРабот" />
+                <ScalarProperty Name="Семестр" ColumnName="Семестр" />
+                <ScalarProperty Name="Курс" ColumnName="Курс" />
+                <ScalarProperty Name="Экзамен" ColumnName="Экзамен" />
+                <ScalarProperty Name="Зачет" ColumnName="Зачет" />
+                <ScalarProperty Name="КурсоваяРабота" ColumnName="КурсоваяРабота" />
+                <ScalarProperty Name="КурсовойПроект" ColumnName="КурсовойПроект" />
+                <ScalarProperty Name="ПерезачтеноЭкзамен" ColumnName="ПерезачтеноЭкзамен" />
+                <ScalarProperty Name="ПерезачтеноЗачет" ColumnName="ПерезачтеноЗачет" />
+                <ScalarProperty Name="ПерезачтеноКурсоваяРабота" ColumnName="ПерезачтеноКурсоваяРабота" />
+                <ScalarProperty Name="ПерезачтеноКурсовойПроект" ColumnName="ПерезачтеноКурсовойПроект" />
+                <ScalarProperty Name="СамРабота" ColumnName="СамРабота" />
+                <ScalarProperty Name="КредитовНаКурс" ColumnName="КредитовНаКурс" />
+                <ScalarProperty Name="ЗачетныхЕденицНаКурс" ColumnName="ЗачетныхЕденицНаКурс" />
+                <ScalarProperty Name="ЧасовНаЭкзамены" ColumnName="ЧасовНаЭкзамены" />
+                <ScalarProperty Name="ИнтЛекций" ColumnName="ИнтЛекций" />
+                <ScalarProperty Name="ИнтЛабораторных" ColumnName="ИнтЛабораторных" />
+                <ScalarProperty Name="ИнтПрактик" ColumnName="ИнтПрактик" />
+                <ScalarProperty Name="ЗачетСОценкой" ColumnName="ЗачетСОценкой" />
+                <ScalarProperty Name="Контрольных" ColumnName="Контрольных" />
+                <ScalarProperty Name="Реферат" ColumnName="Реферат" />
+                <ScalarProperty Name="Эссе" ColumnName="Эссе" />
+                <ScalarProperty Name="РГР" ColumnName="РГР" />
+                <ScalarProperty Name="ИндивидуальныеКонсультации" ColumnName="ИндивидуальныеКонсультации" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ПланыЧасыСессии">
+            <EntityTypeMapping TypeName="DekanatModel.ПланыЧасыСессии">
+              <MappingFragment StoreEntitySet="ПланыЧасыСессии">
+                <ScalarProperty Name="Код" ColumnName="Код" />
+                <ScalarProperty Name="КодСтрокиЧасы" ColumnName="КодСтрокиЧасы" />
+                <ScalarProperty Name="ВидСессии" ColumnName="ВидСессии" />
+                <ScalarProperty Name="Лекции" ColumnName="Лекции" />
+                <ScalarProperty Name="Лабораторные" ColumnName="Лабораторные" />
+                <ScalarProperty Name="Практики" ColumnName="Практики" />
+                <ScalarProperty Name="КСР" ColumnName="КСР" />
+                <ScalarProperty Name="КолВоКонтрольныхРабот" ColumnName="КолВоКонтрольныхРабот" />
+                <ScalarProperty Name="Экзамен" ColumnName="Экзамен" />
+                <ScalarProperty Name="Зачет" ColumnName="Зачет" />
+                <ScalarProperty Name="КурсоваяРабота" ColumnName="КурсоваяРабота" />
+                <ScalarProperty Name="КурсовойПроект" ColumnName="КурсовойПроект" />
+                <ScalarProperty Name="СамРабота" ColumnName="СамРабота" />
+                <ScalarProperty Name="Контрольных" ColumnName="Контрольных" />
+                <ScalarProperty Name="Реферат" ColumnName="Реферат" />
+                <ScalarProperty Name="Эссе" ColumnName="Эссе" />
+                <ScalarProperty Name="РГР" ColumnName="РГР" />
+                <ScalarProperty Name="ЗачетСОценкой" ColumnName="ЗачетСОценкой" />
+                <ScalarProperty Name="ИндивидуальныеКонсультации" ColumnName="ИндивидуальныеКонсультации" />
+                <ScalarProperty Name="ЧасовНаЭкзамены" ColumnName="ЧасовНаЭкзамены" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ПланыКвалификации">
+            <EntityTypeMapping TypeName="DekanatModel.ПланыКвалификации">
+              <MappingFragment StoreEntitySet="ПланыКвалификации">
+                <ScalarProperty Name="ШифрСпециальности" ColumnName="ШифрСпециальности" />
+                <ScalarProperty Name="Разряд" ColumnName="Разряд" />
+                <ScalarProperty Name="Ступень" ColumnName="Ступень" />
+                <ScalarProperty Name="СрокОбучения" ColumnName="СрокОбучения" />
+                <ScalarProperty Name="Квалификация" ColumnName="Квалификация" />
+                <ScalarProperty Name="Номер" ColumnName="Номер" />
+                <ScalarProperty Name="КодПлана" ColumnName="КодПлана" />
+                <ScalarProperty Name="Код" ColumnName="Код" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ПланыСтроки">
+            <EntityTypeMapping TypeName="DekanatModel.ПланыСтроки">
+              <MappingFragment StoreEntitySet="ПланыСтроки">
+                <ScalarProperty Name="МаксУчНагрузкаСПО" ColumnName="МаксУчНагрузкаСПО" />
+                <ScalarProperty Name="НеСчитатьКонтроль" ColumnName="НеСчитатьКонтроль" />
+                <ScalarProperty Name="НеСчитатьЗачеты" ColumnName="НеСчитатьЗачеты" />
+                <ScalarProperty Name="ПолевыеЗанятия" ColumnName="ПолевыеЗанятия" />
+                <ScalarProperty Name="ЧасовВЗЕТ" ColumnName="ЧасовВЗЕТ" />
+                <ScalarProperty Name="Компетенции" ColumnName="Компетенции" />
+                <ScalarProperty Name="Компонент" ColumnName="Компонент" />
+                <ScalarProperty Name="Цикл" ColumnName="Цикл" />
+                <ScalarProperty Name="Факультатив" ColumnName="Факультатив" />
+                <ScalarProperty Name="ДополнительнаяВыборная" ColumnName="ДополнительнаяВыборная" />
+                <ScalarProperty Name="Выборная" ColumnName="Выборная" />
+                <ScalarProperty Name="КодДисциплины" ColumnName="КодДисциплины" />
+                <ScalarProperty Name="Резерв" ColumnName="Резерв" />
+                <ScalarProperty Name="КонтрольнаяСумма" ColumnName="КонтрольнаяСумма" />
+                <ScalarProperty Name="ДисциплинаКод" ColumnName="ДисциплинаКод" />
+                <ScalarProperty Name="ЦиклКод" ColumnName="ЦиклКод" />
+                <ScalarProperty Name="ТрудоемкостьКредитов" ColumnName="ТрудоемкостьКредитов" />
+                <ScalarProperty Name="ПодлежитИзучениюЧасов" ColumnName="ПодлежитИзучениюЧасов" />
+                <ScalarProperty Name="ПерезачтеноЧасов" ColumnName="ПерезачтеноЧасов" />
+                <ScalarProperty Name="ПерезачтеноКонтрольных" ColumnName="ПерезачтеноКонтрольных" />
+                <ScalarProperty Name="ПризнакРаздела" ColumnName="ПризнакРаздела" />
+                <ScalarProperty Name="ПризнакНазванияРаздела" ColumnName="ПризнакНазванияРаздела" />
+                <ScalarProperty Name="КоэффициентУникальности" ColumnName="КоэффициентУникальности" />
+                <ScalarProperty Name="КодКафедры" ColumnName="КодКафедры" />
+                <ScalarProperty Name="ЧасовСамостоятельнаяРабота" ColumnName="ЧасовСамостоятельнаяРабота" />
+                <ScalarProperty Name="ЧасовПоГОСу" ColumnName="ЧасовПоГОСу" />
+                <ScalarProperty Name="НомерСтрокиВБлоке" ColumnName="НомерСтрокиВБлоке" />
+                <ScalarProperty Name="НомерБлока" ColumnName="НомерБлока" />
+                <ScalarProperty Name="НомерСтроки" ColumnName="НомерСтроки" />
+                <ScalarProperty Name="Дисциплина" ColumnName="Дисциплина" />
+                <ScalarProperty Name="ТипСтроки" ColumnName="ТипСтроки" />
+                <ScalarProperty Name="КодПлана" ColumnName="КодПлана" />
+                <ScalarProperty Name="Код" ColumnName="Код" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="По умолчанию" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

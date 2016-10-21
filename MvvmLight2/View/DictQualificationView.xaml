@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="MvvmLight2.DictQualificationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ia="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+             mc:Ignorable="d" 
+             xmlns:rs="clr-namespace:MvvmLight2.Properties"
+             xmlns:md="clr-namespace:MvvmLight2.Design"
+             d:DesignHeight="400" d:DesignWidth="800"  
+             DataContext="{Binding QualificationVM, Source={StaticResource Locator}}"
+             d:DataContext="{Binding Source={StaticResource designQualificationVM}}">
+
+    <UserControl.Resources>
+        <md:DesignServiceQualification x:Key="designQualificationVM" />
+    </UserControl.Resources>
+
+    <DockPanel>
+        <Grid Margin="5" DockPanel.Dock="Top" Height="30" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button 
+                    Style="{StaticResource ButtonPanelStyle}"
+                    Command="{Binding Path=AddQualification}" 
+                    ToolTip="Добавить">
+                    <Image Source="Images\Add.jpg"/>
+                </Button>
+                <Button  
+                    Style="{StaticResource ButtonPanelStyle}"
+                    Command="{Binding Path=EditQualification}" 
+                    ToolTip="Редактировать">
+                    <Image Source="Images\Edit.jpg"/>
+                </Button>
+                <Button  
+                    Style="{StaticResource ButtonPanelStyle}"
+                    Command="{Binding Path=RemoveQualification}" 
+                    ToolTip="Удалить">
+                    <Image Source="Images\Delete2.jpg"/>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+        <Border DockPanel.Dock="Top" Background="#FFF1EDEB" Height="560">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Квалификации" Grid.Row="1"  
+                           Style="{StaticResource TextBlockPanelSubtitleStyle}"/>
+                <ListView Name="QualificationGrid" Grid.Row="3" 
+                          Grid.ColumnSpan="1"
+                          ItemsSource="{Binding Qualifications}" 
+                          Margin="20,5,20,5" 
+                          SelectedItem="{Binding Path=SelectedQualification, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="507">
+                    <ListView.View >
+                        <GridView x:Name="grdTest"  >
+                            <GridViewColumn Header="{x:Static rs:Resources.Qualification}" 
+                                            DisplayMemberBinding="{Binding NameQualification}" 
+                                            Width="260"  />
+
+                        </GridView>
+                    </ListView.View>
+                    <ListView.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="{x:Static rs:Resources.Add}" Command="{Binding Path=AddQualification}"/>
+                            <MenuItem Header="{x:Static rs:Resources.Edit}" Command="{Binding Path=EditQualification}"/>
+                            <MenuItem Header="{x:Static rs:Resources.Delete}" Command="{Binding Path=RemoveQualification}"/>
+                        </ContextMenu>
+                    </ListView.ContextMenu>
+
+                </ListView>
+            </StackPanel>
+        </Border>
+    </DockPanel>
+</UserControl>

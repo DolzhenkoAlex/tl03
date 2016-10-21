@@ -1,0 +1,156 @@
+﻿<UserControl x:Class="MvvmLight2.View.EditCurriculumView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:rs="clr-namespace:MvvmLight2.Properties"
+             xmlns:md="clr-namespace:MvvmLight2.Design"
+             mc:Ignorable="d"
+             d:DataContext="{Binding Source={StaticResource editCurriculumVM}}" Loaded="UserControl_Loaded">
+
+    <UserControl.Resources>
+        <md:DesigneServiceEditCurriculum x:Key="editCurriculumVM" />
+    </UserControl.Resources>
+
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width='20'/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                    Orientation="Horizontal" >
+            <CheckBox Margin="15,5" Content="Курс 1"
+                              IsChecked="{Binding Curriculum.Course1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <CheckBox  Content="Курс 2 " Margin="5" 
+                               IsChecked="{Binding Curriculum.Course2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <CheckBox  Margin="5" Content="Курс 3"
+                               IsChecked="{Binding Curriculum.Course3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <CheckBox  Margin="5" Content="Курс 4"
+                               IsChecked="{Binding Curriculum.Course4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <CheckBox  Margin="5" Content="Курс 5"
+                               IsChecked="{Binding Curriculum.Course5, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <CheckBox  Margin="5" Content="Курс 6"
+                               IsChecked="{Binding Curriculum.Course6, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+
+        <TextBlock Grid.Row="1" Text="Обоозначение плана" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="2" Text="Учебный год" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="3" Text="Шифр направления" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="4" Text="Направление подготовки" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="5" Text="Профиль" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="6" Text="Квалификация" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="7" Text="Форма обучения" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="8" Text="Срок обучения" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="9" Text="Код кафедры" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="10" Text="Кафедра" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="11" Text="Протокол" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="12" Text="Дата утверждения" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+
+        <TextBox Name="TextBoxNameCurriculum" Grid.Row="1" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Curriculum.Name, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Margin="5,5,0,5" Width="155"/>
+         <ComboBox Grid.Row="2" Grid.Column="1" Height="25" Name="ComboBoxAcademicYear"
+                  Style ="{StaticResource ComboBoxWindowdEdit}"  
+                  ItemsSource="{Binding Source={StaticResource listAcademicYear}}" 
+                  DisplayMemberPath="Year" 
+                  SelectedValue="{Binding Path=Curriculum.IdAcademicYear, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValuePath="Id" />
+        <ComboBox Grid.Row="3" Grid.Column="1" Height="25" Name="ComboBoxSpeciality"
+                  Style ="{StaticResource ComboBoxWindowdEdit}"  
+                  ItemsSource="{Binding Source={StaticResource listSpeciality}}" 
+                  
+                  SelectedValue="{Binding Path=Curriculum.IdSpeciality, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValuePath="Id" 
+                  ItemTemplate="{StaticResource SpecialAndQualifTemplate}"/>
+        <!--DisplayMemberPath="CodeSpeciality"--> 
+        <TextBlock Grid.Row="4" Grid.Column="1" 
+                   Style="{StaticResource TextBlockWindowdEdit}" 
+                   Text="{Binding SelectedItem.NameSpeciality, ElementName=ComboBoxSpeciality}"
+                   HorizontalAlignment="Left" /> 
+
+        <TextBlock Grid.Row="5" Grid.Column="1" Style="{StaticResource TextBlockWindowdEdit}" 
+                   Text="{Binding SelectedItem.Profile, ElementName=ComboBoxSpeciality}"
+                   HorizontalAlignment="Left" />
+
+        <ComboBox Grid.Row="6" Grid.Column="1" Height="25"
+                  Style ="{StaticResource ComboBoxWindowdEdit}"  
+                  ItemsSource="{Binding Source={StaticResource listQualification}}" 
+                  DisplayMemberPath="NameQualification" 
+                  SelectedValue="{Binding Path=Curriculum.IdQualification, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValuePath="Id" />
+
+        <ComboBox Grid.Row="7" Grid.Column="1" Height="25"
+                  Style ="{StaticResource ComboBoxWindowdEdit}"  
+                  ItemsSource="{Binding Source={StaticResource listEducationForm}}" 
+                  DisplayMemberPath="FormEducation" 
+                  SelectedValue="{Binding Path=Curriculum.IdEducationForm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValuePath="Id" />
+
+        <TextBox Grid.Row="8" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Curriculum.DurationStudy, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Margin="5,5,0,5" Width="155"/>
+
+        <ComboBox Grid.Row="9" Grid.Column="1" 
+                  Name="ComboBoxChair" Height="25"
+                  Style ="{StaticResource ComboBoxWindowdEdit}"  
+                  ItemsSource="{Binding Source={StaticResource listChair}}" 
+                  DisplayMemberPath="CodeChair" 
+                  SelectedValue="{Binding Path=Curriculum.IdChair, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValuePath="Id" />
+
+        <TextBlock Grid.Row="10" Grid.Column="1" 
+                   Text="{Binding SelectedItem.NameChair, ElementName=ComboBoxChair}" 
+                   MaxWidth="200"/>
+
+        <TextBox Grid.Row="11" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Curriculum.Protocol, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Margin="5,5,0,5" Width="155"/>
+        
+        <DatePicker Grid.Row="12" Grid.Column="1"  HorizontalAlignment="Left" Margin="5,5,0,0"  VerticalAlignment="Top"
+                    SelectedDateFormat="Short"
+                    SelectedDate="{Binding Curriculum.DataApproval,  Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Width="155"/>
+
+        <StackPanel Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="2" 
+                    Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="{x:Static rs:Resources.ButtonOK}" 
+                    Style="{StaticResource ButtonWindowdEdit}"
+                    Command="{Binding OkCommand, Mode=OneWay}" IsDefault="True"/>
+            <Button Content="{x:Static rs:Resources.ButtonCansel}" 
+                    Style="{StaticResource ButtonWindowdEdit}"
+                    Command="{Binding CancelCommand, Mode=OneWay}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
+
+

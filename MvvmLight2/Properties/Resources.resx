@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
+  <data name="ButtonCansel" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="ButtonOK" xml:space="preserve">
+    <value>Подтвердить</value>
+  </data>
+  <data name="Chair" xml:space="preserve">
+    <value>Кафедра</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Код</value>
+  </data>
+  <data name="CodeFaculty" xml:space="preserve">
+    <value>Код факультета</value>
+  </data>
+  <data name="CodeUniversity" xml:space="preserve">
+    <value>Код университета/филиала</value>
+  </data>
+  <data name="Curriculums" xml:space="preserve">
+    <value>Учебный план</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="Faculty" xml:space="preserve">
+    <value>Факультет</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Полное наименование</value>
+  </data>
+  <data name="FullNameChair" xml:space="preserve">
+    <value>Наименование кафедры</value>
+  </data>
+  <data name="FullNameFaculty" xml:space="preserve">
+    <value>Наименование факультета</value>
+  </data>
+  <data name="FulNameUniversity" xml:space="preserve">
+    <value>Полное наименование университета/филиала</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>Группа</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="LoadChair" xml:space="preserve">
+    <value>Нагрузка кафедры</value>
+  </data>
+  <data name="LoadTeacher" xml:space="preserve">
+    <value>Нагрузка преподавателя</value>
+  </data>
+  <data name="Post" xml:space="preserve">
+    <value>Должность</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Ставка</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Обновить</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Отчеты</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="SecondName" xml:space="preserve">
+    <value>Отчество</value>
+  </data>
+  <data name="ShortName" xml:space="preserve">
+    <value>Краткое наименование</value>
+  </data>
+  <data name="ShortNameChair" xml:space="preserve">
+    <value>Краткое наименование кафедры</value>
+  </data>
+  <data name="ShortNameFaculty" xml:space="preserve">
+    <value>Краткое наименование факультета</value>
+  </data>
+  <data name="ShortNameUniversity" xml:space="preserve">
+    <value>Краткое наименование университета/филиала</value>
+  </data>
+  <data name="StandartTime" xml:space="preserve">
+    <value>Нормы времени</value>
+  </data>
+  <data name="Teacher" xml:space="preserve">
+    <value>Преподаватели</value>
+  </data>
+  <data name="TeachersOfChair" xml:space="preserve">
+    <value>Преподаватели кафедры</value>
+  </data>
+  <data name="TypeOfEmployment" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="University" xml:space="preserve">
+    <value>Университет/Филиал</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Профиль</value>
+  </data>
+  <data name="Cipher" xml:space="preserve">
+    <value>Шифр</value>
+  </data>
+  <data name="Discipline" xml:space="preserve">
+    <value>Дисциплина</value>
+  </data>
+  <data name="DurationOfStudy" xml:space="preserve">
+    <value>Срок обучения</value>
+  </data>
+  <data name="EducationForm" xml:space="preserve">
+    <value>Обучение</value>
+  </data>
+  <data name="Protocol" xml:space="preserve">
+    <value>Протокол</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>Квалификация</value>
+  </data>
+  <data name="Speciality" xml:space="preserve">
+    <value>Направление</value>
+  </data>
+  <data name="Directory" xml:space="preserve">
+    <value>Справочники</value>
+  </data>
+  <data name="AcademicYear" xml:space="preserve">
+    <value>Учебный год</value>
+  </data>
+  <data name="TypeTraining" xml:space="preserve">
+    <value>Учебная работа (нагрузка)</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Единицы измерения</value>
+  </data>
+  <data name="Contingent" xml:space="preserve">
+    <value>Контингент</value>
+  </data>
+  <data name="Plan" xml:space="preserve">
+    <value>План</value>
+  </data>
+  <data name="CountCommerceStudent" xml:space="preserve">
+    <value>Кол. ком</value>
+  </data>
+  <data name="CountForeignStudent" xml:space="preserve">
+    <value>Кол. ин</value>
+  </data>
+  <data name="CountStudent" xml:space="preserve">
+    <value>Кол.студ</value>
+  </data>
+  <data name="CountSubgroup" xml:space="preserve">
+    <value>П/гр</value>
+  </data>
+  <data name="Course" xml:space="preserve">
+    <value>Курс</value>
+  </data>
+  <data name="DataApproval" xml:space="preserve">
+    <value>Дата утверждения</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>Поиск . . . </value>
+  </data>
+  <data name="FindForCipherSpeciality" xml:space="preserve">
+    <value>по шифру направления подготовки:</value>
+  </data>
+  <data name="FindForCourse" xml:space="preserve">
+    <value>по курсу:</value>
+  </data>
+  <data name="FindForEducationForm" xml:space="preserve">
+    <value>по форме обучения:</value>
+  </data>
+  <data name="FindForGroup" xml:space="preserve">
+    <value>по группе:</value>
+  </data>
+  <data name="FindForPlan" xml:space="preserve">
+    <value>по плану:</value>
+  </data>
+  <data name="HeaderControlWork" xml:space="preserve">
+    <value>КонР</value>
+  </data>
+  <data name="HeaderCourseProject" xml:space="preserve">
+    <value>КП</value>
+  </data>
+  <data name="HeaderCourseWork" xml:space="preserve">
+    <value>КР</value>
+  </data>
+  <data name="HeaderExamination" xml:space="preserve">
+    <value>Экз</value>
+  </data>
+  <data name="HeaderGak" xml:space="preserve">
+    <value>ГАК</value>
+  </data>
+  <data name="HeaderGraduationDesign" xml:space="preserve">
+    <value>ВКР</value>
+  </data>
+  <data name="HeaderLaboratoryWork" xml:space="preserve">
+    <value>Лаб</value>
+  </data>
+  <data name="HeaderLecture" xml:space="preserve">
+    <value>Лек</value>
+  </data>
+  <data name="HeaderPractical" xml:space="preserve">
+    <value>Практ</value>
+  </data>
+  <data name="HeaderPracticalExercises" xml:space="preserve">
+    <value>Пр</value>
+  </data>
+  <data name="HeaderSemester" xml:space="preserve">
+    <value>Сем</value>
+  </data>
+  <data name="HeaderSetOff" xml:space="preserve">
+    <value>Зач</value>
+  </data>
+  <data name="DisciplineOfChair" xml:space="preserve">
+    <value>Дисциплины кафедры</value>
+  </data>
+  <data name="FindForCodeDiscipline" xml:space="preserve">
+    <value>по коду дисциплины:</value>
+  </data>
+  <data name="FindForDiscipline" xml:space="preserve">
+    <value>по дисциплине:</value>
+  </data>
+  <data name="HeaderScientificResearchWork" xml:space="preserve">
+    <value>НИР</value>
+  </data>
+  <data name="HeaderCommerceStudent" xml:space="preserve">
+    <value>СтК</value>
+  </data>
+  <data name="HeaderConsultation" xml:space="preserve">
+    <value>Конс</value>
+  </data>
+  <data name="HeaderDot" xml:space="preserve">
+    <value>ДОТ</value>
+  </data>
+  <data name="HeaderForeignStudent" xml:space="preserve">
+    <value>СтИ</value>
+  </data>
+  <data name="HeaderOthers" xml:space="preserve">
+    <value>Проч</value>
+  </data>
+  <data name="HeaderSrteamLaboratoryWork" xml:space="preserve">
+    <value>п/лб</value>
+  </data>
+  <data name="HeaderSrteamLecture" xml:space="preserve">
+    <value>п/л</value>
+  </data>
+  <data name="HeaderSrteamPracticalExercises" xml:space="preserve">
+    <value>п/пр</value>
+  </data>
+  <data name="HeaderStudent" xml:space="preserve">
+    <value>Студ</value>
+  </data>
+  <data name="HeaderSubGroup" xml:space="preserve">
+    <value>П/гр</value>
+  </data>
+  <data name="HeaderSumLoad" xml:space="preserve">
+    <value>Всего</value>
+  </data>
+  <data name="LoadVariant" xml:space="preserve">
+    <value>Вариант нагрузки</value>
+  </data>
+  <data name="TeachingLoadChair" xml:space="preserve">
+    <value>Учебная нагрузка кафедры</value>
+  </data>
+  <data name="StudentGroup" xml:space="preserve">
+    <value>Студенческие группы</value>
+  </data>
+  <data name="DisciplinesCurriculum" xml:space="preserve">
+    <value>Дисциплины учебного плана</value>
+  </data>
+  <data name="HeaderStatus" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="NumberHours" xml:space="preserve">
+    <value>Кол. часов</value>
+  </data>
+  <data name="OperationCurruculum" xml:space="preserve">
+    <value>Операции учебного плана</value>
+  </data>
+  <data name="OperationDiscipline" xml:space="preserve">
+    <value>Операции дисциплин</value>
+  </data>
+  <data name="HeaderNote" xml:space="preserve">
+    <value>Примечание</value>
+  </data>
+  <data name="HeaderSumLoadCommerce" xml:space="preserve">
+    <value>Коммер</value>
+  </data>
+  <data name="CreateReport" xml:space="preserve">
+    <value>Сформировать отчет</value>
+  </data>
+  <data name="HeaderSetOffWithBall" xml:space="preserve">
+    <value>ЗачО</value>
+  </data>
+</root>

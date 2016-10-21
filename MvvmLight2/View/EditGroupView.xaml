@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="MvvmLight2.View.EditGroupView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:rs="clr-namespace:MvvmLight2.Properties"
+             xmlns:md="clr-namespace:MvvmLight2.Design"
+             mc:Ignorable="d"
+            d:DataContext="{Binding Source={StaticResource editGroupVM}}">
+
+    <UserControl.Resources>
+        <md:DesignServiceEditGroup x:Key="editGroupVM" />
+    </UserControl.Resources>
+
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width='Auto'/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Text="Номер группы" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="1" Text="Направление, шифр, профиль" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="2" Text="Квалификация" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="3" Text="Форма обучения" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="4" Text="Курс" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="5" Text="Код учебного плана" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="6" Text="Количество студентов" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="7" Text="Количество иностранных студентов" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="8" Text="Количество коммерческих студентов " 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+        <TextBlock Grid.Row="9" Text="Количество подгрупп" 
+                   Style="{StaticResource TextBlockWindowdEdit}"  />
+
+        <TextBox Name="TextBoxNameGroup" Grid.Row="0" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Group.NameGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                 Loaded="TextBoxNameGroup_Loaded"/>
+
+        <ComboBox Grid.Row="1" Grid.Column="1" Height="25"
+                  Style ="{StaticResource ComboBoxWindowdEdit}"  
+                  ItemsSource="{Binding Source={StaticResource listSpeciality}}" 
+                  SelectedValue="{Binding Path=Group.IdSpeciality, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValuePath="Id" 
+                  ItemTemplate="{StaticResource SpecialAndQualifTemplate}"/>
+        <ComboBox Grid.Row="2" Grid.Column="1" Height="25"
+                  Style ="{StaticResource ComboBoxWindowdEdit}"  
+                  ItemsSource="{Binding Source={StaticResource listQualification}}" 
+                  DisplayMemberPath="NameQualification" 
+                  SelectedValue="{Binding Path=Group.IdQualification, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValuePath="Id" />
+        <ComboBox Grid.Row="3" Grid.Column="1" Height="25"
+                  Style ="{StaticResource ComboBoxWindowdEdit}"  
+                  ItemsSource="{Binding Source={StaticResource listEducationForm}}" 
+                  DisplayMemberPath="FormEducation" 
+                  SelectedValue="{Binding Path=Group.IdFormEducation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValuePath="Id" />
+        <TextBox Grid.Row="4" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Group.Course, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox Grid.Row="5" Grid.Column="1" Height="25"
+                  Style ="{StaticResource ComboBoxWindowdEdit}"  
+                  ItemsSource="{Binding ListCurriculum}" 
+                  DisplayMemberPath="Name" 
+                  SelectedValue="{Binding Path=Group.CurriculumName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValuePath="Name"/>
+        <TextBox Grid.Row="6" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Group.CountStudent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="7" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Group.CountForeignStudent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="8" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Group.CountComStudent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="9" Grid.Column="1" 
+                 Style ="{StaticResource TextBoxWindowdEdit}" 
+                 Text="{Binding Group.CountSubgroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <StackPanel Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" 
+                    Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="{x:Static rs:Resources.ButtonOK}" 
+                    Style="{StaticResource ButtonWindowdEdit}"
+                    Command="{Binding OkCommand, Mode=OneWay}" IsDefault="True"/>
+            <Button Content="{x:Static rs:Resources.ButtonCansel}" 
+                    Style="{StaticResource ButtonWindowdEdit}"
+                    Command="{Binding CancelCommand, Mode=OneWay}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
+

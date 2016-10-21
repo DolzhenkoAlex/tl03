@@ -1,0 +1,270 @@
+﻿<UserControl x:Class="MvvmLight2.CurriculumFromDBView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ia="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+             xmlns:rs="clr-namespace:MvvmLight2.Properties"
+             xmlns:md="clr-namespace:MvvmLight2.Design"
+             xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1400" 
+             DataContext="{Binding CurriculumFromDBVM, Source={StaticResource Locator}}"
+             d:DataContext="{Binding Source={StaticResource designCurriculumVM}}">
+
+    <UserControl.Resources>
+        <md:DesignServiceCurriculum x:Key="designCurriculumVM" />
+    </UserControl.Resources>
+
+    <DockPanel>
+        <Border DockPanel.Dock="Top" Background="#FFF1EDEB" Margin="2,20,2,2" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Grid.Row="0" Grid.RowSpan="6" Background="#FFB6BABD" BorderThickness="2" CornerRadius="10" BorderBrush="#FF8A9587">
+                    <Grid Background="#FFCBCBBE" OpacityMask="#FFAE8686">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Учебный год " Style="{StaticResource TextBlockPanelStyle}" />
+                        <ComboBox Name="ComboBoxAcademicYear" Grid.Column="0" Grid.Row="1"
+                                  Height="25"
+                            Margin="20,10,0,10" 
+                            Width="100"
+                            HorizontalAlignment="Left"
+                            IsReadOnly="True"
+                            SelectedIndex="2"
+                            SelectedItem ="{Binding Path= SelectedAcademicYear, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            ItemsSource="{Binding Source={StaticResource listAcademicYear}}"
+                            DisplayMemberPath="Year">
+                                <ia:Interaction.Triggers>
+                                    <ia:EventTrigger EventName="Loaded">
+                                        <command:EventToCommand Command="{Binding Path=GetTitle}" />
+                                    </ia:EventTrigger>
+                                    <ia:EventTrigger EventName="SelectionChanged">
+                                        <command:EventToCommand Command="{Binding Path=GetTitle}" />
+                                    </ia:EventTrigger>
+                                </ia:Interaction.Triggers>
+                        </ComboBox>
+
+                       
+                            <Button Grid.Row="1" Grid.Column="1" 
+                                Style="{StaticResource ButtonPanelStyle}"
+                                Command="{Binding Path=AddCurriculum}" 
+                                ToolTip="Добавить учебный план из базы данных">
+                                <Image Source="Images\Add.jpg"/>
+                            </Button>
+ 
+                       
+                        <TextBlock Text="Список учебных планов " Grid.Column="0" Grid.Row="2"
+                                   Style="{StaticResource TextBlockPanelStyle}" />
+                        <ListBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Grid.RowSpan="4" 
+                                 Height="600" Margin="15,5,15,5" Padding="5"
+                                 ItemsSource="{Binding TitleCurriculums}"
+                                 DisplayMemberPath="ИмяФайла"
+                                 SelectedItem="{Binding Path=SelectedCurriculumPlan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        </ListBox>
+
+                    </Grid>
+                </Border>
+                
+               
+                <StackPanel  Grid.Row="1" Grid.Column="1"  Grid.ColumnSpan="2" VerticalAlignment="Bottom" Orientation="Horizontal" Height="42">
+                    <TextBlock Text="Учебный план" Style="{StaticResource TextBlockPanelStyle}" />
+                    <CheckBox Margin="15,15,5,5" Content="Курс 1" IsEnabled="False"
+                              IsChecked="{Binding SelectedItem.Course1, ElementName=CurriculumGrid}"/>
+                    <CheckBox  Content="Курс 2 " Margin="15,15,5,5"  IsEnabled="False"
+                               IsChecked="{Binding SelectedItem.Course2, ElementName=CurriculumGrid}"/>
+                    <CheckBox  Margin="15,15,5,5" Content="Курс 3" IsEnabled="False"
+                               IsChecked="{Binding SelectedItem.Course3, ElementName=CurriculumGrid}"/>
+                    <CheckBox  Margin="15,15,5,5" Content="Курс 4" IsEnabled="False"
+                               IsChecked="{Binding SelectedItem.Course4, ElementName=CurriculumGrid}"/>
+                    <CheckBox  Margin="15,15,5,5" Content="Курс 5" IsEnabled="False"
+                               IsChecked="{Binding SelectedItem.Course5, ElementName=CurriculumGrid}"/>
+                    <CheckBox  Margin="15,15,5,5" Content="Курс 6" IsEnabled="False"
+                               IsChecked="{Binding SelectedItem.Course6, ElementName=CurriculumGrid}"/>
+                </StackPanel>
+
+                <TextBlock  Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" 
+                           Margin="10,0,20,5"  FontWeight="Bold" VerticalAlignment="Bottom"
+                           Text="Операции учебного плана" Height="16" Width="156"/>
+
+                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Width="55" Margin="0,0,20,0">
+                    <Button 
+                        Style="{StaticResource ButtonPanelStyle}"
+                        Command="{Binding Path=EditCurriculum}" 
+                        ToolTip="Редактировать учебный план">
+                        <Image Source="Images\Edit.jpg"/>
+                    </Button>
+                    <Button  
+                        Height="20" Width="20" Margin="5,2,20,2"
+                        Command="{Binding Path=RemoveCurriculumCommand}" 
+                        ToolTip="Удалить учебный план">
+                        <Image Source="Images\Delete2.jpg"/>
+                    </Button>
+                </StackPanel>
+                <!--<toolkit:BusyIndicator Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+                                       Height="185"
+                                       IsBusy="{Binding IsBusyCurriculum}"
+                                       BusyContent="{Binding BusyMessage}"
+                                       Margin="5" >-->
+                    <ListView Name="CurriculumGrid"  
+                          Height="185"
+                          VerticalAlignment="Top"
+                          ItemsSource="{Binding Curriculums}" 
+                          Margin="20,5,20,0" 
+                          SelectedItem="{Binding Path=SelectedCurriculum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                    <ListView.View >
+                        <GridView x:Name="grdCurricilum" >
+                            <GridViewColumn Header="Обозначение плана" 
+                                            DisplayMemberBinding="{Binding Name}" Width="auto" />
+                            <GridViewColumn Header="Учебный год" 
+                                            DisplayMemberBinding="{Binding DictAcademicYear.Year}" Width="auto" />
+                            <GridViewColumn Header="{x:Static rs:Resources.Cipher}" 
+                                            DisplayMemberBinding="{Binding DictSpeciality.CodeSpeciality}" Width="auto" />
+                            <GridViewColumn Header="{x:Static rs:Resources.Speciality}" 
+                                            DisplayMemberBinding="{Binding DictSpeciality.NameSpeciality}" Width="auto" />
+                            <GridViewColumn Header="{x:Static rs:Resources.Profile}" 
+                                            DisplayMemberBinding="{Binding DictSpeciality.Profile}" Width="auto" />
+                            <GridViewColumn Header="{x:Static rs:Resources.Qualification}" 
+                                            DisplayMemberBinding="{Binding DictQualification.NameQualification}" Width="auto" />
+                            <GridViewColumn Header="{x:Static rs:Resources.EducationForm}" 
+                                            DisplayMemberBinding="{Binding DictEducationForm.FormEducation}" Width="auto" />
+                            <GridViewColumn Header="{x:Static rs:Resources.DurationOfStudy}" 
+                                            DisplayMemberBinding="{Binding DurationStudy, StringFormat={}{0:f1}}" Width="auto" />
+                            <!--<GridViewColumn Header="{x:Static rs:Resources.Faculty}" 
+                                            DisplayMemberBinding="{Binding NameFaculty}" Width="auto" />-->
+                            <GridViewColumn Header="{x:Static rs:Resources.Chair}" 
+                                            DisplayMemberBinding="{Binding Chair.CodeChair}" Width="auto" />
+                            <GridViewColumn Header="{x:Static rs:Resources.Protocol}" 
+                                            DisplayMemberBinding="{Binding Protocol}" Width="auto" />
+                            <GridViewColumn Header="Дата утверждения" 
+                                            DisplayMemberBinding="{Binding DataApproval, StringFormat={}{0:dd\.}{0:MM\.}{0:yyyy}}" 
+                                            Width="auto" />
+                        </GridView>
+                    </ListView.View>
+
+                    <ia:Interaction.Triggers>
+                        <ia:EventTrigger EventName="SelectionChanged">
+                            <command:EventToCommand Command="{Binding Path=GetDiscipline}" />
+                        </ia:EventTrigger>
+                    </ia:Interaction.Triggers>
+
+                </ListView>
+                <!--</toolkit:BusyIndicator>-->
+
+                <TextBlock Grid.Row="4" Grid.Column="1" 
+                           Style="{StaticResource TextBlockPanelStyle}"
+                               Text="Дисциплины учебного плана" Height="16" Margin="20,5,0,5"/>
+
+                <TextBlock Grid.Row="3" Grid.Column="2" 
+                           Margin="0,5,20,5"  FontWeight="Bold" HorizontalAlignment="Right"
+                              Text="Операции дисциплин" Width="129"/>
+
+                <StackPanel Grid.Column="2" Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" Width="105">
+                    <Button
+                        Style="{StaticResource ButtonPanelStyle}"
+                        Command="{Binding Path=AddDiscipline}" 
+                        ToolTip="Добавить дисциплину">
+                        <Image Source="Images\Add.jpg"/>
+                    </Button>
+                    <Button  
+                        Style="{StaticResource ButtonPanelStyle}"
+                        Command="{Binding Path=EditDiscipline}" 
+                        ToolTip="Редактировать дисциплину">
+                        <Image Source="Images\Edit.jpg"/>
+                    </Button>
+                    <Button  
+                        Height="20" Width="20" Margin="5,2,20,2"
+                        Command="{Binding Path=RemoveDiscipline}" 
+                        ToolTip="Удалить дисциплину">
+                        <Image Source="Images\Delete2.jpg"/>
+                    </Button>
+                </StackPanel>
+
+                <ListView Name="DisciplineGrid" 
+                          Grid.Row="5" 
+                          Grid.Column="1"
+                          Grid.ColumnSpan="2"
+                          Margin="20,10,20,0" 
+                          Height="400"
+                          ItemsSource="{Binding Disciplines}" 
+                          SelectedItem="{Binding Path=SelectedDiscipline, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                    <ListView.View >
+                        <GridView x:Name="grdDiscipline"  >
+                            <GridViewColumn Header="{x:Static rs:Resources.Cipher}" 
+                                            DisplayMemberBinding="{Binding CodePlan}" 
+                                            Width="auto" />
+                            <GridViewColumn Header="{x:Static rs:Resources.Discipline}" 
+                                            DisplayMemberBinding="{Binding Discipline}" 
+                                            Width="auto" />
+                            <GridViewColumn Header="Курс" 
+                                            DisplayMemberBinding="{Binding Course}" 
+                                            Width="50" />
+                            <GridViewColumn Header="Сем" 
+                                            DisplayMemberBinding="{Binding Semester}" 
+                                            Width="50" />
+                            <GridViewColumn Header="Лек" 
+                                            DisplayMemberBinding="{Binding LecturePlan, StringFormat={}{0:f0}}" 
+                                            Width="50" />
+                            <GridViewColumn Header="Лаб" 
+                                            DisplayMemberBinding="{Binding LaboratoryWorkPlan, StringFormat={}{0:f0}}" 
+                                            Width="50" />
+                            <GridViewColumn Header="ПР" 
+                                            DisplayMemberBinding="{Binding PracticalExercisesPlan, StringFormat={}{0:f0}}" 
+                                            Width="50" />
+                            <GridViewColumn Header="КП" 
+                                            DisplayMemberBinding="{Binding CourseProjectPlan}" 
+                                            Width="50" />
+                            <GridViewColumn Header="КР" 
+                                            DisplayMemberBinding="{Binding CourseWorktPlan}" 
+                                            Width="50" />
+                            <GridViewColumn Header="КонтрР" 
+                                            DisplayMemberBinding="{Binding ControlWorkPlan}" 
+                                            Width="50" />
+                            <GridViewColumn Header="Практика" 
+                                            DisplayMemberBinding="{Binding PracticalPlan}" 
+                                            Width="50" />
+                            <GridViewColumn Header="Экз" 
+                                            DisplayMemberBinding="{Binding ExaminationPlan}" 
+                                            Width="50" />
+                            <GridViewColumn Header="Зач" 
+                                            DisplayMemberBinding="{Binding SetOffPlan}" 
+                                            Width="50" />
+                            <GridViewColumn Header="{x:Static rs:Resources.Chair}" 
+                                            DisplayMemberBinding="{Binding Chair.CodeChair}" 
+                                            Width="auto" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </Border>
+    </DockPanel>
+</UserControl>
+
+
+
+

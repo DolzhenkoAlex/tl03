@@ -1,0 +1,131 @@
+﻿<UserControl x:Class="MvvmLight2.ReportTeacherLoadView"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:rs="clr-namespace:MvvmLight2.Properties"
+             xmlns:s="clr-namespace:MvvmLight2.Helper"
+             xmlns:md="clr-namespace:MvvmLight2.Model"
+             xmlns:vd="clr-namespace:MvvmLight2.ViewModel"
+             xmlns:rule="clr-namespace:MvvmLight2.ValidationRules"
+             xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             xmlns:dat="clr-namespace:System.Windows.Data;assembly=PresentationFramework"
+             xmlns:ia="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+              xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms" 
+              mc:Ignorable="d" 
+             d:DesignHeight="670" d:DesignWidth="1600"  
+             DataContext="{Binding ReportTeacherLoadVM, Source={StaticResource Locator}}" >
+
+    <Grid ScrollViewer.VerticalScrollBarVisibility="Visible">
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="95"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Факультет" Style="{StaticResource TextBlockPanelStyle}"/>
+        <TextBlock Grid.Column="1"  Text="Кафедра" 
+                   Style="{StaticResource TextBlockPanelStyle}"/>
+        <TextBlock Text="Учебный год" 
+                       Grid.Row="0" Grid.Column="2"
+                       Style="{StaticResource TextBlockPanelStyle}"   />
+        <TextBlock Text="Вариант нагрузки" 
+                       Grid.Row="0" Grid.Column="3"
+                       Style="{StaticResource TextBlockPanelStyle}"    />
+        <TextBlock Grid.Row="0" Grid.Column="4" Text="Преподаватель" 
+                   Style="{StaticResource TextBlockPanelStyle}" />
+
+        <ComboBox Name="ComboBoxFaculty" Grid.Column="0" Grid.Row="1"
+                        Margin="20,10,0,10" 
+                        Width="386"
+                        HorizontalAlignment="Left"
+                        IsReadOnly="True"
+                        ItemsSource="{Binding Source={StaticResource listFaculty}}" 
+                        DisplayMemberPath="Name" 
+                        SelectedIndex="-1"
+                        SelectedItem="{Binding Path= SelectedFaculty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <ia:Interaction.Triggers>
+                <ia:EventTrigger EventName="SelectionChanged">
+                    <command:EventToCommand Command="{Binding Path=GetChair}" />
+                </ia:EventTrigger>
+            </ia:Interaction.Triggers>
+        </ComboBox>
+        <ComboBox Name="ComboBoxChair" Grid.Column="1" Grid.Row="1"
+                        Margin="20,10,0,10" 
+                        Width="270"
+                        HorizontalAlignment="Left"
+                        IsReadOnly="True"
+                        ItemsSource="{Binding Chairs}" 
+                        DisplayMemberPath="NameChair" 
+                        IsEnabled="{Binding Path=IsEnabledComboBoxChair, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding Path= SelectedChair, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                        SelectedIndex="-1">
+            <ia:Interaction.Triggers>
+                <ia:EventTrigger EventName="SelectionChanged">
+                    <command:EventToCommand Command="{Binding Path=GetYear}" />
+                </ia:EventTrigger>
+            </ia:Interaction.Triggers>
+        </ComboBox>
+
+        <ComboBox Name="ComboBoxAcademicYear" Grid.Column="2" Grid.Row="1"
+                        Margin="20,10,0,10" 
+                        Width="100"
+                        HorizontalAlignment="Left"
+                        IsReadOnly="True"
+                        SelectedIndex="-1"
+                        IsEnabled="{Binding Path=IsEnabledComboBoxYear, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem ="{Binding Path= SelectedAcademicYear, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        ItemsSource="{Binding Source={StaticResource listAcademicYear}}"
+                        DisplayMemberPath="Year">
+            <ia:Interaction.Triggers>
+                <ia:EventTrigger EventName="SelectionChanged">
+                    <command:EventToCommand Command="{Binding Path=GetAllLoadChair}" />
+                </ia:EventTrigger>
+            </ia:Interaction.Triggers>
+        </ComboBox>
+
+        <ComboBox Name="ComboBoxNameLoad" Grid.Column="3" Grid.Row="1"
+                        Margin="10,10,0,10" 
+                        Width="230"
+                        HorizontalAlignment="Right"
+                        IsReadOnly="True"
+                        IsEnabled="{Binding Path=IsEnabledComboBoxLoad, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem ="{Binding Path= SelectedNameLoadChair, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedIndex="-1"  
+                        ItemsSource="{Binding AllLoadChairAcademicYear}"
+                        DisplayMemberPath="NameLoadChair">
+        </ComboBox>
+
+        <ComboBox Name="ComboBoxTeacher" Grid.Row="1" Grid.Column="4"
+                  Margin="20,10,0,10" 
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center"
+                  Height="20" Width="250" 
+                  ItemsSource="{Binding TeachersChair}"
+                  IsEnabled="{Binding Path=IsEnabledComboBoxTeacher, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Path= SelectedTeacher, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedIndex="-1"
+                  ItemTemplate="{StaticResource TeaherAndPostTemplate}">
+        </ComboBox>
+
+        <Button Content="Сформировать отчет" Grid.Row="1" Grid.Column="5"
+                        Width="140" Height="20"  Margin="20,10,10,10"  HorizontalAlignment="Right"
+                        Click="Button_Click"/>
+
+        <WindowsFormsHost Name="ReportHost" HorizontalAlignment="Left" Height="690" Margin="5" 
+                          Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="3" VerticalAlignment="Top" Width="1560" >
+            <rv:ReportViewer x:Name="reportViewer"  CausesValidation="False"  />
+        </WindowsFormsHost>
+
+    </Grid>
+</UserControl>

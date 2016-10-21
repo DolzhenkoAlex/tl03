@@ -1,0 +1,34 @@
+﻿<Application x:Class="MvvmLight2.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:MvvmLight2.ViewModel"
+             xmlns:vml="clr-namespace:MvvmLight2.ViewModelLocators"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:hp="clr-namespace:MvvmLight2.Helper"
+             StartupUri="View/MainWindow.xaml"
+             mc:Ignorable="d">
+    
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Skins/MainSkin.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
+            <vml:UniversityVMLocator x:Key="LocatorUniversity" d:IsDataSource="True"/>
+            <hp:ListPost x:Key="listPost" />
+            <hp:ListTypeEmployment x:Key="listTypeEmployment" />
+            <hp:ListAcademicYear x:Key="listAcademicYear" />
+            <hp:ListQualification x:Key="listQualification" />
+            <hp:ListEducationForm x:Key="listEducationForm" />
+            <hp:ListSpeciality x:Key="listSpeciality" />
+            <hp:ListUniversity x:Key="listUniversity"/>
+            <hp:ListFaculty x:Key="listFaculty" />
+            <hp:ListOrderStandartTime x:Key="listOrder" />
+            <hp:ListChair x:Key="listChair" />
+            <hp:ListTypeWork x:Key="listTypeWork" />
+            <hp:ListUnit x:Key="listUnit" />
+        </ResourceDictionary>
+    </Application.Resources>
+    
+</Application>

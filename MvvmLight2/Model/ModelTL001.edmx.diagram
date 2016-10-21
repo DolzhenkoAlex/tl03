@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="462a554fc1114c46bc278113c34128ec" Name="StandartTime" >
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DictUnit" Width="1.5" PointX="7.375" PointY="1.625" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.StandartTime" Width="1.5" PointX="4.125" PointY="1.625" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_StandartTime_DictUnit" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DictTypeTraining" Width="1.875" PointX="7.5" PointY="4.375" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_StandartTime_DictTypeTraining" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.OrderStandardTime" Width="1.5" PointX="1.875" PointY="1.75" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_StandartTime_OrderStandardTime" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.LoadTeacher" Width="1.5" PointX="4.125" PointY="5.375" />
+      </Diagram>
+      <Diagram DiagramId="7e4d23fa7338443c818ea784cb71e139" Name="TeacherLoad" ZoomLevel="76" >
+        <EntityTypeShape EntityType="DBTeachingLoadModel.LoadTeacher" Width="1.5" PointX="0.875" PointY="0.625" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.TeahingLoadTeacher" Width="1.75" PointX="2.875" PointY="4" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_LoadTeacher_TeahingLoadTeacher" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DictAcademicYear" Width="1.5" PointX="3.125" PointY="0.625" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_TeahingLoadTeacher_DictAcademicYear" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.TeachingLoadChair" Width="1.875" PointX="9.625" PointY="0.625" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.Teacher" Width="1.5" PointX="5.25" PointY="0.5" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_TeahingLoadTeacher_Teacher" ManuallyRouted="true" >
+          <ConnectorPoint PointX="5.25" PointY="2.4563205452983556" />
+          <ConnectorPoint PointX="4.625" PointY="4" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DBTeachingLoadModel.Chair" Width="2.25" PointX="7.125" PointY="0.625" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_Teacher_Chair" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="DBTeachingLoadModel.FK_TeachingLoadChair_Chair1" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DictPost" Width="1.5" PointX="6.625" PointY="5.375" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_Teacher_DictPost" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.ChairTeacherLoad" Width="1.5" PointX="4.125" PointY="7.375" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_ChairTeacherLoad_LoadTeacher" />
+      </Diagram>
+      <Diagram DiagramId="77f94ced239b48299ddbd2b410916400" Name="University" >
+        <EntityTypeShape EntityType="DBTeachingLoadModel.University" Width="1.5" PointX="5.375" PointY="2" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.Faculty" Width="1.5" PointX="8.875" PointY="1.875" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_Faculty_University" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.OrderStandardTime" Width="1.5" PointX="2.75" PointY="2" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_OrderStandardTime_University" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="5.75" />
+      </Diagram>
+      <Diagram DiagramId="13f796595ccd4efc98226a292f6c6627" Name="Teacher" >
+        <EntityTypeShape EntityType="DBTeachingLoadModel.Teacher" Width="1.5" PointX="5.625" PointY="2.25" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.Chair" Width="1.5" PointX="1.875" PointY="2.25" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_Teacher_Chair" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DictPost" Width="1.5" PointX="8.875" PointY="2.25" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_Teacher_DictPost" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DictTypeEmployment" Width="1.5" PointX="8.875" PointY="4" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_Teacher_DictTypeEmployment" />
+      </Diagram>
+      <Diagram DiagramId="2417048c376f41ff9bd1812726bf0b25" Name="Дисциплины планв" >
+        <EntityTypeShape EntityType="DBTeachingLoadModel.Chair" Width="1.5" PointX="7.125" PointY="1" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DictAcademicYear" Width="1.5" PointX="1.5" PointY="4.75" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DictQualification" Width="1.5" PointX="5.125" PointY="9.125" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DictEducationForm" Width="1.5" PointX="4.625" PointY="3.125" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DisciplineChair" Width="1.5" PointX="10.125" PointY="1" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.Curriculum" Width="1.5" PointX="7.125" PointY="4.875" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_Сurriculum_Chair" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_Сurriculum_DictAcademicYear" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_Сurriculum_DictEducationForm" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_Сurriculum_DictQualification" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DictSpeciality" Width="1.5" PointX="3.875" PointY="5.75" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_Сurriculum_DictSpeciality" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_DictSpeciality_DictQualification" />
+        </Diagram>
+      <Diagram DiagramId="8308879984b54821a4fceb71a538b913" Name="Curriculum" >
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DictAcademicYear" Width="1.5" PointX="8.25" PointY="4" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.Chair" Width="1.5" PointX="9.375" PointY="0.875" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DisciplineChair" Width="1.5" PointX="1.5" PointY="2" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.Curriculum" Width="1.5" PointX="5.625" PointY="1.375" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_Сurriculum_Chair" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_Сurriculum_DictAcademicYear" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DictQualification" Width="1.5" PointX="0.75" PointY="4.875" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_Сurriculum_DictQualification" />
+      </Diagram>
+      <Diagram DiagramId="71ccbcd9abc749e694bb6ed7f3bff07d" Name="StudGroup" >
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DictQualification" Width="1.5" PointX="1.25" PointY="0.75" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DictSpeciality" Width="1.5" PointX="4.125" PointY="2.75" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_DictSpeciality_DictQualification" ManuallyRouted="true" >
+          <ConnectorPoint PointX="2.75" PointY="1.7499995" />
+          <ConnectorPoint PointX="4.875" PointY="1.7499995" />
+          <ConnectorPoint PointX="4.875" PointY="2.75" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DBTeachingLoadModel.StudentGroup" Width="1.5" PointX="6.375" PointY="0.75" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_StudentGroup_DictQualification" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_StudentGroup_DictSpeciality" />
+        </Diagram>
+      <Diagram DiagramId="2e2a9a5eae5e4567b11e61b99ef58110" Name="LoadChair" ZoomLevel="70" >
+        <EntityTypeShape EntityType="DBTeachingLoadModel.ChairTeacherLoad" Width="1.75" PointX="3.375" PointY="6" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DisciplineChair" Width="1.5" PointX="8.25" PointY="1.25" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.Curriculum" Width="1.5" PointX="10.375" PointY="4.125" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.TeachingLoadChair" Width="1.875" PointX="5.75" PointY="2.875" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.TeachingLoad" Width="1.5" PointX="0.75" PointY="0.5" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_ChairTeacherLoad_TeachingLoad" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_TeachingLoad_TeachingLoadChair" />
+        <EntityTypeShape EntityType="DBTeachingLoadModel.DisciplinePlan" Width="1.5" PointX="12.625" PointY="4" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_DisciplinePlan_Сurriculum" />
+        <AssociationConnector Association="DBTeachingLoadModel.FK_DisciplineChair_DisciplinePlan" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

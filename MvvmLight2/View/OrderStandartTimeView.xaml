@@ -1,0 +1,181 @@
+﻿<UserControl x:Class="MvvmLight2.OrderStandartTimeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ia="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+             xmlns:rs="clr-namespace:MvvmLight2.Properties"
+             xmlns:md="clr-namespace:MvvmLight2.Design"
+             xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800" 
+             DataContext="{Binding OrderStandardTimeVM, Source={StaticResource Locator}}" 
+             d:DataContext="{Binding Source={StaticResource designOrderVM}}">
+
+    <UserControl.Resources>
+        <md:DesignerServiceOrder x:Key="designOrderVM" />
+    </UserControl.Resources>
+    
+    <DockPanel>
+        <Border DockPanel.Dock="Top" Background="#FFF1EDEB" Margin="2,20,2,2" >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="1"
+                           Text="Операции приказа" 
+                           HorizontalAlignment="Right" 
+                           Margin="20,10,20,5"  FontWeight="Bold" VerticalAlignment="Bottom"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="0"
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Text="Приказ о введении норм времени для расчета объема учебной работы"   
+                       Style="{StaticResource TextBlockPanelStyle}" />
+               
+                <StackPanel Grid.Row="1" Grid.Column="1" 
+                        Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Формировать приказ" Height="20"
+                        Margin="0,0,10,0"
+                        Command="{Binding Path=TransferOrder}" 
+                        ToolTip="Формировать приказ на основе приказа текущего учебного года">
+                    </Button>
+
+                    <Button
+                    Style="{StaticResource ButtonPanelStyle}"
+                    Command="{Binding Path=AddOrderCommand}" 
+                    ToolTip="Добавить приказ">
+                        <Image Source="Images\Add.jpg"/>
+                    </Button>
+                    <Button  
+                    Style="{StaticResource ButtonPanelStyle}"
+                    Command="{Binding Path=EditOrder}" 
+                    ToolTip="Редактировать приказ">
+                        <Image Source="Images\Edit.jpg"/>
+                    </Button>
+                    <Button
+                        Height="20" Width="20" Margin="5,2,20,2"
+                        Command="{Binding Path=RemoveOrder}" 
+                        ToolTip="Удалить приказ">
+                        <Image Source="Images\Delete2.jpg"/>
+                    </Button>
+                </StackPanel>
+                <ListView Name="OrderGrid" Grid.Row="2" Grid.Column="0"
+                          Grid.ColumnSpan="2"
+                          MaxHeight="200"
+                          VerticalAlignment="Top"
+                          ItemsSource="{Binding Orders}" 
+                          Margin="20,5,20,5" 
+                          SelectedItem="{Binding Path=SelectedOrderStandardTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <ListView.View >
+                        <GridView x:Name="grdTest"  >
+                            <GridViewColumn Header="Номер приказа" 
+                                            DisplayMemberBinding="{Binding NumberOrder}" Width="100" />
+                            <GridViewColumn Header="Дата утверждения" 
+                                            DisplayMemberBinding="{Binding DataOrder, StringFormat={}{0:dd\.}{0:MM\.}{0:yyyy}}" Width="150" />
+                            <GridViewColumn Header="Учебный год" 
+                                            DisplayMemberBinding="{Binding DictAcademicYear.Year}" Width="150" />
+                            <GridViewColumn Header="Статус приказа" 
+                                            DisplayMemberBinding="{Binding StatusDel}" Width="100" />
+                        </GridView>
+                    </ListView.View>
+                    <ia:Interaction.Triggers>
+                        <ia:EventTrigger EventName="SelectionChanged">
+                            <command:EventToCommand Command="{Binding Path=GetStandartTime}" />
+                        </ia:EventTrigger>
+                    </ia:Interaction.Triggers>
+
+                    <ListView.ContextMenu >
+                        <ContextMenu>
+                            <MenuItem Header="Добавить" Command="{Binding Path=AddOrderCommand}"/>
+                            <MenuItem Header="Редактировать" Command="{Binding Path=EditOrder}"/>
+                            <MenuItem Header="Удалить" Command="{Binding Path=RemoveOrder}"/>
+                        </ContextMenu>
+                    </ListView.ContextMenu>
+
+
+                </ListView>
+
+                <TextBlock Grid.Row="3" Grid.Column="1"
+                           Text="Операции норм времени" 
+                           HorizontalAlignment="Right" 
+                           Margin="20,10,20,5"  FontWeight="Bold" VerticalAlignment="Bottom"/>
+
+                <TextBlock Grid.Row="4" Grid.Column="0"
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Text="Нормы времени по приказу"   
+                       Style="{StaticResource TextBlockPanelStyle}" />
+                <StackPanel Grid.Row="4" Grid.Column="1" 
+                        Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button
+                    Style="{StaticResource ButtonPanelStyle}"
+                    Command="{Binding Path=AddStandartTime}" 
+                    ToolTip="Добавить норму времени">
+                        <Image Source="Images\Add.jpg"/>
+                    </Button>
+                    <Button  
+                    Style="{StaticResource ButtonPanelStyle}"
+                    Command="{Binding Path=EditStandartTime}" 
+                    ToolTip="Редактировать норму времени">
+                        <Image Source="Images\Edit.jpg"/>
+                    </Button>
+                    <Button
+                        Height="20" Width="20" Margin="5,2,20,2"
+                        Command="{Binding Path=RemoveStandartTime}" 
+                        ToolTip="Удалить норму времени">
+                        <Image Source="Images\Delete2.jpg"/>
+                    </Button>
+                </StackPanel>
+            
+            <toolkit:BusyIndicator Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                                       Height="500" IsBusy="{Binding IsBusyStandartTime}"
+                                       BusyContent="{Binding BusyMessage}"
+                                       Margin="5" >
+                <ListView 
+                    Name="StandartTimeGrid" VerticalAlignment="Top"
+                          Margin="20,10,20,0" 
+                          MinHeight="200"
+                          MaxHeight="500"
+                          ItemsSource="{Binding StandartsTime}" 
+                          SelectedItem="{Binding Path=SelectedStandardTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                    <ListView.View >
+                        <GridView x:Name="grdStandartTime"  >
+                            <GridViewColumn Header="Вид учебной работы" 
+                                            DisplayMemberBinding="{Binding DictTypeTraining.TypeWork}" 
+                                            Width="auto" />
+                            <GridViewColumn Header="Норма времени" 
+                                            DisplayMemberBinding="{Binding NormTime}" 
+                                            Width="auto" />
+                            <GridViewColumn Header="Единица измерения" 
+                                            DisplayMemberBinding="{Binding DictUnit.Unit}" 
+                                            Width="auto" />
+                            <GridViewColumn Header="Примечание" 
+                                            DisplayMemberBinding="{Binding Notes}" 
+                                            Width="auto" />
+                        </GridView>
+                    </ListView.View>
+                    <ListView.ContextMenu >
+                        <ContextMenu>
+                            <MenuItem Header="Добавить" Command="{Binding Path=AddStandartTime}"/>
+                                <MenuItem Header="Редактировать" Command="{Binding Path=EditStandartTime}"/>
+                            <MenuItem Header="Удалить" Command="{Binding Path=RemoveStandartTime}"/>
+                        </ContextMenu>
+                    </ListView.ContextMenu>
+                </ListView>
+            
+            </toolkit:BusyIndicator>
+
+            </Grid>
+        </Border>
+    </DockPanel>
+</UserControl>

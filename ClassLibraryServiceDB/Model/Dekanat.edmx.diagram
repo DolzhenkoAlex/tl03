@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fe4c74bc0c2a404da9f73cb798d2d309" Name="Diagram1">
+        <EntityTypeShape EntityType="DekanatModel.Планы" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DekanatModel.ПланыПрактики" Width="1.5" PointX="0.5" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DekanatModel.ПланыСпецРаботы" Width="1.5" PointX="5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DekanatModel.ПланыСпецРаботыКафедры" Width="1.5" PointX="2.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DekanatModel.ПланыТипы" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DekanatModel.ПланыТитулы" Width="1.5" PointX="5.125" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DekanatModel.ПланыУтверждения" Width="1.5" PointX="5.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DekanatModel.ПланыЧасы" Width="1.5" PointX="7.625" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DekanatModel.ПланыЧасыСессии" Width="1.5" PointX="9.875" PointY="4.375" IsExpanded="true" />
+        <AssociationConnector Association="DekanatModel.FK_Планы_ПланыТипы" ManuallyRouted="false" />
+        <AssociationConnector Association="DekanatModel.FK_ПланыПрактики_Планы" ManuallyRouted="false" />
+        <AssociationConnector Association="DekanatModel.FK_ПланыСпецРаботы_Планы" ManuallyRouted="false" />
+        <AssociationConnector Association="DekanatModel.FK_ПланыТитулы_Планы" ManuallyRouted="false" />
+        <AssociationConnector Association="DekanatModel.FK_ПланыУтверждения_Планы" ManuallyRouted="false" />
+        <AssociationConnector Association="DekanatModel.FK_ПланыЧасыСессии_ПланыЧасы" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DekanatModel.ПланыКвалификации" Width="1.5" PointX="0.75" PointY="15" />
+        <AssociationConnector Association="DekanatModel.FK_ПланыКвалификации_Планы" />
+        <EntityTypeShape EntityType="DekanatModel.ПланыСтроки" Width="1.5" PointX="5" PointY="8.25" />
+        <AssociationConnector Association="DekanatModel.FK_ПланыСтроки_Планы" />
+      </Diagram>
+      <Diagram DiagramId="020e77a559424467a2b14af06a54f127" Name="Diagram2" ZoomLevel="77" >
+        <EntityTypeShape EntityType="DekanatModel.Планы" Width="4.625" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DekanatModel.ПланыСтроки" Width="2.625" PointX="6.75" PointY="0.75" />
+        <AssociationConnector Association="DekanatModel.FK_ПланыСтроки_Планы" />
+        <EntityTypeShape EntityType="DekanatModel.ПланыЧасы" Width="2.375" PointX="9.875" PointY="0.75" />
+        <EntityTypeShape EntityType="DekanatModel.ПланыТитулы" Width="1.5" PointX="7.25" PointY="13.75" />
+        <AssociationConnector Association="DekanatModel.FK_ПланыТитулы_Планы" />
+        <EntityTypeShape EntityType="DekanatModel.ПланыКвалификации" Width="2.625" PointX="6.125" PointY="9.875" />
+        <AssociationConnector Association="DekanatModel.FK_ПланыКвалификации_Планы" />
+      </Diagram>
+      <Diagram DiagramId="bd6c1f885fd746e49a58d7f0dd5fe575" Name="Diagram3" />
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
